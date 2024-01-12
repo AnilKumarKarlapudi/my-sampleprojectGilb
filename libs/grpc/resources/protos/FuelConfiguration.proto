@@ -1,0 +1,629 @@
+syntax = "proto3";
+
+import "money.proto";
+import "Common.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Gilbarco.POS.FuelConfiguration";
+
+service FuelConfiguration 
+{
+	rpc GetPumpProtocols (GetPumpProtocolsRequest) returns (GetPumpProtocolsReply);
+	rpc GetDispenserTypes (GetDispenserTypesRequest) returns (GetDispenserTypesReply);
+	rpc GetForecourtConfiguration (GetForecourtConfigurationRequest) returns (GetForecourtConfigurationReply);
+	rpc ValidateForecourtConfiguration (ValidateForecourtConfigurationRequest) returns (ValidateForecourtConfigurationReply);
+	rpc SetForecourtConfiguration (SetForecourtConfigurationRequest) returns (SetForecourtConfigurationReply);
+
+	rpc GetSiteConfiguration (GetSiteConfigurationRequest) returns (GetSiteConfigurationReply);
+	rpc SetSiteConfiguration (SetSiteConfigurationRequest) returns (SetSiteConfigurationReply);
+
+	rpc GetDispenserOptions (GetDispenserOptionsRequest) returns (GetDispenserOptionsReply);
+	rpc SetDispenserOptions (SetDispenserOptionsRequest) returns (SetDispenserOptionsReply);
+	
+	rpc GetFuelGrades (GetFuelGradesRequest) returns (GetFuelGradesReply);
+	rpc GetFuelPrices (GetFuelPricesRequest) returns (GetFuelPricesReply);
+	rpc SetFuelPrices (SetFuelPricesRequest) returns (SetFuelPricesReply);
+	rpc ActivateFuelPrices (ActivateFuelPricesRequest) returns (ActivateFuelPricesReply);
+
+	rpc GetServiceLevels (GetServiceLevelsRequest) returns (GetServiceLevelsReply);
+
+	rpc GetNetworkCodeConfiguration (GetNetworkCodeConfigurationRequest) returns (GetNetworkCodeConfigurationReply);
+	rpc SetNetworkCodeConfiguration (SetNetworkCodeConfigurationRequest) returns (SetNetworkCodeConfigurationReply);
+
+	rpc SetFixedGrades (SetFixedGradesRequest) returns (SetFixedGradesReply);
+
+	rpc GetCrindCashAcceptor (GetCrindCashAcceptorRequest) returns (GetCrindCashAcceptorReply);
+    rpc SetCrindCashAcceptor (SetCrindCashAcceptorRequest) returns (SetCrindCashAcceptorReply);
+	
+	rpc SetCrindReceiptConfiguration (SetCrindReceiptConfigurationRequest) returns (SetCrindReceiptConfigurationReply);
+}
+
+message SetCrindReceiptConfigurationRequest
+{
+	ReceiptConfiguration ReceiptConfiguration = 1;
+}
+
+message SetCrindReceiptConfigurationReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message ReceiptConfiguration
+{
+	repeated string HeaderLines = 1;
+	repeated string TrailerLines = 2;
+	repeated string PromotionalDisplayLines = 3;
+	int32 PromptTimeout = 4;
+}
+
+message GetPumpProtocolsRequest 
+{
+}
+
+message GetCrindCashAcceptorRequest
+{
+}
+
+message GetPumpProtocolsReply 
+{
+	repeated PumpProtocol Protocols = 1;
+}
+
+message GetDispenserTypesRequest 
+{
+}
+
+message GetDispenserTypesReply 
+{
+	repeated DispenserType DispenserTypes = 1;
+}
+
+message GetForecourtConfigurationRequest 
+{
+}
+
+message GetCrindCashAcceptorReply
+{
+    CashAcceptor CashAcceptor = 1;
+}
+
+message GetForecourtConfigurationReply 
+{
+	ForecourtConfiguration Configuration = 1;
+}
+
+message ValidateForecourtConfigurationRequest 
+{
+	ForecourtConfiguration Configuration = 1;
+	Common.Language Language = 2;
+}
+
+message ValidateForecourtConfigurationReply 
+{
+	bool IsValid = 1;
+	repeated Error Errors = 2; // Specific Errors in a list
+	string Message = 3;  // Result General Message
+}
+
+message SetForecourtConfigurationRequest 
+{
+	ForecourtConfiguration Configuration = 1;
+	Common.Language Language = 2;
+}
+
+message SetForecourtConfigurationReply 
+{
+	bool Success = 1;
+	repeated Error Errors = 2; // Specific Errors in a list
+	string Message = 3;  // Result General Message
+}
+
+message GetSiteConfigurationRequest 
+{
+}
+
+message GetSiteConfigurationReply 
+{
+	SiteConfiguration Configuration = 1;
+	repeated FixedGrade FixedGradeNames = 2;
+	repeated ServiceLevel FixedServiceLevels = 3; 
+	bool IsEmvConfigurable = 4;  // Permit setting of EMV on/off?
+	bool IsEmvContactlessConfigurable = 5; // Permit setting of EMV Contactless on/off?
+	google.protobuf.Timestamp PricebookDateTime = 6;
+}
+
+message SetSiteConfigurationRequest 
+{
+	SiteConfiguration Configuration = 1;
+	Common.Language Language = 2;
+}
+
+message SetSiteConfigurationReply 
+{
+	bool Success = 1;
+	string ErrorMessage = 2; 
+}
+
+message GetNetworkCodeConfigurationRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetNetworkCodeConfigurationReply 
+{
+	NetworkCodeConfiguration Config = 1;
+}
+
+message SetNetworkCodeConfigurationRequest 
+{
+	repeated AssignedNetworkProductCode AssignedCodes = 1;
+}
+
+message SetNetworkCodeConfigurationReply 
+{
+	bool Success = 1;
+	string ErrorMessage = 2; 
+}
+
+message SetFixedGradesRequest 
+{
+	repeated FixedGrade Grades = 1;
+	bool FullTable = 2;
+	bool AddNewGrades = 3;
+}
+
+message SetFixedGradesReply 
+{
+	bool Success = 1;
+	string ErrorMessage = 2; 
+}
+
+message GetDispenserOptionsRequest 
+{
+}
+
+message GetDispenserOptionsReply 
+{
+	repeated DispenserOptions Options = 1;
+}
+
+message SetDispenserOptionsRequest 
+{
+	repeated DispenserOptions Options = 1;
+}
+
+message SetDispenserOptionsReply 
+{
+	bool Success = 1;
+	string ErrorMessage = 2; 
+}
+
+message GetFuelGradesRequest
+{
+}
+
+message GetFuelGradesReply
+{
+	repeated Grade Grades = 1;
+}
+
+message GetFuelPricesRequest 
+{
+}
+
+message GetFuelPricesReply 
+{
+	repeated FuelPrice ActivePrices = 1;
+	repeated FuelPrice PendingPrices = 2;
+}
+
+message SetFuelPricesRequest 
+{
+	bool Activate = 1;
+	bool PriceSignRequired = 2;
+	bool NotifyCashier = 3;
+	string EmployeeId = 4;
+	string ApplicationName = 5;
+	int32 SystemEventMessageId = 6;
+	repeated FuelPrice Prices = 7;
+}
+
+message SetFuelPricesReply 
+{
+	bool Success = 1;
+	bool Rejected = 2;
+	string ErrorMessage = 3;
+}
+
+message ActivateFuelPricesRequest
+{
+	string EmployeeId = 1;
+	string ApplicationName = 2;
+	int32 SystemEventMessageId = 3;
+}
+
+message ActivateFuelPricesReply 
+{
+	bool Success = 1; 
+	string ErrorMessage = 2;
+}
+
+message GetServiceLevelsRequest 
+{
+}
+
+message GetServiceLevelsReply 
+{
+	repeated ServiceLevel ServiceLevels = 1;
+}
+
+message SetCrindCashAcceptorRequest
+{
+    CashAcceptor CashAcceptor = 1;
+	Common.Language Language = 2;
+}
+
+message SetCrindCashAcceptorReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message PumpProtocol
+{
+	int32 ProtocolId = 1;
+	string Name = 2;
+	int32 MinDeviceId = 3;
+	int32 MaxDeviceId = 4;
+	repeated PaymentTerminalEnum ValidPaymentTerminals = 5;
+}
+
+message DispenserType
+{
+	int32 DispenserTypeId = 1;
+	string Name = 2;
+	int32 NumberOfTanks = 3;
+	int32 NumberOfGrades = 4;
+	bool Blender = 5;
+}
+
+message ForecourtConfiguration
+{
+	repeated Product Products = 1;
+	repeated Tank Tanks = 2;
+	repeated Grade Grades = 3;
+	repeated Dispenser Dispensers = 4;
+	repeated TankMonitor TankMonitors = 5;
+	repeated CarwashKiosk CarwashKiosks = 6;
+	bool IsCommercialDieselFeatureEnabled = 7;
+}
+
+message Dispenser
+{
+	int32 DispenserId = 1;
+	int32 Type = 2;
+	string Manufacturer = 3;
+	string Model = 4;
+	string SerialNumber = 5;
+	int32 Loop = 7;
+	int32 DeviceId = 8;
+	int32 Protocol = 9;
+	int32 PaymentTerminal = 10;
+	bool IsAutoOn = 12;
+	google.type.Money SlowDown = 14;
+	bool UsesSPC = 15;
+	bool HasBillAcceptor = 16;
+	bool HasScanner = 17;
+	bool HasEPP = 19;
+	bool DoorAlarmEnabled = 20;
+	string IPAddress = 21;
+	int32 IPPort = 22;
+	google.type.Money LowVolumeLimit = 23;
+	google.type.Money ShutOffVolumeLimit = 24;
+	CngLngUnitOfMeasure UnitOfMeasure = 25;
+	repeated int32 Tanks = 26;
+	repeated int32 Grades = 27;
+	int32 CatLoop = 28;
+	int32 CatDeviceId = 29;
+	bool CatUseDsm = 30;
+	int32 CatDcbId = 31;
+	int32 CatSide = 34;
+	string CatIpAddress = 35;
+	int32 CatIpPort = 36;
+	bool CommercialDiesel = 37;
+	bool ReeferEnabled = 38;
+}
+
+message CarwashKiosk
+{
+	int32 KioskId = 1;
+	string Manufacturer = 9;
+	string Model = 8;
+	string SerialNumber = 7;
+	string IPAddress = 25;
+}
+
+message Product
+{
+	int32 ProductId = 1;
+	string Name = 2;
+}
+
+message Grade
+{
+	int32 GradeId = 1;
+	string Name = 2;
+	string ItemId = 3;
+	int32 LowProduct = 4;
+	int32 LowProductPercent = 5;
+	int32 HighProduct = 6;
+	string Abbreviation = 7;
+	string AlternateName = 8;
+	string AlternateAbbreviation = 9;
+	int32 TaxGroupId = 10;
+	int32 TaxType = 11;
+}
+
+message Tank
+{
+	int32 TankId = 1;
+	int32 ProductId = 2;
+	google.type.Money Capacity = 3;
+	google.type.Money LowInventoryLevel = 4;
+	google.type.Money ReorderLevel = 5;
+	string Manufacturer = 6;
+	string Model = 7;
+	string SerialNumber = 8;
+	int32 Diameter = 9;
+	WayneSpcEnum SpcId = 10;
+	int32 ManifoldGroupId = 11;
+}
+
+message TankMonitor
+{
+	int32 TankMonitorId = 1;
+	int32 Type = 2;   //TankMonitorType
+	string Manufacturer = 3;
+	string Model = 4;
+	string SerialNumber = 5;
+	string Version = 6;	
+	int32 SerialPort = 7;
+	int32 BaudRate = 8;
+	int32 Parity = 9;
+	int32 DataBits = 10;
+	int32 StopBits = 11;
+	repeated TankProbe TankProbes = 12;
+}
+
+message TankProbe
+{
+	int32 TankProbeId = 1;
+	int32 TankId = 2;
+	string Manufacturer = 3;
+	string Model = 4;
+	string SerialNumber = 5;
+}
+
+message PriceSign
+{
+	bool Enabled = 1;
+	string Manufacturer = 2;
+	string Model = 3;
+	int32 SerialPort = 4;
+	repeated PriceSignCategory Categories = 12;
+}
+
+message PriceSignCategory
+{
+	int32 CategoryId = 1;
+	int32 GradeId = 2;
+	int32 ServiceLevelId = 3;
+	int32 PriceLevelId = 4;
+}
+
+message FuelPrice
+{
+	int32 GradeId = 1;
+	int32 ServiceLevelId = 2;
+	int32 PriceLevelId = 3;
+	int32 OperatingLevelId = 4;
+	google.type.Money PPU = 5;
+}
+
+message FixedGrade
+{
+	string NacsCode = 1;
+	string GradeName = 2;
+	string Abbreviation = 3;
+}
+
+message ServiceLevel
+{
+	int32 ServiceLevelId = 1;
+	string ServiceLevelName = 2;
+}
+
+message PricingMode
+{
+	int32 OperatingLevelId = 1;
+	string OperatingLevelName = 2;
+}
+
+message PriceLevel
+{
+	int32 PriceLevelId = 1;
+	string PriceLevelName = 2;
+}
+
+message SiteConfiguration
+{
+	bool ZeroPPUAllowed = 1;
+	string LinearUnitOfMeasure = 2;
+	string VolumeUnitOfMeasure = 3;
+	google.type.Money MinimumPPU = 4;
+	google.type.Money MaximumPPU = 5;
+	int32 MaximumDispensers = 6;
+	bool EMVEnabled = 7;
+	bool EMVContactlessEnabled = 8;
+	bool ExternalMerchandisingEnabled = 9;
+	bool GSMEnabled = 10;
+	bool RollbackToneEnabled = 11;
+	bool MandatoryAuthEnabled = 12;
+	bool PostpayLimitEnabled = 13;
+	google.type.Money PostpayLimit = 14;
+	string TokenPrefix = 15;
+	int32 TokenReceiptControl = 16;
+	int32 TokenNetworkReceiptControl = 17;
+	int32 TokenPrepayReceiptControl = 18;
+	bool AllowAttendantBalanceQuery = 19;		
+	bool AllowExclusiveFuelTax = 20;
+	LanguageEnum DefaultLanguage = 21;
+	string DoorAlarmPasscode = 22;
+	repeated ServiceLevel ServiceLevels = 23; // SELF FULL
+	repeated PricingMode PricingModes = 24; // DAY NIGHT
+	repeated PriceLevel PriceLevels = 25; // CASH CASH_CREDIT
+	bool CashCreditPricingEnabled = 26;
+	int32 CRINDAuthTimeout = 27;
+	int32 ReceiptPromptTimeout = 28;
+	repeated string ReceiptHeaderMessages = 29;
+	repeated string ReceiptTrailerMessages = 30;
+	repeated string PromotionalDisplayMessages = 31; // Advertisement msg
+	repeated string CouponMessages = 32;
+	bool PrintCoupon = 33;
+	PriceSign PriceSign = 34;
+	bool UseWholeDollarPresets = 35;
+	int32 OperatingLevelId = 36;
+	int32 PPUFormat = 37;
+	int32 OptionModeId = 38;
+	google.type.Money HighestPPUDiscount = 39;
+	google.type.Money HighestFuelPPU = 40;
+	google.type.Money LowestFuelPPU = 41;
+	google.type.Money PrimaryModeFuelVolumeLimit = 42;
+	google.type.Money SecondaryModeFuelVolumeLimit = 43;
+}
+
+message NetworkCodeConfiguration
+{
+	repeated NetworkProductCode AvailableCodes = 1;
+	repeated AssignedNetworkProductCode AssignedCodes = 2;
+}
+
+message NetworkProductCode
+{
+	string Code = 1;
+	string Description = 2;
+}
+
+message AssignedNetworkProductCode
+{
+	string PluId = 1;
+	string NetworkProductCode = 2;
+	string AlternateProductCode = 3;
+}
+
+message DispenserOptions
+{
+	int32 DispenserId = 1;
+	int32 OptionModeId = 2;  // eOptionModeId
+	int32 OperationMode = 3; // eManualModeId
+	int32 ServiceLevelId = 4;
+	int32 PreauthTimeout = 5;
+	bool GeneralAuthEnabled = 6;
+	bool PrepayOnly = 7;
+	bool AllowOutdoorPresets = 8;
+	bool EnableUnattendedOperation = 9;
+	PaymentModeEnum PaymentMode = 10;
+}
+
+message CashAcceptor
+{
+    google.type.Money MaxCashPerTransaction = 1;
+    int32 MaxBillInserts = 2;
+    google.type.Money DisableDollarAmount = 3;
+    int32 DisableAfterVaultCount = 4;
+    google.type.Money FuelReservedAmount = 5;
+    bool BillAccepted1 = 6;
+    bool BillAccepted2 = 7;
+    bool BillAccepted5 = 8;
+    bool BillAccepted10 = 9;
+    bool BillAccepted20 = 10;
+    bool BillAccepted50 = 11;
+    bool BillAccepted100 = 12;
+}
+
+message Error
+{
+	ErrorSource  Source = 1;
+	string Message = 2;
+}
+
+enum PaymentTerminalEnum
+{
+	None = 0;
+	GilbarcoCRIND = 1;
+	WayneCAT = 2;
+	TokheimDPT = 4;
+}
+
+enum LanguageEnum
+{
+	Undefined = 0;
+	English = 1;
+	French = 2;
+	Spanish = 3;
+}
+
+enum ReceiptControlEnum
+{
+	Prompt = 0;
+	NeverPrint = 1;
+	AlwaysPrint = 2;
+}
+
+enum PaymentModeEnum
+{
+	Disabled = 0;
+	PayInsideOnly = 1;
+	AcceptAll = 2;
+	PaymentFirst = 3;
+}
+
+enum OptionModeEnum
+{
+	UnusedMode = 0;
+	PrimaryMode = 1;
+	SecondaryMode = 2;
+}
+
+enum WayneSpcEnum
+{
+	SpcDisabled = 0;
+	One = 1;
+	Two = 2;
+	Three = 3;
+	Four = 4;
+	Five = 5;
+	Six = 6;
+}
+
+enum ErrorSource
+{
+	General = 0;
+	Dispensers = 1;
+	Products = 2;
+	Tanks = 3;
+	TankProductToDispensers = 4;
+	Grades = 5;
+	GradesToDispensers = 6;
+	TankMonitors = 7;
+	TankProbes = 8;
+	CarwashKiosks = 9;
+}
+
+enum CngLngUnitOfMeasure
+{
+	GGE = 0;
+	DGE = 1;
+	KG = 2;
+}

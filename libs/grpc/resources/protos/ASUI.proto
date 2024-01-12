@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+option csharp_namespace = "Gilbarco.ASU";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+package ASUI;
+
+service ASUI 
+{
+  rpc Ping (PingRequest) returns (PingReply);
+  rpc DisplayStatus (DisplayStatusRequest) returns (DisplayStatusReply);
+  rpc DisplayMessage (DisplayMessageRequest) returns (DisplayMessageReply);
+  rpc DisplayStagingStatus (DisplayStagingStatusRequest) returns (DisplayStagingStatusReply);
+  rpc GetMachineName (GetMachineNameRequest) returns (GetMachineNameReply);  
+  rpc LaunchProcess (LaunchProcessRequest) returns (LaunchProcessReply);  
+}
+
+message PingRequest
+{
+}
+
+message PingReply
+{
+  bool success = 1;
+}
+
+message DisplayStagingStatusRequest
+{
+}
+
+message DisplayStagingStatusReply
+{
+}
+
+message DisplayMessageRequest
+{
+	string message = 1;
+}
+
+message DisplayMessageReply
+{
+}
+
+message DisplayStatusRequest
+{
+	repeated MachineStatus machines = 1;
+}
+
+message DisplayStatusReply
+{
+}
+
+message GetMachineNameRequest 
+{
+}
+
+message GetMachineNameReply
+{
+  string machineName = 1;
+}
+
+message MachineStatus
+{
+  enum UpgradeState
+  {
+    Idle = 0;
+    Imaging = 1;
+    Pending = 2;
+    Installing = 3;
+    Installed = 4;
+    RunningClientPreUpgrade = 5;
+    WaitingOnClientPreUpgrade = 6;
+    WaitingOnClientAndEDHUpgrade = 7;
+    WaitingForInstructions = 8;
+    Uninstalling = 9;
+    Complete = 10;
+    Archiving = 11;
+    BackingUp = 12;
+    Downloading = 13;
+    Uploading = 14;
+    RollingBack = 15;
+    SavingFactoryImage = 16;
+    Failed = 17;
+    WaitingForAllSystemsInstalled = 18;
+    FactoryImageRestored = 19;
+  }
+  string machineName = 1;
+  UpgradeState state = 2;
+  string packageName = 3;
+  int32 percentComplete = 4;
+  google.protobuf.Timestamp startDateTime = 5;
+  google.protobuf.Duration elapsedTime = 6;
+  string stepDescription = 7;
+  int32 stepNumber = 8;
+  bool userInteraction = 9;
+
+  // these are present when in failed state
+  string error = 10;
+  int32 errorCode = 11;
+  int32 buttonMask = 12;
+  bool protectionPassed = 13;
+  UpgradeState originalState = 14;
+  google.protobuf.Duration timeUntilAutoRollback = 15;
+  
+}
+
+message LaunchProcessRequest 
+{    
+    string ApplicationName = 1;
+    string Arguments = 2;   
+    string Username = 3;
+    string Password = 4;
+    enum WindowStyleType
+    {
+        WINDOW_STYLE_NORMAL = 0;
+        WINDOW_STYLE_HIDDEN = 1;
+        WINDOW_STYLE_MAXIMIZED = 2;
+        WINDOW_STYLE_MINIMIZED = 3;
+    }
+    WindowStyleType WindowStyle = 5;
+    bool CreateNoWindow = 6;
+    bool Wait = 7;
+    int32 TimeOutMinutes = 8;
+    string workingDirectory = 9;
+}
+
+message LaunchProcessReply
+{
+    bool Success = 1;    
+    int32 ExitCode = 2;
+    string ExceptionText = 3;
+}

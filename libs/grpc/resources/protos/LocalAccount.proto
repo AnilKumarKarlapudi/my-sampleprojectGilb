@@ -1,0 +1,208 @@
+syntax = "proto3";
+
+import "money.proto";
+
+option csharp_namespace = "LocalAccountServer";
+
+service LocalAccountService
+{
+    rpc GetLocalAccountOptions (GetLocalAccountOptionsRequest) returns (GetLocalAccountOptionsReply);
+    rpc SetLocalAccountOptions (SetLocalAccountOptionsRequest) returns (SetLocalAccountOptionsReply);
+    rpc GetLocalAccounts (GetLocalAccountsRequest) returns (GetLocalAccountsReply);
+    rpc LocalAccountExists (LocalAccountExistsRequest) returns (LocalAccountExistsReply);
+    rpc AddLocalAccount (AddLocalAccountRequest) returns (AddLocalAccountReply);
+    rpc UpdateLocalAccount (UpdateLocalAccountRequest) returns (UpdateLocalAccountReply);
+    rpc DeleteLocalAccount (DeleteLocalAccountRequest) returns (DeleteLocalAccountReply);
+    rpc GetBalance (GetBalanceRequest) returns (GetBalanceReply);
+    rpc AdjustBalance (AdjustBalanceRequest) returns (AdjustBalanceReply);
+}
+
+message LocalAccountExistsRequest
+{
+    int32 LocalAccountId = 1;
+}
+
+message LocalAccountExistsReply
+{
+    bool Exists = 1;
+    bool Deleted = 2;
+}
+
+message GetBalanceRequest
+{
+    int32 AccountId = 1;
+}
+
+message GetBalanceReply
+{
+    google.type.Money Balance = 1;
+}
+
+message AdjustBalanceRequest
+{
+    string EmployeeId = 1;
+    BalanceAdjustment BalanceAdjustment = 2;
+}
+
+message AdjustBalanceReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message GetLocalAccountOptionsRequest
+{
+}
+
+message GetLocalAccountOptionsReply
+{
+    LocalAccountOptions LocalAccountOptions = 1;
+}
+
+message SetLocalAccountOptionsRequest
+{
+    LocalAccountOptions LocalAccountOptions = 1;
+}
+
+message SetLocalAccountOptionsReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message AddLocalAccountRequest
+{
+    string EmployeeId = 1;
+    LocalAccount LocalAccount = 2;
+}
+
+message UpdateLocalAccountRequest
+{
+    string EmployeeId = 1;
+    LocalAccount LocalAccount = 2;
+}
+
+message DeleteLocalAccountRequest
+{
+    string EmployeeId = 1;
+    LocalAccount LocalAccount = 2;
+}
+
+message AddLocalAccountReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated string GrippsErrors = 3;
+}
+
+message UpdateLocalAccountReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated string GrippsErrors = 3;
+}
+
+message DeleteLocalAccountReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated string GrippsErrors = 3;
+}
+
+message GetLocalAccountsRequest
+{
+}
+
+message GetLocalAccountsReply
+{
+    repeated LocalAccount LocalAccounts = 1;
+}
+
+message LocalAccountOptions
+{
+    bool PrintStoreReceipt = 1;
+    bool PrintCustomerReceipt = 2;
+}
+
+message BalanceAdjustment
+{
+    int32 AccountId = 1;
+    google.type.Money Adjustment = 2;
+    string Reason = 3;
+}
+
+message LocalAccount
+{
+    int32 Id = 1;
+    int32 AccountType = 2;
+    string Name = 3;
+    google.type.Money CreditLimit = 4;
+    string TaxationNumber = 5;
+    google.type.Money WarningThreshold = 6;
+    google.type.Money OfflineMax = 7;
+    bool PrintCurrentBalance = 8;
+    Address Address = 9;
+    CardAccount CardAccount = 10;
+    repeated SubAccount SubAccounts = 11;
+    repeated NegativeCard NegativeCards = 12;
+    repeated PromptLine PromptLines = 13;
+    repeated CustomPrompt CustomPrompts = 14;
+    google.type.Money CurrentBalance = 15;
+}
+
+message Address
+{
+    string Street = 1;
+    string City = 2;
+    string State = 3;
+    string Country = 4;
+    string PostalCode = 5;
+    string Phone = 6;
+    string Email = 7;
+}
+
+message CardAccount
+{
+    int32 TrackNumber = 2;
+    int32 IssuerNumberStartPosition = 3;
+    string IssuerNumber = 4;
+    int32 AccountNumberStartPosition = 5;
+    string AccountNumberRangeStart = 6;
+    string AccountNumberRangeEnd = 7;
+    bool ValidateExpirationDate = 8;
+    int32 ExpirationStartPosition = 9;
+    string DateFormat = 10;
+    int32 DiscountGroupId = 11;
+    int32 FuelRestrictionCode = 12;
+    int32 FuelRestrictionStartPosition = 13;
+    google.type.Money CrindAuthorizationAmount = 14;
+}
+
+message SubAccount
+{
+    string Id = 1;
+    bool Enabled = 2;
+    string Description = 3;
+    string VIN = 4;
+}
+
+message NegativeCard
+{
+    string AccountNumberStart = 1;
+    string AccountNumberEnd = 2;
+}
+
+message PromptLine
+{
+    repeated int32 PromptIds = 1;
+    int32 StartPosition = 2;
+    int32 PromptValue = 3;
+}
+
+message CustomPrompt
+{
+    int32 Id = 1;
+    string PromptText = 2;
+    string ReceiptDescription = 3;
+    bool PrintOnReceipt = 4;
+}

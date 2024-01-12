@@ -1,0 +1,2517 @@
+{
+    "main_screen": {
+        "logo": "//img[@class='header-img-logo']",
+		"welcome_screen": "//*[contains(text(),'Welcome to MWS')]",
+        "login_pos_button": "//i[text()='point_of_sale']",
+        "header": "//*[@class='page-header-fixed-title']",
+        "title":"//h1",
+        "pos_button": "//i[@autoid='POSButton']",
+		"user": "//div[@class='login-div']",
+		"save": "//span[@class[contains(.,'application-button')] and contains(text(), 'Save')]",
+        "update": "//span[@class[contains(.,'application-button')] and contains(text(), 'Update')]",
+        "validate": "//span[@class[contains(.,'application-button')] and contains(text(), 'Validate')]",
+        "back": "//span[@class[contains(.,'application-button')] and contains(text(), 'Back')]",
+        "banner": "//div[@class='rz-growl-item']",
+        "banner_title": "//div[@class='rz-growl-item']//span[@class='rz-growl-title']",
+        "banner_text": "//div[@class='rz-growl-item']//p",
+        "banner_close": "(//div[@class='rz-growl-item']//div)[1]",
+        "input error": "//*[@class='validation-message']",
+        "message error": "//*[@class[contains(.,'messages-error')]]",
+        "search": "//*[@class='menu-search-icon-style']",
+		"sidebar toggle": "//button[@class[contains(.,'sidebar-toggle')]]",
+        "menu_search": "//input[@id='MenuSearch']",
+        "menu_tab": "//span[text()='%s']",
+        "subtab": "//div[text()='%s']",
+        "fiserv": {
+            "site configuration": "(//span[text()='Site Configuration'])[1]",
+            "card configuration": "(//span[text()='Card Configuration'])[1]",
+            "fuel discount configuration": "(//span[text()='Fuel Discount Configuration'])[1]",
+            "pdl download": "(//span[text()='PDL Download'])[1]"
+        },
+        "auxiliary": {
+            "site configuration": "(//span[text()='Site Configuration'])[2]",
+            "card configuration": "(//span[text()='Card Configuration'])[2]"
+        },
+        "incomm": {
+            "site configuration": "(//span[text()='Site Configuration'])[3]",
+            "card configuration": "(//span[text()='Card Configuration'])[3]"
+        },
+        "forecourt": {
+            "crind merchandising": "(//span[text()='CRIND Merchandising'])",
+            "crind cash acceptor": "(//span[text()='CRIND Cash Acceptor'])",
+            "network codes": "(//span[text()='Network Codes'])"
+        }
+	}, 
+    "popup": {
+        "panel": "//div[@id='rz-dialog-0-label']",
+        "dialogue box": "//*[@class='rz-dialog-content']//p",
+        "dialogue box title": "//div[@class='rz-dialog-title']",
+        "yes": "//span[text()='Yes']",
+        "yes, delete": "//span[text()='Yes, delete']",
+        "deactivate": "//span[text()='Deactivate']",
+        "no": "//span[text()='No']",
+        "ok": "//span[text()='Ok' or text()='OK']",
+        "cancel": "//span[text()='Cancel']",
+        "feature_loading_screen": "//p//em[contains(.,'Processing %s. Please Wait...')]",
+        "error loading panel": "//div[@class='error-loading-panel']",
+        "serious error loading panel": "//div[@class='blazor-error-boundary-mod']"
+	},
+    "login_mws": {
+        "operator id": "//input[@name='Username']",
+        "password": "//input[@name='Password']",
+        "current password": "//input[@name='Current Password']",
+        "verify new password": "//input[@name='VerifyNewPassword']",
+        "reset password prompt": "//*[@autoid='ResetPasswordPromptLabel']",
+        "clock in prompt": "//*[@autoid='ClockInPromptLabel']",
+        "sign on": "//button[@type='submit']",
+        "logout": "//span[contains(text(),'Logout')]",
+        "account_dropdown": "//div[@class[contains(., 'username')]]",
+        "account_id": "//div[@title[contains(.,'%s')]]"
+    },
+    "calendar": {
+		"month": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//div[@class='rz-dropdown'][1]",
+		"year": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//div[@class='rz-dropdown'][2]",
+		"previous": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//a[@class='rz-datepicker-prev']",
+		"next": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//a[@class='rz-datepicker-next']",
+		"calendar": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//table[@class='rz-datepicker-calendar']",
+        "date": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//*[not(contains(@class,'other-month'))]/span[contains(@class,'rz-state-default') and text()='%s']",
+        "hour": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//span[@class[contains(., 'hour')]]//input",
+        "hour up": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//span[@class[contains(., 'hour')]]//button[@class[contains(., 'up')]]",
+        "hour down": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//span[@class[contains(., 'hour')]]//button[@class[contains(., 'down')]]",
+        "minute": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//span[@class[contains(., 'minute')]]//input",
+        "minute up": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//span[@class[contains(., 'minute')]]//button[@class[contains(., 'up')]]",
+        "minute down": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//span[@class[contains(., 'minute')]]//button[@class[contains(., 'down')]]",
+        "am/pm up": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//div[@class='rz-ampm-picker']//span[@class[contains(., 'up')]]",
+        "am/pm": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//div[@class='rz-ampm-picker']/span",
+        "am/pm down": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//div[@class='rz-ampm-picker']//span[@class[contains(., 'down')]]",
+        "ok": "//div[@class[contains(., 'rz-datepicker rz-popup')] and @style[contains(., 'display: block')]]//button[@type='button']//span[text()='Ok']"
+    },
+    "dropdown": {
+        "dropdown_filter": "//div[@class[contains(.,'dropdown-filter')]]//input",
+        "dropdown_options": "//div[(@class[contains(.,'multiselect')] or @class[contains(.,'dropdown')]) and @style[contains(.,'display: block')]]",
+        "dropdown_option": "//div[(@class[contains(.,'multiselect')] or @class[contains(.,'dropdown')]) and @style[contains(.,'display: block')]]//span[text()='%s']"
+    },
+    "reason codes": {
+        "add": "//button[@autoid='reasoncodeaddbutton']",
+        "reason code header": "//span[text()='Reason Code']",
+        "reason code": "//input[@autoid[contains(.,'reasoncode') and contains(.,'textbox')]]",
+        "checkmark": "//button[@autoid[contains(.,'reasoncode') and contains(.,'acceptbutton')]]",
+        "x": "//button[@autoid[contains(.,'reasoncode') and contains(.,'canceleditbutton')]]",
+        "reason_code_by_name": "//span[@class='rz-cell-data' and @title='%s']",
+        "edit": "//tr[*//span[text()='%s']]//button[@autoid[contains(.,'edit')]]",
+        "delete": "//tr[*//span[text()='%s']]//button[@autoid[contains(.,'delete')]]",
+        "code list": "//*[@autoid='reasoncodesgrid']"
+    },
+    "discounts": {
+        "search discounts": "//input[@autoid[contains(.,'search') and contains(.,'textbox')]]",
+        "discount_name_search_result": "(//tr[contains(@class,'')])[2]//span[@title='%s']",
+        "add": "//button[@autoid='addbutton']",
+        "edit": "//tr[*//span[text()='%s']]//button[@autoid[contains(.,'edit')]]",
+        "delete": "//tr[*//span[text()='%s']]//button[@autoid[contains(.,'delete')]]",
+        "discount name": "//input[@autoid[contains(.,'discountName')]]",
+        "discount amount": "//div[@autoid[contains(.,'VariableDiscountSelectBar')]]",
+        "apply discount to": "//div[@autoid[contains(.,'TransactionDiscountSelectBar')]]",
+        "discount type": "//div[@autoid[contains(.,'DiscountMethod')]]",
+        "amount": "//input[@autoid[contains(.,'DiscountValue')]]",
+        "days of the week discount is active": "//div[@autoid[contains(.,'DiscountDaysList')]]",
+        "price only": "//div[@autoid[contains(.,'PriceOnlyRadioButton')]]//div[@class[contains(.,'rz-radiobutton-box')]]",
+        "price minus previously applied discounts": "//div[@autoid[contains(.,'PriceMinusRadioButton')]]//div[@class[contains(.,'rz-radiobutton-box')]]",
+        "nacs reason code": "//div[@autoid[contains(.,'DiscountCodeDropDown')]]",
+        "discount relieves taxation": "//div[@autoid[contains(.,'AdjustTaxToggleswitch')]]",
+        "exclude discount from best deal processing": "//div[@autoid[contains(.,'ExcludeFromBestDealToggleswitch')]]"
+    },
+    "reports":{
+        "report search": "//input[@auto-id='ReportSearchTextBox']",
+        "print": "//span[@class[contains(.,'application-button')] and contains(text(), 'Print')]",
+        "generating_report_screen": "//*[@class='loading-mask']",
+        "no_records_text": "//tbody//tr[contains(@class, 'emptymessage-row')]",
+        "calendar":{
+            "calendar": "//div[@class='row']//div[contains(@class, 'rz-calendar')]",
+            "period type": "(//div[@class='row'])[2]//div[@class='rz-dropdown']//span//parent::div",
+            "business day": "//li[@aria-label='Business Day']",
+            "calendar day": "//li[@aria-label='Calendar Day']",
+            "managers period": "//li[contains(@aria-label, 'Manager') and contains(@aria-label, 'Period')]",
+            "date": "//tr/td/span[text()='%s']",
+            "today": "//span[text()='Today']/ancestor::button",
+            "date report": "(//tr[%s]/td/span/button)[1]"
+        },
+        "accounting": {
+            "attended till report": {
+                "attended till report": "//tr//span[text()='Attended Till Report']/ancestor::tr/td//button",
+                "filename": "Need more info"
+            },
+            "cashier exception activity report": {
+                "cashier exception activity report": "//tr//span[text()='Cashier Exception Activity Report']/ancestor::tr/td//button",
+                "filename": "Cashier Exception Activity Report"
+            },
+            "cashier over/short data report": {
+                "cashier over/short data report": "//tr//span[text()='Cashier Over/Short Data Report']/ancestor::tr/td//button",
+                "filename": "Cashier OverShort Data Report"
+            },
+            "clock in/out adjustment report": {
+                "clock in/out adjustment report": "(//tr//span[text()='Clock In/Out Adjustment Report']/ancestor::tr/td//button)[1]",
+                "filename": "Clock InOut Adjustment Report"
+            },
+            "clock in/out detail report": {
+                "clock in/out detail report": "(//tr//span[text()='Clock In/Out Detail Report']/ancestor::tr/td//button)[1]",
+                "filename": "Clock InOut Detail Report"
+            },
+            "clock in/out summary report": {
+                "clock in/out summary report": "(//tr//span[text()='Clock In/Out Summary Report']/ancestor::tr/td//button)[1]",
+                "filename": "Clock InOut Summary Report"
+            },
+            "crind cash acceptor activity summary report": {
+                "crind cash acceptor activity summary report": "//tr//span[text()='CRIND Cash Acceptor Activity Summary Report']/ancestor::tr/td//button",
+                "filename": "CRIND Cash Acceptor Activity Summary Report"
+            },
+            "crind cash acceptor safe drop report": {
+                "crind cash acceptor safe drop report": "//tr//span[text()='CRIND Cash Acceptor Safe Drop Report']/ancestor::tr/td//button",
+                "filename": "CRIND Cash Acceptor Safe Drop Report"
+            },
+            "discount summary report": {
+                "discount summary report": "//tr//span[text()='Discount Summary Report']/ancestor::tr/td//button",
+                "filename": "Discount Summary Report"
+            },
+            "discount summary report view 2": {
+                "discount summary report view 2": "//tr//span[text()='Discount Summary Report View 2']/ancestor::tr/td//button",
+                "filename": "Discount Summary Report View"
+            },
+            "historical cashier statistics report": {
+                "historical cashier statistics report": "//tr//span[text()='Historical Cashier Statistics Report']/ancestor::tr/td//button",
+                "filename": "Historical Cashier Statistics Report"
+            },
+            "hourly analysis report": {
+                "hourly analysis report": "//tr//span[text()='Hourly Analysis Report']/ancestor::tr/td//button",
+                "filename": "Hourly Analysis Report"
+            },
+            "local accounts transaction report": {
+                "local accounts transaction report": "//tr//span[text()='Local Accounts Transaction Report']/ancestor::tr/td//button",
+                "filename": "Local Accounts Transaction Report"
+            },
+            "method of payment totals report": {
+                "method of payment totals report": "//tr//span[text()='Method of Payment Totals Report']/ancestor::tr/td//button",
+                "filename": "Method of Payment Totals Report"
+            },
+            "non-resettable grand totals report": {
+                "non-resettable grand totals report": "//tr//span[text()='Non-Resettable Grand Totals Report']/ancestor::tr/td//button",
+                "filename": "Non-Resettable Grand Totals Report"
+            },
+            "paid in / paid out report": {
+                "paid in / paid out report": "//tr//span[text()='Paid In / Paid Out Report']/ancestor::tr/td//button",
+                "filename": "Paid In  Paid Out Report"
+            },
+            "paid in / paid out report view 2": {
+                "paid in / paid out report view 2": "//tr//span[text()='Paid In / Paid Out Report View 2']/ancestor::tr/td//button",
+                "filename": "Paid In  Paid Out Report View"
+            },
+            "price group assignment report": {
+                "price group assignment report": "//tr//span[text()='Price Group Assignment Report']/ancestor::tr/td//button",
+                "filename": "Price Group Assignment Report"
+            },
+            "price override report": {
+                "price override report": "//tr//span[text()='Price Override Report']/ancestor::tr/td//button",
+                "filename": "Price Override Report"
+            },
+            "price override report view 2": {
+                "price override report view 2": "//tr//span[text()='Price Override Report View 2']/ancestor::tr/td//button",
+                "filename": "Price Override Report View"
+            },
+            "safe drop report": {
+                "safe drop report": "//tr//span[text()='Safe Drop Report']/ancestor::tr/td//button",
+                "filename": "Current Safe Drop"
+            },
+            "safe drop report view 2": {
+                "safe drop report view 2": "//tr//span[text()='Safe Drop Report View 2']/ancestor::tr/td//button",
+                "filename": "Safe Drop Report View"
+            },
+            "shift close": {
+                "shift close": "//tr//span[text()='Shift Close']/ancestor::tr/td//button",
+                "filename": "Shift Close"
+            },
+            "store close": {
+                "store close": "//tr//span[text()='Store Close']/ancestor::tr/td//button",
+                "filename": "Store Close"
+            },
+            "store till summary": {
+                "store till summary": "//tr//span[text()='Store Till Summary']/ancestor::tr/td//button",
+                "filename": "Store Till Summary"
+            },
+            "tax collection report": {
+                "tax collection report": "//tr//span[text()='Tax Collection Report']/ancestor::tr/td//button",
+                "filename": "Tax Collection Report"
+            },
+            "till period reports": {
+                "till period reports": "//tr//span[text()='Till Period Reports']/ancestor::tr/td//button",
+                "filename": "Till Period Reports"
+            },
+            "till report": {
+                "till report": "//tr//span[text()='Till Report']/ancestor::tr/td//button",
+                "filename": "Need more info"
+            }
+        },
+        "network": {
+            "concord": {
+                "concord": "//tr//span[text()='Concord']/ancestor::tr/td//button",
+                "account transactions by day": {
+                    "account transactions by day": "//tr//span[text()='Account Transactions By Day']/ancestor::tr/td//button",
+                    "filename": "dayaccounttrans"
+                },
+                "account transactions by day (secure)": {
+                    "account transactions by day (secure)": "//tr//span[text()='Account Transactions By Day (Secure)']/ancestor::tr/td//button",
+                    "filename": "dayaccounttrans(SECURE)"
+                },
+                "account transactions by shift": {
+                    "account transactions by shift": "//tr//span[text()='Account Transactions By Shift']/ancestor::tr/td//button",
+                    "filename": "shiftaccounttrans"
+                },
+                "account transactions by shift (secure)": {
+                    "account transactions by shift (secure)": "//tr//span[text()='Account Transactions By Shift (Secure)']/ancestor::tr/td//button",
+                    "filename": "shiftaccounttrans(SECURE)"
+                },
+                "card conflict": {
+                    "card conflict": "//tr//span[text()='Card Conflict']/ancestor::tr/td//button",
+                    "filename": "cardconflict"
+                },
+                "cash card report by day": {
+                    "cash card report by day": "//tr//span[text()='Cash Card Report By Day']/ancestor::tr/td//button",
+                    "filename": "daycashcard"
+                },
+                "cash card report by shift": {
+                    "cash card report by shift": "//tr//span[text()='Cash Card Report By Shift']/ancestor::tr/td//button",
+                    "filename": "shiftcashcard"
+                },
+                "emv configuration": {
+                    "emv configuration": "(//tr//span[text()='EMV Configuration']/ancestor::tr/td//button)[1]",
+                    "filename": "concord-emvconfigurationreport"
+                },
+                "emv/chip fallback report by day": {
+                    "emv/chip fallback report by day": "//tr//span[text()='EMV/Chip Fallback Report By Day']/ancestor::tr/td//button",
+                    "filename": "concord-emvchipfallback"
+                },
+                "emv/chip fallback report for current day": {
+                    "emv/chip fallback report for current day": "(//tr//span[text()='EMV/Chip Fallback Report For Current Day']/ancestor::tr/td//button)[1]",
+                    "filename": "concord-emvchipfallbackcurrent"
+                },
+                "local totals for current day": {
+                    "local totals for current day": "(//tr//span[text()='Local Totals For Current Day']/ancestor::tr/td//button)[1]",
+                    "filename": "concord-posdayreport-current"
+                },
+                "local totals for current shift": {
+                    "local totals for current shift": "(//tr//span[text()='Local Totals For Current Shift']/ancestor::tr/td//button)[1]",
+                    "filename": "concord-posshiftreport-current"
+                },
+                "network configuration": {
+                    "network configuration": "(//tr//span[text()='Network Configuration']/ancestor::tr/td//button)[1]",
+                    "filename": "netconfig"
+                },
+                "network performance": {
+                    "network performance": "(//tr//span[text()='Network Performance']/ancestor::tr/td//button)[1]",
+                    "filename": "networkperformance"
+                },
+                "network system events": {
+                    "network system events": "(//tr//span[text()='Network System Events']/ancestor::tr/td//button)[1]",
+                    "filename": "posevent"
+                },
+                "pos day report": {
+                    "pos day report": "//tr//span[text()='POS Day Report']/ancestor::tr/td//button",
+                    "filename": "concord-posdayreport"
+                },
+                "pos host refusal report": {
+                    "pos host refusal report": "//tr//span[text()='POS Host Refusal Report']/ancestor::tr/td//button",
+                    "filename": "poshostrefusalreport"
+                },
+                "pos mail report": {
+                    "pos mail report": "//tr//span[text()='POS Mail Report']/ancestor::tr/td//button",
+                    "filename": "Need more info"
+                },
+                "pos shift report": {
+                    "pos shift report": "//tr//span[text()='POS Shift Report']/ancestor::tr/td//button",
+                    "filename": "concord-posshiftreport"
+                },
+                "pos transaction statistics report by day": {
+                    "pos transaction statistics report by day": "//tr//span[text()='POS Transaction Statistics Report By Day']/ancestor::tr/td//button",
+                    "filename": "concord-postransactionstatistics"
+                },
+                "pos transaction statistics report for current day": {
+                    "pos transaction statistics report for current day": "(//tr//span[text()='POS Transaction Statistics Report For Current Day']/ancestor::tr/td//button)[1]",
+                    "filename": "concord-postransactionstatisticscurrent"
+                },
+                "read only host totals by day": {
+                    "read only host totals by day": "//tr//span[text()='Read Only Host Totals By Day']/ancestor::tr/td//button",
+                    "filename": "Need more info"
+                },
+                "read only host totals for current day": {
+                    "read only host totals for current day": "(//tr//span[text()='Read Only Host Totals For Current Day']/ancestor::tr/td//button)[1]",
+                    "filename": "Need more info"
+                },
+                "read only host totals for current shift": {
+                    "read only host totals for current shift": "(//tr//span[text()='Read Only Host Totals For Current Shift']/ancestor::tr/td//button)[1]",
+                    "filename": "Need more info"
+                },
+                "site level card based fuel discounts": {
+                    "site level card based fuel discounts": "(//tr//span[text()='Site Level Card Based Fuel Discounts']/ancestor::tr/td//button)[1]",
+                    "filename": "fueldiscountbycard"
+                },
+                "store and forward transactions report": {
+                    "store and forward transactions report": "(//tr//span[text()='Store And Forward Transactions Report']/ancestor::tr/td//button)[1]",
+                    "filename": "concord-storeandforwardreport"
+                },
+                "store and forward transactions report (secure)": {
+                    "store and forward transactions report (secure)": "(//tr//span[text()='Store And Forward Transactions Report (Secure)']/ancestor::tr/td//button)[1]",
+                    "filename": "concord-storeandforwardreport(SECURE)"
+                },
+                "uncollected transactions report by day": {
+                    "uncollected transactions report by day": "//tr//span[text()='Uncollected Transactions Report By Day']/ancestor::tr/td//button",
+                    "filename": "uncollectedday"
+                },
+                "uncollected transactions report by day (secure)": {
+                    "uncollected transactions report by day (secure)": "//tr//span[text()='Uncollected Transactions Report By Day (Secure)']/ancestor::tr/td//button",
+                    "filename": "uncollecteddaysecure(SECURE)"
+                }
+            },
+            "mobile pay fdc": {
+                "mobile pay fdc": "//tr//span[text()='Mobile Pay FDC']/ancestor::tr/td//button",
+                "mobile pay fdc configuration report": {
+                    "mobile pay fdc configuration report": "(//tr//span[text()='Mobile Pay FDC Configuration Report']/ancestor::tr/td//button)[1]",
+                    "filename": "MobilePayFDCConfigurationReport"
+                },
+                "mobile pay fdc current local totals summary": {
+                    "mobile pay fdc current local totals summary": "(//tr//span[text()='Mobile Pay FDC Current Local Totals Summary']/ancestor::tr/td//button)[1]",
+                    "filename": "MobilePayFDCCurrentLocalTotalsSummary"
+                },
+                "mobile pay fdc current transaction detail report": {
+                    "mobile pay fdc current transaction detail report": "(//tr//span[text()='Mobile Pay FDC Current Transaction Detail Report']/ancestor::tr/td//button)[1]",
+                    "filename": "MobilePayFDCCurrentTransactionDetailReport"
+                },
+                "mobile pay fdc current unpaid transactions report": {
+                    "mobile pay fdc current unpaid transactions report": "(//tr//span[text()='Mobile Pay FDC Current Unpaid Transactions Report']/ancestor::tr/td//button)[1]",
+                    "filename": "MobilePayFDCCurrentUnpaidTransactionsReport"
+                },
+                "mobile pay fdc host totals by day": {
+                    "mobile pay fdc host totals by day": "//tr//span[text()='Mobile Pay FDC Host Totals By Day']/ancestor::tr/td//button",
+                    "filename": "MobilePayFDCHostTotalsByDay"
+                },
+                "mobile pay fdc settlement report": {
+                    "mobile pay fdc settlement report": "//tr//span[text()='Mobile Pay FDC Settlement Report']/ancestor::tr/td//button",
+                    "filename": "MobilePayFDCSettlementReport"
+                },
+                "mobile pay fdc store and forward report": {
+                    "mobile pay fdc store and forward report": "(//tr//span[text()='Mobile Pay FDC Store And Forward Report']/ancestor::tr/td//button)[1]",
+                    "filename": "MobilePayFDCStoreAndForwardReport"
+                },
+                "mobile pay fdc transaction detail report": {
+                    "mobile pay fdc transaction detail report": "//tr//span[text()='Mobile Pay FDC Transaction Detail Report']/ancestor::tr/td//button",
+                    "filename": "MobilePayFDCTransactionDetailReport"
+                },
+                "mobile pay fdc unpaid transactions report": {
+                    "mobile pay fdc unpaid transactions report": "//tr//span[text()='Mobile Pay FDC Unpaid Transactions Report']/ancestor::tr/td//button",
+                    "filename": "MobilePayFDCUnpaidTransactionsReport"
+                }
+            },
+            "auxiliary network": {
+                "auxiliary network": "//tr//span[text()='Auxiliary Network']/ancestor::tr/td//button",
+                "auxiliary network card configuration": {
+                    "auxiliary network card configuration": "(//tr//span[text()='Auxiliary Network Card Configuration']/ancestor::tr/td//button)[1]",
+                    "filename": "MannatecCardConfiguration"
+                },
+                "auxiliary network current sales report by day (secure)": {
+                    "auxiliary network current sales report by day (secure)": "(//tr//span[text()='Auxiliary Network Current Sales Report by Day (Secure)']/ancestor::tr/td//button)[1]",
+                    "filename": "daycurrentaccounttrans(SECURE)"
+                },
+                "auxiliary network current sales report by shift (secure)": {
+                    "auxiliary network current sales report by shift (secure)": "(//tr//span[text()='Auxiliary Network Current Sales Report by Shift (Secure)']/ancestor::tr/td//button)[1]",
+                    "filename": "shiftcurrentaccounttrans(SECURE)"
+                },
+                "auxiliary network sales report by day": {
+                    "auxiliary network sales report by day": "//tr//span[text()='Auxiliary Network Sales Report by Day']/ancestor::tr/td//button",
+                    "filename": "dayaccounttrans"
+                },
+                "auxiliary network sales report by day (secure)": {
+                    "auxiliary network sales report by day (secure)": "//tr//span[text()='Auxiliary Network Sales Report by Day (Secure)']/ancestor::tr/td//button",
+                    "filename": "dayaccounttranssecure(SECURE)"
+                },
+                "auxiliary network sales report by shift": {
+                    "auxiliary network sales report by shift": "//tr//span[text()='Auxiliary Network Sales Report by Shift']/ancestor::tr/td//button",
+                    "filename": "shiftaccounttrans"
+                },
+                "auxiliary network sales report by shift (secure)": {
+                    "auxiliary network sales report by shift (secure)": "//tr//span[text()='Auxiliary Network Sales Report by Shift (Secure)']/ancestor::tr/td//button",
+                    "filename": "shiftaccounttranssecure(SECURE)"
+                },
+                "auxiliary network site configuration": {
+                    "auxiliary network site configuration": "(//tr//span[text()='Auxiliary Network Site Configuration']/ancestor::tr/td//button)[1]",
+                    "filename": "MannatecSiteConfiguration"
+                },
+                "auxiliary site level card based fuel discounts": {
+                    "auxiliary site level card based fuel discounts": "(//tr//span[text()='Auxiliary Site Level Card Based Fuel Discounts']/ancestor::tr/td//button)[1]",
+                    "filename": "MannatecFuelDiscountsByCardType"
+                }
+            },
+             "incomm": {
+                "incomm": "//tr//span[text()='InComm']/ancestor::tr/td//button",
+                "incomm account transaction by day": {
+                    "incomm account transaction by day": "//tr//span[text()='InComm Account Transaction By Day']/ancestor::tr/td//button",
+                    "filename": "incommdayaccounttransactions"
+                },
+               "incomm uncollected transaction by day": {
+                    "incomm uncollected transaction by day": "//tr//span[text()='InComm Uncollected Transaction By Day']/ancestor::tr/td//button",
+                    "filename": "incommuncollectedtxsbyday"
+                },
+                "incomm uncollected transaction by day (secure)": {
+                    "incomm uncollected transaction by day (secure)": "//tr//span[text()='InComm Uncollected Transaction By Day (Secure)']/ancestor::tr/td//button",
+                    "filename": "incommuncollectedtxsbydaysecure(SECURE)"
+                }
+            },
+            "gs1 coupon network": {
+                "gs1 coupon network": "//tr//span[text()='GS1 Coupon Network']/ancestor::tr/td//button",
+                "manufacturer coupon transaction detail report": {
+                    "manufacturer coupon transaction detail report": "//tr//span[text()='Manufacturer Coupon Transaction Detail Report']/ancestor::tr/td//button",
+                    "filename": ""
+                }
+            }
+        },
+        "sales": {
+            "age verification report": {
+                "age verification report": "//tr//span[text()='Age Verification Report']/ancestor::tr/td//button",
+                "filename": "Age Verification Report"
+            },
+            "age verification report by department": {
+                "age verification report by department": "//tr//span[text()='Age Verification Report By Department']/ancestor::tr/td//button",
+                "filename": "Age Verification Report By Department"
+            },
+            "car wash sales report": {
+                "car wash sales report": "//tr//span[text()='Car Wash Sales Report']/ancestor::tr/td//button",
+                "filename": "Car Wash Sales Report"
+            },
+            "converted crind sales report": {
+                "converted crind sales report": "//tr//span[text()='Converted CRIND Sales Report']/ancestor::tr/td//button",
+                "filename": "Converted CRIND Sales Report"
+            },
+            "crind merchandising sales report": {
+                "crind merchandising sales report": "//tr//span[text()='CRIND Merchandising Sales Report']/ancestor::tr/td//button",
+                "filename": "CRIND Merchandising Sales Report"
+            },
+            "department sales": {
+                "department sales": "//tr//span[text()='Department Sales']/ancestor::tr/td//button",
+                "filename": "Department Sales"
+            },
+            "flash reports": {
+                "flash reports": "//tr//span[text()='Flash Reports']/ancestor::tr/td//button",
+                "filename": "Flash Reports"
+            },
+            "hourly sales by fuel grade report": {
+                "hourly sales by fuel grade report": "//tr//span[text()='Hourly Sales By Fuel Grade Report']/ancestor::tr/td//button",
+                "filename": "Hourly Sales By Fuel Grade Report"
+            },
+            "hourly sales interval report": {
+                "hourly sales interval report": "//tr//span[text()='Hourly Sales Interval Report']/ancestor::tr/td//button",
+                "filename": "Hourly Sales Interval Report"
+            },
+            "price lookup sales": {
+                "price lookup sales": "//tr//span[text()='Price Lookup Sales']/ancestor::tr/td//button",
+                "filename": "Price Lookup Sales"
+            },
+            "sales trend low seller analysis report": {
+                "sales trend low seller analysis report": "//tr//span[text()='Sales Trend Low Seller Analysis Report']/ancestor::tr/td//button",
+                "filename": "Sales Trend Low Seller Analysis Report"
+            },
+            "sales trend top seller analysis report": {
+                "sales trend top seller analysis report": "//tr//span[text()='Sales Trend Top Seller Analysis Report']/ancestor::tr/td//button",
+                "filename": "Sales Trend Top Seller Analysis Report"
+            },
+            "store sales summary": {
+                "store sales summary": "//tr//span[text()='Store Sales Summary']/ancestor::tr/td//button",
+                "filename": "Store Sales Summary"
+            },
+            "unknown upc report": {
+                "unknown upc report": "//tr//span[text()='Unknown UPC Report']/ancestor::tr/td//button",
+                "filename": "Unknown UPC Report"
+            },
+            "unknown upc report view 2": {
+                "unknown upc report view 2": "//tr//span[text()='Unknown UPC Report View 2']/ancestor::tr/td//button",
+                "filename": "Unknown UPC Report View"
+            }
+        },
+        "journal/events": {
+            "active and pending events report": {
+                "active and pending events report": "//tr//span[text()='Active and Pending Events Report']/ancestor::tr/td//button",
+                "filename": "Active and Pending Events Report"
+            },
+            "electronic journal report": {
+                "electronic journal report": "//tr//span[text()='Electronic Journal Report']/ancestor::tr/td//button",
+                "filename": "Journal Reports"
+            },
+            "network journal report": {
+                "network journal report": "//tr//span[text()='Network Journal Report']/ancestor::tr/td//button",
+                "filename": "Network Journal Report"
+            },
+            "scheduled event activity": {
+                "scheduled event activity": "//tr//span[text()='Scheduled Event Activity']/ancestor::tr/td//button",
+                "filename": "Scheduled Event Activity"
+            },
+            "system events report": {
+                "system events report": "//tr//span[text()='System Events Report']/ancestor::tr/td//button",
+                "filename": "System Events Report"
+            }
+        },
+        "fuel": {
+            "crind sales report": {
+                "crind sales report": "//tr//span[text()='CRIND Sales Report']/ancestor::tr/td//button",
+                "filename": "CRIND Sales Report"
+            },
+            "current/pending fuel prices report": {
+                "current/pending fuel prices report": "//tr//span[text()='Current/Pending Fuel Prices Report']/ancestor::tr/td//button",
+                "filename": "Fuel Prices"
+            },
+            "fuel delivery report": {
+                "fuel delivery report": "//tr//span[text()='Fuel Delivery Report']/ancestor::tr/td//button",
+                "filename": "Fuel Delivery"
+            },
+            "fuel discount summary report": {
+                "fuel discount summary report": "//tr//span[text()='Fuel Discount Summary Report']/ancestor::tr/td//button",
+                "filename": "Fuel Discount Summary Report"
+            },
+            "fuel inventory over/short report": {
+                "fuel inventory over/short report": "//tr//span[text()='Fuel Inventory Over/Short Report']/ancestor::tr/td//button",
+                "filename": "Fuel Inventory"
+            },
+            "fuel sales details report": {
+                "fuel sales details report": "//tr//span[text()='Fuel Sales Details Report']/ancestor::tr/td//button",
+                "filename": "Fuel Sales Details Report"
+            },
+            "fuel sales details report view 2": {
+                "fuel sales details report view 2": "//tr//span[text()='Fuel Sales Details Report View 2']/ancestor::tr/td//button",
+                "filename": "Fuel Sales Details Report View"
+            },
+            "fuel sales/pump totals reconciliation report": {
+                "fuel sales/pump totals reconciliation report": "//tr//span[text()='Fuel Sales/Pump Totals Reconciliation Report']/ancestor::tr/td//button",
+                "filename": "Fuel SalesPump Totals Reconciliation Report"
+            },
+            "historical fuel sales report": {
+                "historical fuel sales report": "//tr//span[text()='Historical Fuel Sales Report']/ancestor::tr/td//button",
+                "filename": "Historical Fuel Sales Report"
+            },
+            "non resettable grade totals variance report": {
+                "non resettable grade totals variance report": "//tr//span[text()='Non Resettable Grade Totals Variance Report']/ancestor::tr/td//button",
+                "filename": "Non Resettable Grade Totals Variance Report"
+            },
+            "pump totals report": {
+                "pump totals report": "//tr//span[text()='Pump Totals Report']/ancestor::tr/td//button",
+                "filename": "Pump Totals Report"
+            },
+            "tank adjustment report": {
+                "tank adjustment report": "//tr//span[text()='Tank Adjustment Report']/ancestor::tr/td//button",
+                "filename": "Tank Adjustment"
+            },
+            "tank monitor inventory report": {
+                "tank monitor inventory report": "//tr//span[text()='Tank Monitor Inventory Report']/ancestor::tr/td//button",
+                "filename": "Tank Monitor Inventory Report"
+            },
+            "tank stick reading report": {
+                "tank stick reading report": "//tr//span[text()='Tank Stick Reading Report']/ancestor::tr/td//button",
+                "filename": "Tank Stick Reading"
+            }
+        },
+        "configuration": {
+            "car wash kiosk configuration report": {
+                "car wash kiosk configuration report": "(//tr//span[text()='Car Wash Kiosk Configuration Report']/ancestor::tr/td//button)[1]",
+                "filename": "Car Wash Kiosk Configuration Report"
+            },
+            "crind merchandising configuration report": {
+                "crind merchandising configuration report": "(//tr//span[text()='CRIND Merchandising Configuration Report']/ancestor::tr/td//button)[1]",
+                "filename": "CRIND Merchandising Configuration Report"
+            },
+            "discount id report": {
+                "discount id report": "(//tr//span[text()='Discount ID Report']/ancestor::tr/td//button)[1]",
+                "filename": "Discount ID Report"
+            },
+            "employee report": {
+                "employee report": "(//tr//span[text()='Employee Report']/ancestor::tr/td//button)[1]",
+                "filename": "Employee Report"
+            },
+            "forecourt configuration report": {
+                "forecourt configuration report": "(//tr//span[text()='Forecourt Configuration Report']/ancestor::tr/td//button)[1]",
+                "filename": "Forecourt Configuration Report"
+            },
+            "fuel discount configuration report": {
+                "fuel discount configuration report": "(//tr//span[text()='Fuel Discount Configuration Report']/ancestor::tr/td//button)[1]",
+                "filename": "Fuel Discount Configuration Report"
+            },
+            "fuel grades report": {
+                "fuel grades report": "(//tr//span[text()='Fuel Grades Report']/ancestor::tr/td//button)[1]",
+                "filename": "Fuel Grades Report"
+            },
+            "plu listing report": {
+                "plu listing report": "(//tr//span[text()='PLU Listing Report']/ancestor::tr/td//button)[1]",
+                "filename": "PLU Listing Report"
+            },
+            "qualifier group report": {
+                "qualifier group report": "(//tr//span[text()='Qualifier Group Report']/ancestor::tr/td//button)[1]",
+                "filename": "Qualifier Group Report"
+            },
+            "reminder maintenance report": {
+                "reminder maintenance report": "(//tr//span[text()='Reminder Maintenance Report']/ancestor::tr/td//button)[1]",
+                "filename": "Reminder Maintenance Report"
+            },
+            "restriction group report": {
+                "restriction group report": "(//tr//span[text()='Restriction Group Report']/ancestor::tr/td//button)[1]",
+                "filename": "Restriction Group Report"
+            },
+            "tax group report": {
+                "tax group report": "(//tr//span[text()='Tax Group Report']/ancestor::tr/td//button)[1]",
+                "filename": "Tax Group Report"
+            },
+            "tender code report": {
+                "tender code report": "(//tr//span[text()='Tender Code Report']/ancestor::tr/td//button)[1]",
+                "filename": "Tender Code Report"
+            }
+        }
+    },
+    "departments": {
+        "search departments": "//input[@autoid='searchtextbox']",
+        "add": "//button[@autoid='addbutton']",
+        "department number header": "//span[@class='rz-column-title' and text()='Department Number']",
+        "department name header": "//span[@class='rz-column-title' and text()='Department Name']",
+        "dept_number_by_row": "//tr[%s]/td[1]/span",
+        "dept_name_by_row": "//tr[%s]/td[2]/span",
+        "edit": "//button[@autoid='editbutton%s']",
+        "delete": "//button[@autoid='deletebutton%s']",
+        "department number": "//div[@class='row' and *//label[@autoid='departmentnumberlabel']]//input[@tvalue='int']",
+        "department name": "//input[@autoid='departmentnametextbox']",
+        "tax group": "//div[@autoid='taxgroupdropdown']",
+        "restriction group": "//div[@autoid='restrictiongroupdropdown']",
+        "food stampable": "//div[@autoid='foodstampableswitch']",
+        "discountable": "//div[@autoid='discountableswitch']",
+        "negative department": "//div[@autoid='negativedepartmentswitch']",
+        "fractional quantity allowed": "//div[@autoid='fractionalquantityswitch']",
+        "network product code": "//input[@autoid='networkproductcodetextbox']",
+        "may appear as pos department key": "//div[@autoid='appearasdepartmentkeyswitch']",
+        "may appear as pos coupon key": "//div[@autoid='appearascouponkeyswitch']",
+        "may appear on till close report": "//div[@autoid='appearontillreportswitch']",
+        "tender restrictions": {
+            "cash": "//div[@autoid='cashcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "check": "//div[@autoid='checkcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "moneyorder": "//div[@autoid='moneyOrdercheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "foodstamps": "//div[@autoid='foodStampscheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "ebt": "//div[@autoid='ebtcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "giftcertificates": "//div[@autoid='giftCertificatescheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "creditcards": "//div[@autoid='creditCardscheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "fleetcards": "//div[@autoid='fleetCardscheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "debitcards": "//div[@autoid='debitCardscheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "radiofrequency": "//div[@autoid='radioFrequencycheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "prepaidcards": "//div[@autoid='prepaidCardscheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "smartcards": "//div[@autoid='smartCardscheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "housecharges": "//div[@autoid='houseChargescheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "driveoff": "//div[@autoid='driveOffcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "lotterywinningticket": "//div[@autoid='lotteryWinningTicketcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "lottowinningticket": "//div[@autoid='lottoWinningTicketcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "wicpayment": "//div[@autoid='wicPaymentcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "pumpfortest": "//div[@autoid='pumpForTestcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "userdefinedtendertypes": "//div[@autoid='userDefinedTenderTypescheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "generic": "//div[@autoid='genericcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "outsidecredit": "//div[@autoid='outsideCreditcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "outsidedebit": "//div[@autoid='outsideDebitcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "cashacceptorchange": "//div[@autoid='cashAcceptorChangecheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "auxilliarycredit": "//div[@autoid='auxilliaryCreditcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "outsideauxilliarycredit": "//div[@autoid='outsideAuxilliaryCreditcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "auxilliarydebit": "//div[@autoid='auxilliaryDebitcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "outsideauxilliarydebit": "//div[@autoid='outsideAuxilliaryDebitcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "mobilecredit": "//div[@autoid='mobileCreditcheckbox']//div[contains(@class, 'rz-chkbox')]",
+            "outsidemobilecredit": "//div[@autoid='outsideMobileCreditcheckbox']//div[contains(@class, 'rz-chkbox')]"
+        }
+    },
+    "fiserv site configuration": {
+        "global information": {
+            "merchant number": "//label[text()='Merchant Number']/parent::div/following-sibling::div/input",
+            "station name" : "//label[text()='Station Name']/parent::div/following-sibling::div/input",
+            "station address" : "//label[text()='Station Address']/parent::div/following-sibling::div/input",
+            "station city" : "//label[text()='Station City']/parent::div/following-sibling::div/input",
+            "station state" : "//label[text()='Station State']/parent::div/following-sibling::div/input",
+            "station zip code" : "//label[text()='Station Zip Code']/parent::div/following-sibling::div/input",
+            "host connection type" : "//label[text()='Host Connection Type']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "svc activation recharge granularity" : "//label[text()='SVC Activation Recharge Granularity']/parent::div/following-sibling::div//input",
+            "svc activation recharge minimum" : "//label[text()='SVC Activation Recharge Minimum']/parent::div/following-sibling::div//input",
+            "svc activation recharge maximum" : "//label[text()='SVC Activation Recharge Maximum']/parent::div/following-sibling::div//input",
+            "debit cash back granularity" : "//label[text()='Debit Cash Back Granularity']/parent::div/following-sibling::div//input",
+            "debit cash back minimum" : "//label[text()='Debit Cash Back Minimum']/parent::div/following-sibling::div//input",
+            "debit cash back maximum" : "//label[text()='Debit Cash Back Maximum']/parent::div/following-sibling::div//input",
+            "ebt cash back granularity" : "//label[text()='EBT Cash Back Granularity']/parent::div/following-sibling::div//input",
+            "ebt cash back minimum" : "//label[text()='EBT Cash Back Minimum']/parent::div/following-sibling::div//input",
+            "ebt cash back maximum" : "//label[text()='EBT Cash Back Maximum']/parent::div/following-sibling::div//input",
+            "debit cash back fee" : "//label[text()='Debit Cash Back Fee']/parent::div/following-sibling::div//input",
+            "debit sale fee" : "//label[text()='Debit Sale Fee']/parent::div/following-sibling::div//input",
+            "days to keep network data" : "//label[text()='Days To Keep Network Data']/parent::div/following-sibling::div//input",
+            "avs enabled by host" : "//label[text()='AVS Enabled By Host']/parent::div/following-sibling::div/input",
+            "print store copy of the receipt inside" : "//label[text()='Print store copy of the receipt inside']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "print customer copy of the receipt inside" : "//label[text()='Print customer copy of the receipt inside']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "point to point encryption (p2pe)": "//label[text()='Point to point encryption (P2PE)']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "tave domain": "//label[text()='TAVE Domain']/parent::div/following-sibling::div//input",
+            "tave processor code": "//label[text()='TAVE Processor Code']/parent::div/following-sibling::div//input",
+            "tave token type id": "//label[text()='TAVE Token Type ID']/parent::div/following-sibling::div//input", 
+            "cash advance limit": "//label[text()='Cash Advance Limit']/parent::div/following-sibling::div//input"
+        },
+        "network connection options": {
+            "com port": "//label[text()='Com Port']/parent::div/following-sibling::div//input",
+            "baud rate": "//label[text()='Baud Rate']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "access code": "//label[text()='Access Code']/parent::div/following-sibling::div/input",
+            "download phone number": "//label[text()='Download Phone Number']/parent::div/following-sibling::div/input",
+            "primary phone number": "//label[text()='Primary Phone Number']/parent::div/following-sibling::div/input",
+            "secondary phone number": "//label[text()='Secondary Phone Number']/parent::div/following-sibling::div/input",
+            "init string": "//label[text()='Init String']/parent::div/following-sibling::div/input",
+            "dial header": "//label[text()='Dial Header']/parent::div/following-sibling::div/input",
+            "dial trailer": "//label[text()='Dial Trailer']/parent::div/following-sibling::div/input",
+            "dtmf speed": "//label[text()='DTMF Speed']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "connection timer": "//label[text()='Connection Timer']/parent::div/following-sibling::div//input",
+            "host ip address": "//label[text()='Host IP Address']/parent::div/following-sibling::div/input",
+            "ip port": "//label[text()='IP Port']/parent::div/following-sibling::div//input",
+            "keep alive time frame (minutes)": "//label[text()='Keep Alive time frame (minutes)']/parent::div/following-sibling::div//input",
+            "datawire registration url": "//label[text()='Datawire Registration URL']/parent::div/following-sibling::div/input"
+        },
+        "store & forward parameters": {
+            "store & forward warning count percent": "//label[text()='Store & Forward Warning Count Percent']/parent::div/following-sibling::div//input",
+            "store & forward warning total percent": "//label[text()='Store & Forward Warning Total Percent']/parent::div/following-sibling::div//input",
+            "maximum store & forward count": "//label[text()='Maximum Store & Forward Count']/parent::div/following-sibling::div//input",
+            "maximum store & forward total": "//label[text()='Maximum Store & Forward Total']/parent::div/following-sibling::div//input",
+            "show store & forward indicator": "//div[@autoid='switch']",
+            "close password": "//label[text()='Close Password']/parent::div/following-sibling::div//input"
+        },
+        "global emv parameters": {
+            "prefer us common debit": "//label[text()='Prefer US Common Debit']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "emv fallback allowed inside": "//label[text()='EMV Fallback Allowed Inside']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "emv fallback allowed outside": "//label[text()='EMV Fallback Allowed Outside']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]"
+        },
+        "card based emv parameters": {
+            "card type": "//ul[@class='rz-listbox-list']",
+            "allow pin bypass inside": "//label[text()='Allow PIN Bypass Inside']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "allow pin bypass outside": "//label[text()='Allow PIN Bypass Outside']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "allow fallback inside": "//label[text()='Allow Fallback Inside']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "allow fallback outside": "//label[text()='Allow Fallback Outside']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]"
+        }
+    },
+    "fiserv card configuration": {
+        "card list": "//ul[@class='rz-listbox-list']",
+        "accept card": "//div[@class='row' and *//text()='Accept Card']//div[@autoid='switch' and @id='1']",
+        "inside floor limit": "//label[text()='Inside Floor Limit']/parent::div/following-sibling::div//input",
+        "crind floor limit": "//label[text()='CRIND Floor Limit']/parent::div/following-sibling::div//input",
+        "crind authorization amount": "//label[text()='CRIND Authorization Amount']/parent::div/following-sibling::div//input",
+        "crind auth control": "//label[text()='CRIND Auth Control']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+        "avs zip code prompt": "//label[text()='AVS Zip Code Prompt']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+        "can use as debit": "//div[@class='row' and *//text()='Can Use As Debit']//div[@autoid='switch' and @id='7']",
+        "manual entry allowed": "//div[@class='row' and *//text()='Manual Entry Allowed']//div[@autoid='switch' and @id='8']",
+        "track configuration": "//label[text()='Track Configuration']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+        "signature required limit" : "//label[text()='Signature Required Limit']/parent::div/following-sibling::div//input",
+        "iso": "//div[@class='row' and */label/text()='ISO']//input",
+        "perform mod check": "//div[@class[contains(.,'row')] and */*/label/text()='Perform MOD Check']//div[@autoid='switch']",
+        "mod check calculation start position": "//div[@class='row' and */label/text()='MOD Check Calculation Start Position']//input",
+        "mod check calculation length": "//div[@class='row' and */label/text()='MOD Check Calculation Length']//input",
+        "mod check digit position": "//div[@class='row' and */label/text()='MOD Check Digit Position']//input",
+        "account number length": "//div[@class='row' and */label/text()='Account Number Length']//input"
+    },
+    "fuel discount configuration": {
+        "discount group": "//div[@class[contains(.,'border-bottom')] and *//label[text()='%s']]//div[@class[contains(.,'rz-dropdown ')]]"
+    },
+    "loyalty": {
+        "add": "//*[text()='Add']",
+        "edit": "//tr[td[1][*//text()='%s']]//button[*//text()='edit']",
+        "delete": "//tr[td[1][*//text()='%s']]//button[*//text()='delete']",
+        "provider name": "//*[@class[contains(.,'rz-textbox')]]",
+        "provider type": "//*[@class='rz-dropdown valid']",
+        "check": "//*[text()='check']",
+        "close": "//*[text()='close']",
+        "ok": "//*[text()='Ok']",
+        "provider list": "//div[contains(@class, 'rz-data-grid rz-has-paginator rz-datatable  rz-datatable-scrollable ')]",
+        "general": {
+            "loyalty provider name": "//label[contains(.,'Loyalty Provider Name')]/following::input[1]",
+            "loyalty provider type": "//label[text()='Loyalty Provider Type']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "enabled": "//label[text()='Enabled']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",     
+            "site identifier": "//div[@class='row' and *//text()='Site Identifier']//input",
+            "host ip address": "//div[@class='row' and *//text()='Host IP Address']//input",
+            "port number": "//label[contains(.,'Port Number')]/following::input[1]",
+            "allow manual entry outside": "//div[@class='row' and *//text()='Allow manual entry outside']//div[@autoid='switch']",
+            "allow cashier to auth prepay only pump": "//div[@class='row' and *//text()='Allow cashier to auth prepay only pump']//div[@autoid='switch']",
+            "allow instant rewards outside": "//div[@class='row' and *//text()='Allow instant rewards outside']//div[@autoid='switch']",
+            "send all transactions to loyalty provider": "//div[@class='row' and *//text()='Send all transactions to loyalty provider']//div[@autoid='switch']",
+            "loyalty interface version": "//label[text()='Loyalty Interface Version']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "24hr loyalty period cut time": "//label[contains(.,'24hr Loyalty period cut time')]/following::input[1]",
+            "allow transponder as loyalty id": "//div[@class='row' and *//text()='Allow transponder as loyalty ID']//div[@autoid='switch']",
+            "loyalty vendor": "//label[text()='Loyalty Vendor']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "use payment cards": "//label[text()='Use Payment Cards']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "loyalty after fueling enable": "//div[@class='row' and *//text()='Loyalty After Fueling enable']//div[@autoid='switch']"
+        },
+        "receipts":{                                
+            "always print inside loyalty receipt": "//div[@class='row' and *//text()='Always print inside loyalty receipt']//div[@autoid='switch']",
+            "always print outside loyalty receipt": "//div[@class='row' and *//text()='Always print outside loyalty receipt']//div[@autoid='switch']",
+            "inside offline receipt line 1": "//label[contains(.,'Inside offline receipt line 1')]/following::input[1]",
+            "inside offline receipt line 2": "//label[contains(.,'Inside offline receipt line 2')]/following::input[1]",
+            "inside offline receipt line 3": "//label[contains(.,'Inside offline receipt line 3')]/following::input[1]",
+            "outside offline receipt line 1": "//label[contains(.,'Outside offline receipt line 1')]/following::input[1]",
+            "outside offline receipt line 2": "//label[contains(.,'Outside offline receipt line 2')]/following::input[1]",
+            "outside offline receipt line 3": "//label[contains(.,'Outside offline receipt line 3')]/following::input[1]"
+        },
+        "prompts":{
+            "pos prompt at tender": "//label[text()='POS prompt at tender']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "prompt for loyalty offline inside": "//div[@class='row' and *//text()='Prompt for Loyalty Offline Inside']//div[@autoid='switch']",
+            "prompt for loyalty offline outside": "//div[@class='row' and *//text()='Prompt for Loyalty Offline Outside']//div[@autoid='switch']",
+            "prompt customer to insert card outside": "//div[@class='row' and *//text()='Prompt customer to Insert Card Outside']//div[@autoid='switch']",
+            "prompt after mobile payment outside": "//div[@class='row' and *//text()='Prompt After Mobile Payment Outside']//div[@autoid='switch']"
+        },
+        "loyalty card mask": {
+            "add card mask": "//*[@class='rz-button-text'][text()='Add']",
+            "mask": "//label[contains(.,'Mask')]/following::input[1]",
+            "delete card mask": "//*[@class='rz-button-text'][text()='Delete']"
+        },
+        "tls parameters": {
+            "enable tls": "//label[text()='Enable TLS']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "tls certificate name": "//label[contains(.,'TLS Certificate Name')]/following::input[1]",
+            "ocsp mode": "//label[text()='OCSP Mode']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]"
+        }
+    },
+    "mobile payment": {
+        "add": "//*[text()='Add']",
+        "edit": "//tr[td[1][*//text()='%s']]//button[*//text()='edit']",
+        "delete": "//tr[td[1][*//text()='%s']]//button[*//text()='delete']",
+        "provider name": "//*[@class[contains(.,'rz-textbox')]]",
+        "accept": "//*[text()='check']",
+        "cancel": "//*[text()='close']",
+        "provider list": "//div[contains(@class, 'rz-data-grid rz-has-paginator rz-datatable  rz-datatable-scrollable ')]",
+        "general": {
+            "mobile provider name": "//label[contains(.,'Mobile Provider Name')]/following::input[1]",
+            "enabled": "//label[text()='Enabled']//parent::div//following-sibling::div//child::label",
+            "merchant id": "//label[contains(.,'Merchant ID')]/following::input[1]",
+            "site id": "//label[contains(.,'Site ID')]/following::input[1]",
+            "host address": "//label[contains(.,'Host Address')]/following::input[1]",
+            "port number": "//label[contains(.,'Port Number')]/following::input[1]",
+            "settlement software version": "//label[contains(.,'Settlement Software Version')]/following::input[1]",
+            "settlement passcode": "//label[contains(.,'Settlement Passcode')]/following::input[1]",
+            "settlement employee": "//label[contains(.,'Settlement Employee')]/following::input[1]",
+            "schema version": "//label[contains(.,'Schema Version')]/following::label[1]",
+            "use tls": "//label[contains(.,'Use TLS')]/following::label[1]",
+            "ocsp mode": "//label[contains(.,'OCSP Mode')]/following::label[1]",
+            "tls certificate name": "//label[contains(.,'TLS Certificate Name')]/following::input[1]",
+            "host offline alert enabled": "//label[contains(.,'Host Offline Alert Enabled')]/following::label[1]"
+        },
+        "conexxus qr code prefixes": {
+            "add": "//div[@autoid='title'][text()='Conexxus QR Code Prefixes']//ancestor::div[@autoid='panel']//span[text()='Add']",
+            "conexxus qr code prefixes": "//label[contains(.,'Conexxus QR Code Prefixes')]/following::input[1]",
+            "delete": "//div[@autoid='title'][text()='Conexxus QR Code Prefixes']//ancestor::div[@autoid='panel']//span[text()='Delete']"
+        },
+        "evmco qr codes": {
+            "allow emvco qr codes": "//label[contains(.,'Allow EMVCo QR Codes')]/following::label[1]"
+        },
+        "default local fuel discount": {
+            "default fuel discount group": "//div[@autoid='title'][text()='Default Local Fuel Discount']//ancestor::div[@autoid='panel']//div[contains(.,'rz-dropdown ')]"
+        },
+        "local fuel discounts": {
+            "add": "//div[@autoid='title'][text()='Local Fuel Discounts']//ancestor::div[@autoid='panel']//span[text()='Add']",
+            "delete": "//div[@autoid='title'][text()='Local Fuel Discounts']//ancestor::div[@autoid='panel']//span[text()='Delete']",
+            "discounts": "//div[@autoid='title'][text()='Local Fuel Discounts']//ancestor::div[@autoid='panel']//span[text()='%s']",
+            "mobile local discount code": "//label[text()='Mobile Local Discount Code']//parent::div//following-sibling::div//input",
+            "mobile local discount description": "//label[text()='Mobile Local Discount Description']//parent::div//following-sibling::div//input",
+            "fuel discount group": "//label[text()='Fuel Discount Group']//parent::div//following-sibling::div//input"
+        }
+    },
+    "employees": {
+		"search employees": "//input[@auto-id='SearchTextBox' and @placeholder='Search Employees']",
+		"add": "//button[@auto-id='AddButton']",
+		"edit": "//button[@auto-id='UpdateButton' and @employee-id='%s']",
+		"delete": "//button[@auto-id='DisableButton' and @employee-id='%s']",
+        "deactivate": "//span[text()='Deactivate']",
+		"employee id header": "//span[text()[contains(., 'Employee ID')]]",
+		"last name header": "//span[text()[contains(., 'Last Name')]]",
+		"first name header": "//span[text()[contains(., 'First Name')]]",
+		"status header": "//span[text()[contains(., 'Status')]]",
+		"action header": "//span[text()[contains(., 'Action')]]",
+		"personal information": {
+        	"first name": "//input[@auto-id='FirstNameTextBox']",
+			"last name": "//input[@auto-id='LastNameTextBox']",
+			"employee id": "//input[@auto-id='EmployeeIdMask']",
+			"birth date": "//div[@auto-id='BirthDateDatePicker']//input",
+			"telephone": "//input[@name='EmployeeTelephone']",
+            "language": "//div[@auto-id='LanguageDropDown']"
+		},
+        "options": {
+			"active operator": "//div[@id='ActiveOperator']",
+			"clock in/out required": "//div[@id='ClockInOutRequired']",
+			"use generic password": "//div[@id='UseGenericPassword']",
+			"security group": "//div[@auto-id='SecurityGroupIDDropDown']"
+		},
+		"balancing options": {
+			"override the blind balancing store option": "//div[@id='OverrideTheBlindBalancingStoreOption']",
+			"allowed to see the totals when balancing": "//div[@id='EnableToSeeTotalsWhenBalancing']"
+		}
+    },
+    "income/expense accounts": {
+        "add": "//button[@autoid='AddButton']",
+        "account id header": "//span[@class='rz-column-title' and text()='Account Id']",
+        "description header": "//span[@class='rz-column-title' and text()='Description']",
+        "account id": "//input[@name='OperatorId']",
+        "description": "//input[@name='OperatorId']/following::input[1]",
+        "account type": "//div[@autoid='AccountTypeDropDown']",
+        "allow miscellaneous tender transfers": "//div[@id='AllowMiscTenderTransfers' and @class[not(contains(.,'disabled'))]]",
+        "checkmark": "//button[@autoid='AcceptButton']",
+        "cancel": "//button[@autoid='CancelButton']",
+        "edit": "//tr[*//text()='%s']//button[@autoid='EditButton']",
+        "delete": "//tr[*//text()='%s']//button[@autoid='DeleteButton']"
+    },
+    "security groups":{
+        "add": "//button[@autoid='AddButton']",
+        "security group description header": "//span[@class[contains(.,'title')] and text()='Security Group Description']",
+        "security level header": "//span[@class[contains(.,'title')] and text()='Security Level']",
+        "copy": "//tr[*//text()='%s']//button[@autoid='CopyButton']",
+        "edit": "//tr[*//text()='%s']//button[@autoid='EditButton']",
+        "delete": "//tr[*//text()='%s']//button[@autoid='DeleteButton']",
+        "first page arrow": "//a[@class[contains(.,'paginator-first')]]",
+        "previous page arrow": "//a[@class[contains(.,'paginator-prev')]]",
+        "next page arrow": "//a[@class[contains(.,'paginator-next')]]",
+        "last page arrow": "//a[@class[contains(.,'paginator-last')]]",
+        "1": "//a[@class[contains(.,'paginator-page')] and text()='1']",
+        "2": "//a[@class[contains(.,'paginator-page')] and text()='2']",
+        "3": "//a[@class[contains(.,'paginator-page')] and text()='3']",
+        "4": "//a[@class[contains(.,'paginator-page')] and text()='4']",
+        "5": "//a[@class[contains(.,'paginator-page')] and text()='5']",
+        "security group": {
+        	"security group description": "//input[@autoid='DescriptionTextBox']",
+        	"security level": "//input[@autoid='LevelMask']"
+        },
+		"application functions": {
+        	"search": "//input[@id='ApplicationSelectorSearch']",
+        	"reset": "//button[*//span[text()='Reset']]",
+     		"clear": "//button[*//span[text()='Clear']]",
+            "checkbox": "//div[@class[contains(.,'rz-treenode')] and *//label[text()='%s']]//div[@class[contains(., 'rz-chkbox-box')] and not(ancestor::*/@style[contains(.,'display:none')])]",
+            "system_application_checkbox": "//div[@class[contains(.,'rz-treenode')] and *//label[text()='%s' and @autoid='DescriptionLabel']]//div[@autoid='ApplicationCheckBox']//div[@class[contains(., 'rz-chkbox-box')]]",
+            "application_function_checkbox": "//div[@class[contains(.,'rz-treenode')] and *//label[text()='%s' and not(@autoid)]]//div[@class[contains(., 'rz-chkbox-box')] and not(ancestor::*/@style[contains(.,'display:none')])]",
+            "arrow": "//div[@class[contains(.,'rz-treenode')] and *//label[text()='%s']]//span[@class[contains(.,'caret')]]",
+            "reset system application": "//div[@class[contains(.,'rz-treenode')] and *//label[text()='%s']]//button",
+            "system applications": "//li[@class='rz-treenode']//label[@autoid='DescriptionLabel']",
+            "application functions": "//li[@class='rz-treenode' and *//label[@autoid='DescriptionLabel']//text()='%s']//label[not(@autoid='DescriptionLabel')]",
+            "system application": "//li[@class='rz-treenode']//label[@autoid='DescriptionLabel' and text()='%s']",
+            "application function": "//li[@class='rz-treenode']//ul[not(@style[contains(.,'display:none')])]//label[text()='%s']"
+        }
+    }, 
+    "store options": {
+		"general": {
+			"general":"//div[@autoid='generalcollapsiblepanel']",
+			"store number": "//input[@autoid='storenumbertextbox' and @name='StoreNumber']",
+			"store name": "//input[@autoid='storenametextbox' and @name='StoreName']",
+			"address line 1": "//input[@id='AddressLine1']",
+			"address line 2": "//input[@id='AddressLine2']",
+			"address line 3": "//input[@id='AddressLine3']",
+			"city": "//input[@id='City']",
+			"state": "//input[@id='State']",
+			"postal code": "//input[@id='PostalCode']",
+			"use store name and address for receipt header": "//div[@autoid='receiptheaderswitch']",
+			"allow the sale of items not found in the price book": "//div[@autoid='allownotfounditemsswitch']",
+			"store phone number": "//input[@autoid='storephonemask']",
+			"help desk": "//input[@autoid='helpdeskphonemask']",
+            "default system language": "//div[@autoid='systemlanguagedropdown']",
+			"default system currency": "//div[@autoid='systemcurrencydropdown']"
+		},
+		"password": {
+			"password":"//div[@autoid='passwordcollapsiblepanel']",
+			"password required": "//div[@autoid='passwordrequiredswitch']",
+			"minimum password length": "//span[@autoid='passwordminlengthnumeric']/input",
+			"maximum password length": "//span[@autoid='passwordmaxlengthnumeric']/input",
+			"generic password": "//input[@autoid='defaultpasswordtextbox']",
+			"password expires in": "//input[@autoid='passwordexpirenumeric']",
+			"invalid sign-on attempts allowed": "//input[@autoid='passwordattemptsnumeric']",
+			"password reuse allowed after": "//input[@autoid='passwordreusenumeric']",		
+			"extend secure remote access for helpdesk at all times": "//div[@autoid='extendremoteaccessswitch']",
+			"enable enhanced remote support passwords": "//div[@autoid='enableenhancedremotepasswordsswitch']",
+			"alphanumeric": "//div[@autoid='passwordalphanumradio']",
+			"alphanumeric with symbols": "//div[@autoid='passwordalphanumsymbolsradio']"
+		},
+		"store coupons": {
+			"store coupons": "//div[@autoid='storecouponscollapsiblepanel']",
+			"select an existing department or enter a new department id": "//div[@autoid='coupondepartmentdropdown']",
+			"dept id": "//span[@autoid='newdepartmentnumeric']/input",
+			"dept_id_up_button": "//button[contains(@class, 'rz-spinner-up')]",
+			"dept_id_down_button": "//button[contains(@class, 'rz-spinner-down')]",
+			"create dept": "//button[@autoid='newdepartmentbutton']",
+			"maximum value for coupon": "//input[@autoid='couponlimitnumeric']"
+		},
+		"logging": {
+			"logging": "//div[@autoid='logcollapsiblepanel']",
+			"days worth of receipts available for reprint": "//input[@autoid='receiptreprintnumeric']",
+			"days worth of electronic journal entries": "//input[@autoid='electronicjournalnumeric']",
+			"days worth of detailed sales": "//input[@autoid='detailedsalesnumeric']",
+			"days worth of system events": "//input[@autoid='systemeventsnumeric']",
+			"days worth of reports": "//input[@autoid='reportsnumeric']",
+			"days worth of network journal entries": "//input[@autoid='networkjournalnumeric']",
+			"halt store close until suspended transactions are resumed": "//div[@autoid='haltendofdayswitch']",
+			"?": "//img[@autoid='haltendofdaytooltip']",
+			"tooltip_message": "//div[contains(@class, 'rz-popup')]//span[text()[contains(., 'suspend')]]",
+			"suppress network surcharge fees from totals": "//div[@autoid='suppressfeesswitch']"
+		},
+		"taxation rules": {
+			"taxation rules": "//div[@autoid='taxationrulescollapsiblepanel']",
+			"do not print a tax total line on the receipt": "//div[@autoid='noprintradio']",
+			"print individual tax rates and the amount charged on the receipt": "//div[@autoid='printindividualradio']",
+			"print just a tax total line on the receipt, with description": "//div[@autoid='printtotalradio']",
+			"tax total line description": "//input[@autoid='receiptplaceholdertextbox']",
+			"do not print tax total line if tax total is zero": "//div[@autoid='printzeroswitch']"
+		},
+        "pouch/envelope colors": {
+            "pouch/envelope colors": "//div[@autoid='pouchcollapsiblepanel']",
+			"add": "//button[@autoid='coloraddbutton']",
+            "edit": "//tr[//span[text()='%s']]//button[@autoid[contains(.,'editbutton')]]",
+            "delete": "//tr[//span[text()='%s']]//button[@autoid[contains(.,'deletebutton')]]",
+            "pouch/envelope color": "//input[@autoid[contains(.,'newcolor')]]",
+            "accept": "//button[@autoid[contains(.,'accept')]]",
+            "cancel": "//button[@autoid[contains(.,'cancel')]]"
+        },
+		"age verification": {
+			"age verification": "//div[@autoid='ageverificationcollapsiblepanel']",
+			"print verification indicator on receipt": "//div[@autoid='printverificationswitch']",
+			"accept expired driver license": "//div[@autoid='acceptexpiredswitch']"
+		},
+		"embedded barcode": {
+			"embedded barcode": "//div[@autoid='embeddedbarcodecollapsiblepanel']",
+			"enable price embedded barcode": "//div[@autoid='enablepriceembedswitch']",
+			"embedded price is four digits in length": "//div[@autoid='fourdigitsradio']//div[@class[contains(., 'rz-radiobutton-box')]]",
+			"embedded price is five digits in length": "//div[@autoid='fivedigitsradio']//div[@class[contains(., 'rz-radiobutton-box')]]"
+		},
+		"time clock": {
+			"time clock": "//div[@autoid='timeclockcollapsiblepanel']",
+			"enable clock in/out": "//div[@autoid='enableclockinswitch']",
+			"require clock in reason": "//div[@autoid='requirereasonswitch']",
+			"print clock in/out reason": "//div[@autoid='printreasonswitch']",
+            "reason": "//input[@autoid[contains(., 'timeclockreason')]]",
+            "accept": "//button[@autoid[contains(., 'acceptbutton')]]",
+            "cancel": "//button[@autoid[contains(., 'canceleditbutton')]]",
+			"add": "//button[@autoid='reasonaddbutton']",
+			"edit": "//tr[*/span[text()='%s']]//button[@autoid[contains(.,'editbutton')]]",
+			"delete": "//tr[*/span[text()='%s']]//button[@autoid[contains(.,'deletebutton')]]",
+			"up": "//tr[*/span[text()='%s']]//button[@autoid[contains(.,'upbutton')] and @title='Up']",
+			"down": "//tr[*/span[text()='%s']]//button[@autoid[contains(.,'upbutton')] and @title='Down']"
+        }
+	},
+    "site options": {
+		"general": {
+            "enable emv": "//*[@id='EMVEnabled' and @autoid='switch']",
+            "enable emv contactless": "//*[@id='EMVCtlsEnabled']",
+            "zero ppu programming allowed": "//*[@id='AllowZeroPPU']",
+            "allow exclusive tax to be assigned to fuel": "//*[@id='AllowExclusiveTax']",
+            "require whole dollar amounts for prepay/preset transactions": "//*[@id='RequireWholeDollarAmt']",
+            "ppu format": "//label[text()='PPU Format']/following::button/span[text()='%s']",
+            "maximum ppu": "//input[@name='MaximumPPU']",
+            "minimum ppu": "//input[@name='MinimumPPU']",
+            "maximum number of live pumps": "//input[@name='Max Number of Live Pumps' and @type='text']",
+            "gsm connected": "//*[@id='GSMConnected']",
+            "enable crind tone for ppu rollback": "//*[@id='EnableRollbackTones']",
+            "crind authorization time out": "//label[text()='CRIND Authorization Time Out']/following::input[1]",
+            "enable post pay fueling limit": "//*[@id='PostpayLimitEnabled']",
+            "post pay fueling limit": "//div[div/div/div/div/label//text()='Enable Post Pay Fueling Limit']//input[@type='text']",
+            "linear unit of measure": "//label[text()='Linear Unit Of Measure']/following::input",
+            "volume unit of measure": "//label[text()='Volume Unit Of Measure']/following::input"
+        },
+        "service levels & pricing modes": {
+            "edit": "//*[text()='%s']/following::button[@autoid='EditButton'][1]",
+            "delete": "//*[text()='%s']/following::button[@autoid='DeleteButton'][1]",
+            "accept": "//button[@autoid='AcceptButton']",
+            "cancel": "//button[@autoid='CancelButton']",
+            "service level": "//input[@name='ServiceLevelName']",
+            "pricing mode": "//input[@name='Name']",
+            "add service level": "//*[text()='Service Levels']/following::button[@autoid='AddButton'][1]",
+            "add pricing mode": "//*[text()='Pricing Modes']/following::button[@autoid='AddButton'][1]",
+            "service level list": "//span[@title='Service Level']//ancestor::table[@class[contains(.,'rz-grid-table')]]",
+            "pricing mode list": "//span[@title='Pricing Mode']//ancestor::table[@class[contains(.,'rz-grid-table')]]"
+        },
+        "pricing level": {
+            "enabled": "//*[@id='PricingEnabled']",
+            "cash": "//tr[td/span/text()='Cash']//div[@class[contains(.,'buttonset')]]",
+            "check": "//tr[*//text()='Check']//div[@class[contains(.,'buttonset')]]",
+            "local accounts": "//tr[*//text()='Local Accounts']//div[@class[contains(.,'buttonset')]]",
+            "integrated debit": "//tr[*//text()='Integrated Debit']//div[@class[contains(.,'buttonset')]]",
+            "non-integrated debit": "//tr[*//text()='Non-integrated Debit']//div[@class[contains(.,'buttonset')]]",
+            "integrated credit": "//tr[*//text()='Integrated Credit']//div[@class[contains(.,'buttonset')]]",
+            "non-integrated credit": "//tr[*//text()='Non-integrated Credit']//div[@class[contains(.,'buttonset')]]",
+            "integrated honor card": "//tr[*//text()='Integrated Honor Card']//div[@class[contains(.,'buttonset')]]",
+            "imprinter (integrated)": "//tr[*//text()='Imprinter (Integrated)']//div[@class[contains(.,'buttonset')]]",
+            "imprinter (non-integrated)": "//tr[*//text()='Imprinter (Non-integrated)']//div[@class[contains(.,'buttonset')]]",
+            "integrated ebt cash": "//tr[*//text()='Integrated EBT Cash']//div[@class[contains(.,'buttonset')]]",
+            "integrated ebt food": "//tr[*//text()='Integrated EBT Food ']//div[@class[contains(.,'buttonset')]]",
+            "ebt cash (non-integrated)": "//tr[*//text()='Coupon']//div[@class[contains(.,'buttonset')]]",
+            "ebt food (non-integrated)": "//tr[*//text()='EBT Food (Non-integrated)']//div[@class[contains(.,'buttonset')]]",
+            "coupon": "//tr[*//text()='Coupon']//div[@class[contains(.,'buttonset')]]",
+            "integrated commercial check": "//tr[*//text()='Integrated Commercial Check']//div[@class[contains(.,'buttonset')]]"
+        },
+        "display message": {
+            "promotional display": "//*[@name='PromotionalDisplayMessages']",
+            "promotional display list": "//div[@class='rz-listbox-list-wrapper']",
+            "warning screen display": "//*[@name='WarningScreenDisplay']"
+        },
+        "receipt & coupon": {
+            "receipt header": "//*[@name='ReceiptHeaderMessages']",
+            "left align header": "//*[@name='ReceiptHeaderMessages']/following::button[@title='Left Align']",
+            "center align header": "//input[@name='ReceiptHeaderMessages']/following::button[@title='Center Align']",
+            "receipt header list": "//*[@id='YvgJkrpe4U']/div[2]",
+            "receipt trailer": "//*[@name='ReceiptTrailerMessages']",
+            "left align trailer": "//*[@name='ReceiptTrailerMessages']/following::button[@title='Left Align']",
+            "center align trailer": "//*[@name='ReceiptTrailerMessages']/following::button[@title='Center Align']",
+            "receipt trailer list": "//*[@id='niudgux3oU']/div[2]/ul",
+            "receipt prompt time out": "//input[@name='Receipt Prompt Timeout Textbox']",
+            "print coupon": "//*[@id='PrintCouponEnabled']",
+            "coupon message": "//*[@name='CouponMessages']",
+            "coupon message list": "//*[@id='Y5c3XXlnXE']/div[2]/ul"
+        },
+        "attendant options": {
+            "token prefix": "//label[text()='Token Prefix:']/following::input",
+            "receipt for crind": "//*[text()[contains(., 'receipt for CRIND')]]/parent::div/preceding-sibling::div[@class[contains(.,'rz-dropdown')]]",
+            "receipt for prepays": "//label[text()[contains(., 'receipt for prepays')]]/parent::div/preceding-sibling::div[@class[contains(.,'rz-dropdown')]]",
+            "receipt for attendant": "//label[text()[contains(., 'receipt for attendant token')]]/parent::div/preceding-sibling::div[@class[contains(.,'rz-dropdown')]]",
+            "show outstanding balance on attendant options screen at cashier workstation": "//*[@id='AllAttendantBalanceQuery']"
+        },
+        "price sign": {
+            "enable price sign": "//*[@id='PriceSignEnabled']",
+            "conexxus protocol": "//*[@id='PriceSignIsConexxus']",
+            "manufacturer": "//*[@name='Manufacturer Textbox']",
+            "model": "//*[@name='Model Textbox']",
+            "port": "//*[@name='Port Textbox']",
+            "price categories": "//table[@class[contains(.,'rz-grid-table')]]/tbody/tr",
+            "price category": "//table[@class[contains(.,'rz-grid-table')]]/tbody/tr[@class[contains(.,'rz-datatable-edit')]]/td[1]//div[1]",
+            "fuel grade": "//table[@class[contains(.,'rz-grid-table')]]/tbody/tr[@class[contains(.,'rz-datatable-edit')]]/td[2]//div[1]",
+            "service level": "//table[@class[contains(.,'rz-grid-table')]]/tbody/tr[@class[contains(.,'rz-datatable-edit')]]/td[3]//div[1]",
+            "pricing level": "//table[@class[contains(.,'rz-grid-table')]]/tbody/tr[@class[contains(.,'rz-datatable-edit')]]/td[4]//div[1]",
+            "add": "//*[@name='Port Textbox']/following::button[1]",
+            "checkmark": "//table[@class[contains(.,'rz-grid-table')]]/tbody/tr[@class[contains(.,'rz-datatable-edit')]]/td[5]//button[1]",
+            "cancel": "//table[@class[contains(.,'rz-grid-table')]]/tbody/tr[@class[contains(.,'rz-datatable-edit')]]/td[5]//button[2]",
+            "edit": "//*[text()='%s']//parent::td//following-sibling::td//child::button[1]",
+            "delete": "//*[text()='%s']//parent::td//following-sibling::td//child::button[2]"
+        },
+        "restricted": {
+            "enable purchase at pump": "//*[@id='ExternalMerchandisingEnabled']",
+            "mandatory authorization of all fuel sales": "//*[@id='MandatoryAuthEnabled']",
+            "passcode to pause dispenser door alarm": "//label[text()='Passcode to Pause Dispenser Door Alarm']/following::input"     
+        },
+        "warning screen display alert": "//p[text()='The Pre-fueling message will not take effect until it is enabled in Dispenser Options']"
+    },
+    "tenders": {
+        "add": "//button[@autoid='addbutton']",
+        "tender grid": "//*[@autoid='tendergrid']",
+        "description header": "//span[@title='Description']",
+        "code header": "//span[@title='Code']",
+        "status header": "//span[@title='Status']",
+        "status": "//span[text()='%s']/following::div[@autoid='Active'][1]",
+        "edit": "//tr[*//text()='%s']//button[@autoid[contains(.,'edit')]]",
+        "page numbers": "//*[@class='rz-paginator-pages']",
+        "page": "//*[text()='%s' and @class='rz-paginator-page rz-paginator-element ']",
+        "current page": "//*[@class='rz-paginator-page rz-paginator-element rz-state-active']",
+        "general": {
+            "tender description": "//input[@autoid='TenderDescription']",
+            "tender code": "//label[text()='Tender Code']/following::input[1]",
+            "tender group": "//*[@autoid='TenderGroupId']",
+            "enable safe drops": "//*[@autoid='EnableSafeDropsswitch']",
+            "print tax invoice on receipt": "//*[@autoid='PrintTaxInvoiceOnReceiptswitch']",
+            "receipt description": "//input[@autoid='ReceiptDescription']",
+            "tender button description": "//input[@autoid='TenderButtonDescription']",
+            "nacs tendercode": "//*[@autoid='TenderCodeId']"
+        },
+        "transaction tender limits":{
+            "minimum allowed": "//*[@autoid='MinimumAllowed']",
+            "maximum allowed": "//*[@autoid='MaximumAllowed']",
+            "repeated use limit": "//label[text()='Repeated Use Limit']/following::input[1]",
+            "maximum refund": "//*[@autoid='MaximumRefund']",
+            "primary tender for change": "//*[@autoid='PrimaryTenderForChange']",
+            "maximum primary change allowed": "//*[@autoid='MaximumPrimaryChangeAllowed']",
+            "secondary tender for change": "//*[@autoid='SecondaryTenderForChange']"
+        },
+        "select register group": {
+            "sales": "//label[text()='%s']/following::div[1]",
+            "refunds": "//label[text()='%s']/following::div[3]",
+            "loans": "//label[text()='%s']/following::div[5]",
+            "paid ins": "//label[text()='%s']/following::div[7]",
+            "paid outs": "//label[text()='%s']/following::div[9]",
+            "open cash drawer": "//label[text()='%s']/following::div[11]"
+        },
+        "currency and denomination": {
+            "denomination grid": "//*[@autoid='DenominationsGrid']",
+            "add": "//button[@autoid='addbutton']",
+            "edit": "//tr[*//text()='%s']//button[*//text()='edit']",
+            "delete": "//tr[*//text()='%s']//button[*//text()='delete']",
+            "description": "//input[@name='DenominationDescription']",
+            "amount": "//button[@autoid='AcceptButton']//preceding::span[@autoid='DenominationAmount']/input",
+            "bill": "//tr[*//*[@autoid='DenominationAmount']][1]//div[@autoid='IsBill']",
+            "accept": "//button[@autoid='AcceptButton']",
+            "cancel": "//button[@autoid='CancelButton']"
+        },
+        "preset tender buttons": {
+            "next highest amount": "//*[text()='%s']/following::div[1]",
+            "exact amount": "//*[text()='%s']/following::div[3]",
+            "button1": "//*[text()='%s']/following::div[5]",
+            "button2": "//*[text()='%s']/following::div[8]",
+            "button3": "//*[text()='%s']/following::div[11]",
+            "button4": "//*[text()='%s']/following::div[14]"
+        }
+    },
+    "report printing options": {
+        "configuration": {
+            "configuration": "(//a[@id='rz-panel-0-label'])[1]",
+            "print the report": "//div[@autoid='printreportswitch']",
+            "generate pdf files": "//div[@autoid='generatepdfswitch']",
+            "generate pdf with password": "//div[@autoid='generatepdfwithpasswordswitch']",
+            "generate pdf with password textbox": "//input[@autoid='pdfpasswordtextbox']",
+            "copy reports to local xml gateway back office share": "//div[@autoid='copytoxmlgatewayswitch']",
+            "copy reports to local ppxmldata share": "//div[@autoid='copytoppxmldataswitch']",
+            "copy reports to insite360": "//div[@autoid='copytoinsite360switch']",
+            "copy reports to alternate destination": "//div[@autoid='copytoalternatedestionationswitch']",
+            "copy reports to alternate destination textbox": "//input[@autoid='alternatedestinationtextbox']"
+        },
+        "ftp options": {
+            "ftp options": "(//a[@id='rz-panel-0-label'])[2]",
+            "copy reports to ftp location": "//div[@autoid='copytoftpswitch']",
+            "host description": "//input[@autoid='hostdescriptiontextbox']",
+            "host address": "//input[@autoid='hostaddresstextbox']",
+            "host port": "//span[@autoid='hostportnumeric']/input",
+            "user name": "//input[@autoid='usernametextbox']",
+            "password": "//input[@autoid='passwordtextbox']",
+            "ftp folder": "//input[@autoid='ftpfoldertextbox']",
+            "use secure ftp (ftps)": "//div[@autoid='usesecureftpswitch']"
+        }
+    },
+    "donations" : {
+        "enable inside donation prompting": "//label[@for='EnableInsideDonations']//parent::div//preceding-sibling::div",
+        "enable outside donation prompting": "//label[@for='EnableOutsideDonations']//parent::div//preceding-sibling::div",
+        "charity name": "//input[@name='CharityName']",
+        "play sound when donation is accepted": "//input[@name='PlaySound']//ancestor::div[@autoid='switch']",
+        "network product code": "//input[@name='NetworkProductCode']",
+        "button one": {
+            "button one custom value": "//fieldset[*//span[text()='Button One']]//input[@value='CustomValue']/parent::div/following-sibling::div",
+			"button one custom value text": "//fieldset[*//text()='Button One']//input[@type='text']",
+            "button one round up": "//fieldset[*//span[text()='Button One']]//input[@value='RoundUp']/parent::div/following-sibling::div",
+            "button one no thanks": "//fieldset[*//span[text()='Button One']]//input[@value='NoThanks']/parent::div/following-sibling::div",
+            "button one not used": "//fieldset[*//span[text()='Button One']]//input[@value='NotUsed']/parent::div/following-sibling::div"
+        },
+        "button two": {
+            "button two custom value": "//fieldset[*//span[text()='Button Two']]//input[@value='CustomValue']/parent::div/following-sibling::div",
+			"button two custom value text": "//fieldset[*//text()='Button Two']//input[@type='text']",
+            "button two round up": "//fieldset[*//span[text()='Button Two']]//input[@value='RoundUp']/parent::div/following-sibling::div",
+            "button two no thanks": "//fieldset[*//span[text()='Button Two']]//input[@value='NoThanks']/parent::div/following-sibling::div",
+            "button two not used": "//fieldset[*//span[text()='Button Two']]//input[@value='NotUsed']/parent::div/following-sibling::div"
+        },
+        "button three": {
+            "button three custom value": "//fieldset[*//span[text()='Button Three']]//input[@value='CustomValue']/parent::div/following-sibling::div",
+			"button three custom value text": "//fieldset[*//text()='Button Three']//input[@type='text']",
+            "button three round up": "//fieldset[*//span[text()='Button Three']]//input[@value='RoundUp']/parent::div/following-sibling::div",
+            "button three no thanks": "//fieldset[*//span[text()='Button Three']]//input[@value='NoThanks']/parent::div/following-sibling::div",
+            "button three not used": "//fieldset[*//span[text()='Button Three']]//input[@value='NotUsed']/parent::div/following-sibling::div"
+        },
+        "button four": {
+            "button four custom value": "//fieldset[*//span[text()='Button Four']]//input[@value='CustomValue']/parent::div/following-sibling::div",
+			"button four custom value text": "//fieldset[*//text()='Button Four']//input[@type='text']",
+            "button four round up": "//fieldset[*//span[text()='Button Four']]//input[@value='RoundUp']/parent::div/following-sibling::div",
+            "button four no thanks": "//fieldset[*//span[text()='Button Four']]//input[@value='NoThanks']/parent::div/following-sibling::div",
+            "button four not used": "//fieldset[*//span[text()='Button Four']]//input[@value='NotUsed']/parent::div/following-sibling::div"
+        }
+    },
+    "forecourt installation": {
+        "blended site": "//div[@autoid='BlendedSiteSwitchswitch']",
+        "dispensers": {
+            "add": "//button[@autoid='DispenserAddButton']",
+            "accept": "//button[@autoid='DispenserEditOkButton']",
+            "cancel": "//button[@autoid='DispenserEditCancelButton']",
+            "edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='DispenserChangeButton']",
+            "copy": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='DispenserCopyButton']",
+            "delete": "//button[@autoid='DispenserDeleteButton']",
+            "manufacturer": "//input[@autoid='Manufacturer']",
+            "serial number": "//input[@autoid='SerialNumber']",
+            "dispenser type": "//div[@autoid='DispenserType']",
+            "unit of measure": "//div[@autoid='UnitOfMeasure']",
+            "low volume": "//span[@autoid='LowVolume']/input",
+            "shutoff volume": "//span[@autoid='ShutoffVolume']/input",
+            "pump protocol": "//div[@autoid='PumpProtocol']",
+            "payment terminal type": "//div[@autoid='PaymentTerminalType']",
+            "use ip address for pump": "//div[@autoid='UseIpAddressPumpSwitchswitch']",
+            "use ip address for terminal": "//div[@autoid='CATIpAddressSwitchswitch']",
+            "pump loop": "//span[@autoid='Loop']/input",
+            "pump device id": "//span[@autoid='DeviceId']/input",
+            "pump ip address": "//input[@autoid='IpAddressPumpTextBox']",
+            "cat loop": "//span[@autoid='CATLoop']/input",
+            "cat device id": "//span[@autoid='CATDeviceId']/input",
+            "dcb address": "//span[@autoid='DCBAddress']/input",
+            "dcb side": "//div[@autoid='DCBSide']",
+            "wayne/invenco ip address": "//input[@autoid='CATIpAddressTextBox']",
+            "tdes epp installed": "//div[@autoid='TDESswitch']",
+            "bill acceptor": "//div[@autoid='BillAcceptorswitch']",
+            "bar code": "//div[@autoid='BarCodeswitch']",
+            "auto on": "//div[@autoid='AutoOnswitch']",
+            "door alarm": "//div[@autoid='DoorAlarmswitch']",
+            "use dsm": "//div[@autoid='DSMswitch']",
+            "spc": "//div[@autoid='Spcswitch']",
+            "slow down": "//span[@autoid='SlowDown']/input",
+            "dpt loop": "//span[@autoid='DPTLoop']/input",
+            "dpt device id": "//span[@autoid='DPTDeviceId']/input",
+            "commercial diesel": "//div[@autoid='CommercialDieselswitch']",
+            "reefer": "//div[@autoid='ReeferEnabledswitch']"
+        },
+        "product": {
+            "add": "//button[@autoid='ProductAddButton']",
+            "accept": "//button[@autoid='ProductEditOkButton']",
+            "cancel": "//button[@autoid='ProductEditCancelButton']",
+            "inclusive tax": "//div[@autoid='productCollapsiblepanel']//tr[*//text()='%s']//div[@class[contains(.,'switch')]]",
+            "edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='ProductEditButton']",
+            "delete": "//button[@autoid='ProductDeleteButton']",
+            "name": "//*[@autoid[contains(.,'ProductName')]]",
+            "abbreviation": "//input[@autoid='ProductAbbreviationTextBox']",
+            "reefer": "//div[@autoid='ReeferDropDown']",
+            "reefer abbr.": "//input[@autoid='ReeferAbbreviationTextBox']",
+            "tax group": "//div[@class='row' and *//text()='Tax Group']//div[@class[contains(.,'rz-dropdown ')]]",
+            "tax type": "//div[@class='row' and *//text()='Tax Type']//div[@class[contains(.,'rz-buttonset')]]"
+        },
+        "tanks": {
+            "add": "//button[@autoid='TankAddButton']",
+            "accept": "//button[@autoid='TankEditOkButton']",
+            "cancel": "//button[@autoid='TankEditCancelButton']",
+            "edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='TankChangeButton']",
+            "delete": "//button[@autoid='TankDeleteButton']",
+            "manufacturer": "//input[@autoid='TankManufacturerTextBox']",
+            "serial number": "//input[@autoid='TankSerialNumberTextBox']",
+            "model": "//input[@autoid='TankModelTextBox']",
+            "diameter": "//span[@autoid='TankDiameterNumeric']//input",
+            "capacity": "//span[@autoid='TankCapacityNumeric']//input",
+            "product": "//div[@autoid='TankProductDropDown']",
+            "manifold group": "//span[@autoid='TankManifoldGroupNumeric']//input",
+            "wayne spc": "//div[@autoid='TankWayneSpcDropDown']"
+        },
+        "tank - product to dispensers": {
+            "tank product 1": "//div[@autoid='TankProductDropDown1']",
+            "tank product 2": "//div[@autoid='TankProductDropDown2']",
+            "tank product 3": "//div[@autoid='TankProductDropDown3']",
+            "tank product 4": "//div[@autoid='TankProductDropDown4']",
+            "tank product 5": "//div[@autoid='TankProductDropDown5']",
+            "tank product 6": "//div[@autoid='TankProductDropDown6']",
+            "edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='TankProductEditButton']",
+            "accept": "//i[text()='done']",
+            "cancel": "//button[@class[contains(.,'rz-button')]//i[text()='close']"
+        },
+        "grades": {
+			"add": "//button[@autoid='GradeAddButton']",
+			"edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='GradeEditButton']",
+			"delete": "//button[@autoid='GradeDeleteButton']",
+			"name": "//*[@autoid='GradeNameDropDown' or @autoid='GradeNameTextBox']",	
+            "abbreviation": "//input[@autoid='GradeAbbreviationTextBox']",	
+            "reefer": "//div[@autoid='ReeferDropDown']",
+            "reefer abbr.": "//input[@autoid='ReeferAbbreviationTextBox']",
+            "blended grade": "//div[@autoid='BlendedGradeSwitchswitch']",
+			"low product": "//div[@autoid='LowProductDropDown']",
+			"low product %": "//span[@autoid='LowProductPercent']//input",
+			"high product": "//div[@autoid='HighProductDropDown']",
+			"tax type": "//div[@class='row' and *//text()='Tax Type']//div[@class[contains(.,'rz-buttonset')]]",
+			"tax group": "//div[@class='row' and *//text()='Tax Group']//div[@class[contains(., 'rz-dropdown ')]]",
+            "accept": "//button[@autoid='GradeEditOkButton']",
+			"cancel": "//button[@autoid='GradeEditCancelButton']"
+		},
+        "grades to dispensers": {
+			"grade 1": "//div[@autoid='GradeToDispenserDropDown1']",
+			"grade 2": "//div[@autoid='GradeToDispenserDropDown2']",
+			"grade 3": "//div[@autoid='GradeToDispenserDropDown3']",
+			"grade 4": "//div[@autoid='GradeToDispenserDropDown4']",
+			"grade 5": "//div[@autoid='GradeToDispenserDropDown5']",
+			"grade 6": "//div[@autoid='GradeToDispenserDropDown6']",
+			"edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='GradeToDispenserEditButton']",
+            "accept": "//i[text()='done']",
+			"cancel": "//button[@class[contains(.,'rz-button')]//i[text()='close']"
+		},
+        "tank monitor": {
+			"add": "//button[@autoid='TankMonitorAddButton']",
+			"edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='TankMonitorChangeButton']",
+			"delete": "//button[@autoid='TankMonitorDeleteButton']",
+			"type": "//div[@autoid='TankMonitorTypeDropDown']",
+			"manufacturer": "//input[@autoid='TankMonitorManufacturerTextBox']",
+			"model": "//input[@autoid='TankMonitorModelTextBox']",
+			"serial number": "//input[@autoid='TankMonitorSerialNumberTextBox']",
+			"port": "//div[@autoid='TankMonitorPortDropDown']",
+            "baud rate": "//div[@autoid='TankMonitorBaudRateDropDown']",
+			"parity": "//div[@autoid='TankMonitorParityDropDown']",
+			"data bits": "//div[@autoid='TankMonitorDataBitsDropDown']",
+			"stop bits": "//div[@autoid='TankMonitorStopBitsDropDown']",
+			"version no": "//input[@autoid='VersionNumberTextBox']",
+			"accept": "//i[text()='done']",
+			"cancel": "//button[@autoid='TankMonitorEditCancelButton']"
+        },
+        "tank probe": {
+			"add": "//button[@autoid='TankProbeAddButton']",
+			"edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='TankProbeEditButton']",
+			"delete": "//button[@autoid='TankProbeDeleteButton']",
+			"tank": "//div[@autoid='TankProbeTankIdDropDown']",
+			"manufacturer": "//input[@autoid='TankProbeManufacturerTextBox']",
+			"model": "//input[@autoid='TankProbeModelTextBox']",
+			"serial number": "//input[@autoid='TankProbeSerialNumberTextBox']",
+			"accept": "//i[text()='done']",
+			"cancel": "//button//i[text()='close']"
+        },
+        "kiosk": {
+            "add": "//button[@autoid='KioskAddButton']",
+            "accept": "//i[text()='done']",
+            "cancel": "//button//i[text()='close']",
+            "edit": "//span[@title='%s']/parent::td/following-sibling::td//button[@autoid='KioskEditButton']",
+            "delete": "//button[@autoid='KioskDeleteButton']",
+            "manufacturer": "//input[@autoid='KioskManufacturerTextBox']",
+            "model": "//input[@autoid='KioskModelTextBox']",
+            "serial number": "//input[@autoid='KioskSerialNumberTextBox']",
+            "ip address": "//input[@autoid='IpAddressKioskTextBox']"
+        }
+    },
+    "dispenser options": {
+        "dispenser #": "//label[text()='Dispenser #']/parent::div/following-sibling::div/child::div",
+        "dispenser mode": {
+            "primary":"//input[@value='Primary']/ancestor::div[@tabindex='0']",
+            "secondary":"//input[@value='Secondary']/ancestor::div[@tabindex='0']"
+        },
+        "operation mode":"//label[text()='Operation Mode']/parent::div/following-sibling::div/child::div",
+        "service level":"//label[text()='Service Level']/parent::div/following-sibling::div/child::div",
+        "general authorization":"//input[@name='GeneralAuth']/ancestor::div[@tabindex='0']",
+        "pre-authorization timeout":"//input[@name='Preauth Timeout']",
+        "prepay only":"//div[@id='PrepayOnly']",
+        "allow outdoor presets": "//input[@name='AllowOutdoorPresets']/ancestor::div[@tabindex='0']",
+        "enable unattended operation": "//input[@name='Unattended']/ancestor::div[@tabindex='0']",
+        "enable pre-fueling warning": "//input[@name='PrefuelingWarning']/ancestor::div[@tabindex='0']",
+        "payment mode": "//label[text()='Payment Mode']/parent::div/following-sibling::div/child::div",
+        "pre-fueling warning alert": "//p[text()='Please configure message to be displayed at dispenser on Site Options']"
+    },
+    "car wash": {
+        "configuration": {
+            "enable car wash": "//label[@for='EnableCarWash']//parent::div//preceding-sibling::div[@autoid='switch']",
+            "type of car wash": "//label[text()='Type Of Car Wash']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "car wash plu": "//input[@name='CarWashPlu']",
+            "rewash plu": "//input[@name='ReWashPlu']",
+            "default expiration": "//input[@name='DefaultExp']"
+        },
+        "packages":{
+            "add": "//div[text()='Packages']//ancestor::div[@autoid='panel']//*[@autoid='AddButton']",
+            "edit": "//tr[td[1][*//text()='%s']]//button[*//text()='edit']",
+            "delete": "//tr[td[1][*//text()='%s']]//button[*//text()='delete']",
+            "package name": "//input[@name='PackageName']",
+            "total price": "//input[@name='TotalPrice']",
+            "tax amount included in package price": "//label[text()='Tax amount included in package price']//preceding-sibling::div//div[@class[contains(.,'rz-radiobutton-box')]]",
+            "tax rate included in package price":  "//label[text()='Tax rate included in package price']//preceding-sibling::div//div[@class[contains(.,'rz-radiobutton-box')]]",
+            "tax rate exclusive of package price":  "//label[text()='Tax rate exclusive of package price']//preceding-sibling::div//div[@class[contains(.,'rz-radiobutton-box')]]",
+            "package tax amount": "//input[@name='TaxAmount']",
+            "inside availability": "//input[@name='InsideAvailability']//ancestor::div[@autoid='switch']",
+            "car wash kiosk availability": "//input[@name='KioskAvailability']//ancestor::div[@autoid='switch']",
+            "crind availability": "//input[@name='CrindAvailability']//ancestor::div[@autoid='switch']",
+			"accept": "//i[text()='done']",
+			"cancel": "//i[text()='close']"
+        },
+        "discounts": {
+            "add": "//div[text()='Discounts']//ancestor::div[@autoid='panel']//*[@autoid='AddButton']",
+            "edit": "//tr[td[1][*//text()='%s']]//button[*//text()='edit']",
+            "delete": "//tr[td[1][*//text()='%s']]//button[*//text()='delete']",
+            "discount available": "//input[@name='DiscountAvailable']//ancestor::div[@autoid='switch']",
+            "apply discounts on prepays": "//input[@name='ApplyDiscounts']//ancestor::div[@autoid='switch']",
+            "display discounted car wash prices at crind": "//input[@name='DisplayDiscounted']//ancestor::div[@autoid='switch']",
+            "discount name": "//input[@name='DiscountName']",
+            "service levels": "//label[text()='%s']//ancestor::div[@class='rz-checkbox']//div[@class[contains(.,'rz-chkbox-box')]]",
+            "grades": "//label[text()='%s']//ancestor::div[@class='rz-checkbox']//div[@class[contains(.,'rz-chkbox-box')]]",
+            "packages": "//label[text()='%s']//ancestor::div[@class='rz-checkbox']//div[@class[contains(.,'rz-chkbox-box')]]",
+            "select all": "//span[text()='%s']//ancestor::div[@class='col-4']//input[@name='SelectAll']//ancestor::div[@class='rz-chkbox']//div[@class[contains(.,'rz-chkbox-box')]]",
+            "when the fuel purchase amount reaches" : "//input[@name='EnableFuelAmountThreshold']//ancestor::div[@autoid='switch']",
+            "fuel purchase amount": "//*[text()='When the fuel purchase amount reaches']//ancestor::div[@class='row']//input[@type='text']",
+            "when the fuel purchase volume reaches" : "//input[@name='EnableFuelVolumeThreshold']//ancestor::div[@autoid='switch']",
+            "fuel volume amount": "//*[text()='When the fuel purchase volume reaches']//ancestor::div[@class='row']//input[@type='text']",
+            "car wash will be discounted by": "//*[text()='Car wash will be discounted by']//ancestor::div[@class='row']//input[@type='text']",
+			"accept": "//i[text()='done']",
+			"cancel": "//i[text()='close']"
+        },
+        "receipt configuration":{
+            "receipt footer 1": "//input[@name='ReceiptFooter1']",
+            "receipt footer 2": "//input[@name='ReceiptFooter2']",
+            "border character": "//input[@name='BorderCharacter']",
+            "increase border character width": "//label[@for='IncreaseBCWidth']//parent::div//preceding-sibling::div[@autoid='switch']",
+            "message font size": "//label[text()='Message Font Size']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "message font type": "//label[text()='Message Font Type']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "code font size": "//label[text()='Code Font Size']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "code font type": "//label[text()='Code Font Type']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "print expiration date on customer receipt": "//label[@for='PrintExpDate']//parent::div//preceding-sibling::div[@autoid='switch']",
+            "crind receipt car wash section - inverted print": "//label[@for='InvertedPrint']//parent::div//preceding-sibling::div[@autoid='switch']"
+        },
+        "display order": {
+            "kiosk package name list": "//fieldset[legend[*//text()='Car Wash Kiosk']]//tr/td[1]/span[@class='rz-cell-data']",
+            "crind package name list": "//fieldset[legend[*//text()='CRIND']]//tr/td[1]/span[@class='rz-cell-data']",
+            "kiosk up": "//fieldset[legend[*//text()='Car Wash Kiosk']]//tr[td[1][*//text()='%s']]//button[*//text()='arrow_upward']",
+            "kiosk down": "//fieldset[legend[*//text()='Car Wash Kiosk']]//tr[td[1][*//text()='%s']]//button[*//text()='arrow_downward']",
+            "crind up": "//fieldset[legend[*//text()='CRIND']]//tr[td[1][*//text()='%s']]//button[*//text()='arrow_upward']",
+            "crind down": "//fieldset[legend[*//text()='CRIND']]//tr[td[1][*//text()='%s']]//button[*//text()='arrow_downward']"
+        },
+        "crind": {
+            "wash prompt timeout": "//*[text()='Wash Prompt Timeout']//ancestor::div[@class='row']//input[@type='text']",
+            "prompt reminder timeout": "//*[text()='Prompt Reminder Timeout']//ancestor::div[@class='row']//input[@type='text']",
+            "wash prompt at crind": "//label[text()='Wash Prompt at CRIND']/parent::div/following-sibling::div/div[@class[contains(., 'rz-dropdown ')]]",
+            "menu - customer chooses desired package number": "//label[text()='Menu - Customer chooses desired package number']//preceding-sibling::div//div[@class[contains(.,'rz-radiobutton-box')]]",
+            "car wash package per screen": "//label[text()='Car Wash Package per screen']//ancestor::div[@class='col d-flex']//div[@class[contains(., 'rz-dropdown ')]]",
+            "single line - customer selects yes or no for each package": "//label[text()='Single Line - Customer selects YES or NO for each package']//preceding-sibling::div//div[@class[contains(.,'rz-radiobutton-box')]]"
+        }
+    },
+    "accounting options": {
+        "edit": "//tr[*//span[text()='%s']]//button[@autoid='EditButton']",
+        "delete": "//tr[*//*[text()='%s']]//button[@autoid='DeleteButton']",
+        "accept": "//button[@autoid='AcceptButton']",
+        "cancel": "//button[@autoid='CancelButton']",
+        "general": {
+            "general": "//div[@autoid='generalcollapsiblepanel']",
+            "allow operator to see system totals when balancing their till": "//*[@autoid='feesvisibleswitch']",
+            "allow preview of previous counts when reconciling tills": "//*[@autoid='allowpreviewswitch']",
+            "the maximum number of times a till can be counted in manager workstation": "//*[@autoid='MaxNumTillCount']"
+        },
+        "tender options": {
+            "tender options": "//div[@autoid='tendercollapsiblepanel']",
+            "variance allowed": "//input[@autoid='VarianceAllowedField' and count(@disabled)=0]"
+        },
+        "safe options": {
+            "safe options": "//div[@autoid='safecollapsiblepanel']",
+            "safe list": "//*[text()='Safe Options']/following::table",
+			"add": "//*[@autoid='AddButton']",
+			"safe id": "(//*[@name='SafeId'])",
+			"safe name": "//*[@name='SafeName']",
+            "main safe": "//*[@id='PrimarySafe' and @class[not(contains(.,'disabled'))]]" 
+        }
+    },
+    "security camera": {
+        "data will be sent via": "//div[@autoid='DataTransferType']",
+        "stand alone clients use com": "//input[@autoid='ComPort']",
+        "combined server use com": "//input[@autoid='CombinedComPort']",
+        "data format": "//div[@autoid='DataFormat']",
+        "field separator": "//input[@autoid='FieldSeparator']",
+        "include forecourt transactions in security camera feed": "//div[@autoid='IncludeForecourtTransactionsswitch']",
+        "host name": "//input[@autoid='HostName']",
+        "host port": "//input[@autoid='HostPort']"
+    },
+    "back office": {
+        "enabled": "//div[@id='Enabled']",
+        "generation options": {
+            "interface format": "//div[contains(@class, 'rz-dropdown valid')]",
+            "generate transaction level detail (pjr)": "//div[@id='GeneratePjr']",
+            "generate transaction level detail files (pjr)": "//div[@id='GenerateCombinedPjr']",
+            "use loyalty program name as promo reason in pjr": "//div[@id='UseLoyaltyProgramName']",
+            "include original cashier id in pjr file": "//div[@id='IncludeOriginalCashierId']",
+            "reassign plus to assume department changes": "//div[@id='ReassignPlu']",
+            "calculate net sales for merchandise code movement and item sales movement": "//div[@id='CalculateNetSales']",
+            "generate network batch data capture xml file": "//div[@id='GenerateNetworkPeriodFiles']",
+            "generate acknowledgement files": "//div[@id='GenerateAckFiles']",
+            "drop upc check digit": "//div[@id='DropUpcCheckDigit']",
+            "use manifests": "//div[@id='UseManifests']",
+            "the back office sends a value of 1 for the base item in the poscodemodifier tag": "//div[@id='ZeroBasePosCodeModifier']",
+            "alert cashier at pos when pricebook import is complete": "//div[@id='AlertCashierAfterUpdate']",
+            "items default to food stampable": "//div[@id='FoodStampableByDefault']"
+        },
+        "documents": {
+            "next page": "//a[contains(@class, 'rz-paginator-next')]",
+            "previous page": "//a[contains(@class, 'rz-paginator-prev')]",
+            "page number": "//label[@class='rz-paginator-summary']",
+            "store close": "//span[text()='%s']//parent::td//following-sibling::td//div[@autoid='switch' and @id='StoreClose']",
+            "shift close": "//span[text()='%s']//parent::td//following-sibling::td//div[@autoid='switch' and @id='ShiftClose']"
+
+        },
+        "polling options": {
+            "enabled xml gateway file polling": "//label[@for='EnablePolling']//parent::div//preceding-sibling::div[@autoid='switch']",
+            "enter backoffice user name": "//input[@autoid='usernametextbox']",
+            "enter backoffice password": "//input[@autoid='passwordtextbox']",
+            "enter directory path to pull xml files from": "//input[@autoid='pullpathtextbox']",
+            "enter directory path to push xml files to": "//input[@autoid='pushpathtextbox']",
+            "allow plain text ftp": "//label[@for='AllowPlainTextFtp']//parent::div//preceding-sibling::div[@autoid='switch']"
+        }
+    },
+    "recovery configuration": {
+		"title": "//title[text()='System Recovery Configuration']",
+		"start time": "//input[@name='MaintenanceStartTime']",
+		"run a full backup on the following day(s)": "//div[@autoid='DaysActive']",
+		"run differential backups on all other days": "//div[@autoid='DifferentalSwitchswitch']",
+		"archive backup sets": "//div[@autoid='ArchiveBackupSetsSwitchswitch']",
+        "delete archived backup sets older than": "//*[text()='Delete Archived Backup Sets older than']/following::input[1]",
+        "run a transaction log backup once every": "//*[text()='Run a transaction log backup once every']/following::input[1]",
+        "\"mirror\" copies of the current server backup and image once each day at": "//div[@autoid='MirrorServerImage']",
+		"mirror time": "//input[@name='MirrorJobStartTime']",
+		"machine used to mirror server backup files": "//*[@autoid='MirrorBackupName']",
+		"machine used to mirror server image files": "//*[@autoid='MirrorImageName']"
+	},
+    "feature activation": {
+        "site key": "//input[@autoid='SiteKeyTextBox']",
+        "site code": "//input[@autoid='SiteCodeTextBox']",
+        "activate": "//button[@autoid='ActivateButton']"
+    },
+    "network codes": {
+        "product": "//*[text()='%s' and @class='rz-cell-data']",
+        "product code - product description": "//span[contains(.,'%s')]/following::label[1]",
+        "product description": "//tr[@class[contains(.,'rz-data-row')] and */span[1 and text()='%s']]/td[2]/span",
+        "search": "//*[@style[contains(.,'display: ')]]//input[contains(@id, 'search')]",
+        "table data": "//*[@style[contains(.,'display: ')]]//div[@class[contains(.,'rz-lookup-panel')]]//div[@class[contains(.,'rz-data-grid-data')] and *//text()='Product Code']",
+        "select product code": "//*[@style[contains(.,'display: ')]]//span[@title='%s' and @class='rz-cell-data']"
+    },
+    "pricing groups":{
+        "pricing group list": "//*[@class='rz-data-grid-data']",
+        "add": "//button[@autoid='addbutton']",
+        "edit": "//*[text()='%s']/following::button[1]",
+        "delete": "//*[text()='%s']/following::button[2]",
+        "name": "//input[@autoid='PriceGroupNameField']",
+        "increase button": "//div[@autoid='PriceIncreaseButton']",
+        "decrease button": "//div[@autoid='PriceDecreaseButton']",
+        "change price": "//input[@autoid='PriceChangeField']",
+        "change tax to": "//*[@autoid='TaxGroupDropdown']",
+        "search": "//*[@id[contains(., 'search')]]",
+        "select tax": "//*[@role='option' and @class='rz-dropdown-item ']",
+        "plu exception": "//fieldset[*//text()='PLU Exception']//table//tbody//td[1 and *//text()='%s']"
+    },
+    "third party data interface" : {
+        "options":{
+            "generate transaction level detail (pjr)": "//*[@autoid='generatepjrswitch']",
+            "zip individual pjr files at store close": "//*[@autoid='zipindividualpjrsswitch']",
+            "combine transaction level detail files": "//*[@autoid='combinepjrsswitch']",
+            "zip combined transaction level detail files": "//*[@autoid='zipcombinedpjrsswitch']",
+            "export price book when price book is imported from an external source": "//*[@autoid='exportpricebookwhenmodifiedswitch']",
+            "export price book on a nightly basis": "//*[@autoid='exportpricebooknightlyswitch']",
+            "copy inbound item list, combo and match files": "//*[@autoid='copydiscountfilesswitch']",
+            "wetstock export enabled": "//*[@autoid='wetstockexportenabledswitch']",
+            "export meters by grade": "//*[@autoid='exportmetersbygradeswitch']",
+            "export meters by dispenser": "//*[@autoid='exportsmetersbydispenserswitch']",
+            "export fuel prices every 30 minutes": "//*[@autoid='exportfuelpricesswitch']",
+            "copy end of period xml summary files": "//*[@autoid='copyeopxmlswitch']"
+        },
+        "ftp options":{
+            "ftp_hosts_list": "//*[@autoid='ftphostsgrid']",
+            "edit": "//tr[*/span[@title='%s']]//button[@autoid[contains(.,'editbutton')]]",
+            "delete": "//tr[*/span[@title='%s']]//button[@autoid[contains(.,'deletebutton')]]",
+            "edit buttons": "//button[@autoid[contains(.,'editbutton')]]",
+            "add": "//*[@autoid='addbutton']",
+            "checkmark": "//*[@autoid='updatelistbutton']",
+            "cancel": "//*[@autoid='cancelbutton']",
+            "host description": "//*[@autoid='hostdescriptiontextbox']",
+            "host address": "//*[@autoid='hostaddresstextbox']",
+            "host port": "//*[@autoid='hostporttextbox']/input",
+            "user name": "//*[@autoid='usernametextbox']",
+            "password": "//*[@autoid='hostpasswordtextbox']",
+            "ftp folder": "//*[@autoid='ftpfoldertextbox']",
+            "use secure ftp": "//*[@autoid='secureftpswitch']",
+            "send pjr data": "//*[@autoid='sendpjrswitch']",
+            "send price book data": "//*[@autoid='sendpricebookswitch']",
+            "send wetstock data": "//*[@autoid='sendwetstockswitch']",
+            "send fuel price data": "//*[@autoid='sendfuelpricesswitch']",
+            "send eop xml data": "//*[@autoid='sendeopxmlswitch']"
+        }
+    },
+    "express lane":{
+        "general":{
+            "receipt printing configuration": "//*[@autoid='ReceiptPrintingDropDown']",
+            "use qualifier type as description": "//*[@autoid='QualifierTypeDescriptionSwitchswitch']",
+            "show qualifier price": "//*[@autoid='ShowQualifierPriceSwitchswitch']",
+            "enable attendant alarm": "//*[@autoid='EnableAttendantAlarmSwitchswitch']",
+            "show basket count on receipt": "//*[@autoid='ShowBasketCountOnReceiptSwitchswitch']",
+            "allow fuel sales": "//*[@autoid='AllowFuelSalesSwitchswitch']",
+            "bag prompting": "//*[@autoid='BagPromptingSwitchswitch']",
+            "bag plu": "//*[@autoid='BagPluDropDown']",
+            "multi language switch": "//*[@autoid='MultiLanguageSupportSwitchswitch']",
+            "default language": "//*[@autoid='DefaultLanguageDropDown']",
+            "secondary language": "//*[@autoid='SecondaryLanguageDropDown']",
+            "prompt the customer if they need assistance after": "//*[@autoid='PromptTheCustomerNeedAssistanceLabel']/following::input[1]",
+            "automatically prompt the cashier control console after": "//*[@autoid='AutomaticallyPromptCashierControlConsoleLabel']/following::input[1]",
+            "display thank you for": "//*[@autoid='DisplayThankYouForLabel']/following::input[1]"
+        },
+        "branding": {
+            "display welcome on start menu": "//div[@autoid='DisplayWelcomeOnStartMenuSwitchswitch']",
+            "display logo on start menu": "//div[@autoid='DisplayLogoOnStartMenuSwitchswitch']",
+            "image scheme": {
+                "add": "//button[@autoid='UploadAdvertisementMediaFilesDialogButtton']",
+                "pre-transaction": "//div[@autoid='PreTransactionImagesDropDown']",
+                "tender": "//div[@autoid='TenderImagesDropDown']",
+                "transaction": "//div[@autoid='TransactionImagesDropDown']",
+                "logo": "//div[@autoid='LogoImagesDropDown']",
+                "background": "//div[@autoid='BackgroundImagesDropDown']"
+            },
+            "color scheme": {
+                "background": "//div[@autoid='BackgroundColorPicker']",
+                "cashier button": "//div[@autoid='CashierColorPicker']",
+                "cashier button gradient": "//div[@autoid='DisplayGradientCashierOnSwitchswitch']",
+                "cashier button gradient color": "//div[@autoid='GradientCashierButtonPicker']",
+                "start button": "//div[@autoid='StartButtonColor']",
+                "start button gradient": "//div[@autoid='DisplayStartButtonGradientSwitchswitch']",
+                "start button gradient color": "//div[@autoid='GradientStartButtonColor']",
+                "color selectors": "(//div[@class[contains(.,'rz-colorpicker-popup')] and @style[contains(.,'display: block')]]//div[@class[contains(.,'rz-colorpicker-item')]])[%s]"
+            }
+        },
+        "advertisement": {
+            "add": "//button[@autoid='UploadBrandingMediaFilesDialogButtton']",
+            "media display interval": "//span[@autoid='MediaDisplayIntervalInput']//input",
+            "override media display interval and play the complete video": "//div[@autoid='OverrideMediaDisplaySwitchswitch']"
+        },
+        "food ordering":{
+            "enable food ordering": "//*[@autoid='FoodOrderingSwitchswitch']",
+            "food ordering server ip address": "//*[@autoid='IpAddressDropDown']",
+            "allow forwarding to kitchen prior to payment": "//*[@autoid='AllowForwardingSwitchswitch']"
+        },
+        "terminals":{
+            "express lane terminal id": "//*[@autoid='TerminalIdentifierDropdown']",
+            "prepay fuel": "//*[@autoid='PrepayFuelSwitchswitch']",
+            "postpay fuel": "//*[@autoid='PostPayFuelSwitchswitch']",
+            "alert cashier": "//*[@autoid='AlertCashierSwitchswitch']",
+            "accept cash": "//*[@autoid='AcceptCashSwitchswitch']",
+            "physical cash acceptor connected": "//*[@autoid='PhysicalCashSwitchswitch']",
+            "food ordering": "//*[@autoid='FoodOrderingDropDown']",
+            "show a pay cashier button": "//*[@autoid='ShowAPayCashierButtonSwitchswitch']"
+        }
+    },
+    "register groups": {
+        "add" : "//button[@autoid='AddButton']",
+        "edit": "//*[text()='%s']/following::button[@autoid='EditButton'][1]",
+        "delete": "//*[text()='%s']/following::button[@autoid='DeleteButton'][1]",
+        "register group list": "//table[@class[contains(.,'rz-grid-table')]]/tbody/tr//*[@title='%s']",
+        "register assignments": "//*[@autoid='TenderGroupId']",
+        "register assignment": "//tr[*//text()='%s']//*[@autoid='TenderGroupId']",
+        "register group header": "//span[@title='Register Group']",
+        "register assignments header": "//span[@title='Register Assignments']", 
+		"general": {
+			"name": "//input[@autoid='NameTextbox']",
+			"primary speed key menu": "//*[@autoid='PrimarySpeedKeyMenuDropDown']",
+			"show speed key buttons at sign on": "//*[@autoid='ShowSpeedKeyButtonsAtSignOnRadio']/div[1]/div[2]",
+			"show department key buttons at sign on": "//*[@autoid='ShowDepartmentKeyButtonsAtSignOnRadio']/div[1]/div[2]",
+			"perform cashier verification of customer's signature": "//*[@autoid='PerformCustomerSignatureVerificationSwitchswitch']",
+            "automatically sign the operator off after": "//*[@autoid='AutoSignOffRadio']/div[1]/div[2]",
+            "sign off operator minutes of inactivity": "//*[@autoid='AutoSignOffLabel']/preceding-sibling::input[1]",
+            "automatically lock the register after": "//*[@autoid='AutoLockRadio']/div[1]/div[2]",
+            "lock register minutes of inactivity": "//*[@autoid='AutoLockLabel']/preceding-sibling::input[1]",
+			"none": "//*[@autoid='NoneRadio']/div[1]/div[2]"
+		},
+		"safe drops": {
+			"prompt for a pouch/envelope color": "//*[@autoid='PromptForPouchEnvelopeColorSwitchswitch']",
+			"prompt for a pouch/envelope number": "//*[@autoid='PromptForPouchEnvelopeNumberSwitchswitch']",
+			"pouch colors": "//*[@autoid='PouchColorMenu']",
+			"enable safe drop warnings displayed at pos": "//*[@autoid='EnableSafeDropWarningSwitchswitch']",
+			"display the first safe drop warning when the cash in the drawer reaches": "//input[@id='FirstSafeDropWarningThreshold']",
+			"display the second safe drop warning when the cash in the drawer reaches": "//input[@id='SecondSafeDropWarningThreshold']"
+		},
+		"transaction options": {
+			"allow sales with drawer open": "//*[@autoid='AllowSalesWithDrawerOpenSwitchswitch']",
+			"display change for": "//*[@autoid='DisplayChangeDurationNumeric']/input",
+			"plu displays when an item is sold": "//*[@autoid='DisplayPLUSwitchswitch']",
+			"a receipt is printed for each transaction": "//*[@autoid='PrintRecieptSwitchswitch']",
+			"maximum quantity that can be set for an item": "//*[@autoid='MaxItemQuantityNumeric']/input",
+			"maximum number of line items": "//*[@autoid='MaxTransactionItemsNumeric']/input",
+			"maximum amount for a single line item": "//input[@autoid='MaxLineAmountNumeric']",
+			"maximum total for the transaction": "//input[@autoid='MaxTotalAmountNumeric']"
+        },
+        "till counts": {
+            "the opening loan for every till should automatically be": "//*[@autoid='OpeningLoanForEveryTillRadio']/div[1]/div[2]",
+            "operator enters opening balance by lump sum": "//*[@autoid='OpertatorEntersOpeningBalanceByLumpSumRadio']/div[1]/div[2]",
+            "opening balance amount": "//input[@autoid='OpeningBalanceAmountNumeric']",
+            "suppress opening/closing till counts": "//*[@autoid='SuppressTillCountsSwitchswitch']"
+        },
+        "receipt": {
+            "header": "//textarea[@name='ReceiptHeader']",
+            "left align header": "//textarea[@name='ReceiptHeader']/parent::div/following-sibling::div//button[@title='Left Align']",
+            "center align header": "//textarea[@name='ReceiptHeader']/parent::div/following-sibling::div//button[@title='Center Align']",
+            "footer": "//textarea[@name='ReceiptFooter']",
+            "left align footer": "//textarea[@name='ReceiptFooter']/parent::div/following-sibling::div//button[@title='Left Align']",
+            "center align footer": "//textarea[@name='ReceiptFooter']/parent::div/following-sibling::div//button[@title='Center Align']"        
+        },
+        "customer display": {
+            "message on the customer display should scroll during idle times": "//*[@autoid='ScrollMessageSwitchswitch']",
+            "display message": "//form[*//div[@autoid='ScrollMessageSwitchswitch']]//input[@class[contains(.,'text')]]",
+            "refresh button": "//*[@autoid='RefreshCustomerDisplayButton']"
+        },
+        "reason codes": {
+            "require reason code": "//tr[*//@title='%s']//*[@autoid='ReasonCodeRequired']",
+            "assign reason code": "//tr[*//@title='%s']//div[@autoid='TenderGroupId']",
+            "no sale require reason code": "//tr[*//@title='No Sale']//*[@autoid='ReasonCodeRequired']",
+            "no sale assign reason code": "//tr[*//@title='No Sale']//div[@autoid='TenderGroupId']",
+            "price overrride require reason code": "//tr[*//@title='Price Override']//*[@autoid='ReasonCodeRequired']",
+            "price override assign reason code": "//tr[*//@title='Price Override']//div[@autoid='TenderGroupId']",
+            "void tender require reason code": "//tr[*//@title='Void Tender']//*[@autoid='ReasonCodeRequired']",
+            "void tender assign reason code": "//tr[*//@title='Void Tender']//div[@autoid='TenderGroupId']",
+            "void transaction require reason code": "//tr[*//@title='Void Transaction']//*[@autoid='ReasonCodeRequired']",
+            "void transaction assign reason code": "//tr[*//@title='Void Transaction']//div[@autoid='TenderGroupId']"
+        },
+        "sales & refunds": {
+            "allow sales": "//div[@autoid='AllowSalesSwitchswitch']",
+            "allow refunds": "//div[@autoid='AllowRefundsSwitchswitch']",
+            "use promotional pricing for refunds (applies to all registers)": "//div[@autoid='UsePromotionalPricingForRefundsSwitchswitch']",
+            "allow sales and refunds in the same transaction": "//div[@autoid='AllowSalesRefundTransactionSwitchswitch']",
+            "refund transaction maximum amount": "//input[@autoid='RefundTransactionMaximumAmountNumeric']"
+        },
+        "fuel sales": {
+            "allow pump control": "//div[@autoid='AllowPumpControlSwitchswitch']",
+            "display dispenser range": "//div[@autoid='DisplayDispenserRangeSwitchswitch']",
+            "display dispenser range start": "//span[@autoid='DispenserRangeStartNumeric']/input",
+            "display dispenser range end": "//span[@autoid='DispenserRangeStopNumeric']/input"
+        }
+    },
+    "restrictions": {
+        "add": "//button[@autoid='addbutton']",
+        "edit" : "//span[text()='%s']//parent::td//following-sibling::td//button[@autoid[contains(.,'editbutton')]]",
+        "delete": "//span[text()='%s']//parent::td//following-sibling::td//button[@autoid[contains(.,'deletebutton')]]",
+        "restriction for group": "//input[@autoid='PriceGroupNameField']",
+        "buyer / seller": {
+            "seller must be at least": "//div[@autoid='MinSellerSwitchswitch']",
+            "seller years old": "//input[@autoid='MinSellerInput']",
+            "verify only": "//div[@autoid='BuyerVerifySwitchswitch']",
+            "buyer years old": "//input[@autoid='BuyerAgeInput']",
+            "entry of birth date required": "//div[@autoid='BuyerDateSwitchswitch']",
+            "items in this group must be sold separately": "//div[@autoid='ExclusiveSwitchswitch']",
+            "maximum number of items in a single transaction": "//input[@autoid='QuantityInput']",
+            "disable sale at express lane": "//div[@autoid='SelfCheckoutSwitchswitch']"
+        },
+        "age verification": {
+            "customer id scan preferred for birth date entry": "//div[@autoid='PreferScanSwitchswitch']",
+            "allow default button to be used for sale of age restricted items": "//div[@autoid='DefaultButtonSwitchswitch']",
+            "require cashier to confirm scanned id": "//div[@autoid='AgeConfirmSwitchswitch']",
+            "allow manual entry of birth date": "//div[@autoid='ManualEntrySwitchswitch']"
+        },
+        "days of week": {
+            "add": "//button[@autoid='addDayRestrictionButton']",
+            "day(s)": "(//div[@autoid='DayRestrictionCollapsablepanel']//child::div[@autoid[contains(.,'DayDropDown')]])[%s]",
+            "all day": "(//div[@autoid='DayRestrictionCollapsablepanel']//child::div[@autoid[contains(.,'toggleDay')]])[%s]",
+            "start": "(//div[@autoid='DayRestrictionCollapsablepanel']//child::div[@autoid[contains(.,'StartTime')]])[%s]//span//input",
+            "stop": "(//div[@autoid='DayRestrictionCollapsablepanel']//child::div[@autoid[contains(.,'EndTime')]])[%s]//span//input",
+            "delete": "(//div[@autoid='DayRestrictionCollapsablepanel']//child::button[@autoid[contains(.,'deleteDay')]])[%s]"
+        },
+        "specific dates": {
+            "add": "//button[@autoid='addDateRestrictionButton']",
+            "date": "(//div[@autoid='DateCollapsablepanel']//child::div[@autoid[contains(.,'DateSelector')]])[%s]//span//input",
+            "all day": "(//div[@autoid='DateCollapsablepanel']//child::div[@autoid[contains(.,'toggleDay')]])[%s]",
+            "start": "(//div[@autoid='DateCollapsablepanel']//child::div[@autoid[contains(.,'StartTime')]])[%s]//span//input",
+            "stop": "(//div[@autoid='DateCollapsablepanel']//child::div[@autoid[contains(.,'EndTime')]])[%s]//span//input",
+            "delete": "(//div[@autoid='DateCollapsablepanel']//child::button[@autoid[contains(.,'deleteDay')]])[%s]"
+        }
+    },
+    "fuel discounts": {
+        "edit": "//tr[*//span[text()='%s']]//button[@autoid='EditButton']",
+        "delete": "//tr[*//span[text()='%s']]//button[@autoid='DeleteButton']",
+        "accept": "//button[@autoid='AcceptButton']",
+        "cancel": "//button[@autoid='CancelButton']",
+        "fuel discount groups": {
+            "add": "//*[text()='Fuel Discount Groups']/following::button[@autoid='AddButton'][1]",
+            "discount description": "//div[@class='row' and *//text()='Discount Description']//input",
+            "discount description header": "//*[text()='Fuel Discount Groups']/following::span[4]",
+            "amount off ppu": "//*[text()='%s' and @class='rz-cell-data']/following::input[1]",
+            "grid": "//*[text()='Fuel Discount Groups']/following::table[1]"
+        },
+        "manual fuel discount": {
+            "add": "//*[text()='Manual Fuel Discount']/following::button[@autoid='AddButton'][1]",
+            "discount description": "//div[@class='row' and *//text()='Discount Description']//input",
+            "discount description header": "//*[text()='Manual Fuel Discount']/following::span[4]",
+            "discount type": "//div[@autoid='DiscountTypeStandardList']",
+            "amount off ppu": "//*[text()='%s' and @class='rz-cell-data']/following::input[1]",
+            "free fuel up to": "//*[text()='Free Fuel Up To']/following::input[1]",
+            "grid": "//*[text()='Manual Fuel Discount']/following::table[1]"
+        },
+        "fuel discount by car wash": {
+            "add": "//*[text()='Fuel Discount By Car Wash']/following::button[@autoid='AddButton'][1]",
+            "discount description": "//div[@class='row' and *//text()='Discount Description']//input",
+            "discount description header": "//*[text()='Fuel Discount By Car Wash']/following::span[4]",
+            "car wash package": "//*[@autoid='CarWashDropDown']",
+            "amount off ppu": "//*[text()='%s' and @class='rz-cell-data']/following::input[1]",
+            "grid": "//*[text()='Fuel Discount By Car Wash']/following::table[1]"
+        },
+        "fuel discount by cash": {
+            "add": "//*[text()='Fuel Discount By Cash']/following::button[@autoid='AddButton'][1]",
+            "discount description": "//div[@class='row' and *//text()='Discount Description']//input",
+            "discount description header": "//*[text()='Fuel Discount By Cash']/following::span[4]",
+            "amount off ppu": "//*[text()='%s' and @class='rz-cell-data']/following::input[1]",
+            "grid": "//*[text()='Fuel Discount By Cash']/following::table[1]"
+        }
+    },
+    "reminders": {
+        "add": "//button[@autoid='AddButton']",
+        "reminder name": "//span[text()='%s' and @class='rz-cell-data']",
+        "edit": "//span[text()='%s']//parent::td//following-sibling::td//child::button[@autoid='EditButton']",
+        "delete": "//span[text()='%s']//parent::td//following-sibling::td//child::button[@autoid='DeleteButton']",
+        "enabled": "//span[text()='%s']//parent::td//following-sibling::td//child::div[@autoid='switch']",
+        "configuration": {
+            "enabled": "//div[@autoid='reminderenabledswitch']",
+            "task": "//input[@name='TaskName']",
+            "message": "//textarea[@name='TaskMessage']",
+            "display at manager work station": "//div[@autoid='displayatmwsswitch']",
+            "display at pos": "//div[@autoid='displayatposswitch']"
+        },
+        "schedule": {
+            "once": "//span[text()='Once']//ancestor::button",
+            "daily": "//span[text()='Daily']//ancestor::button",
+            "weekly": "//span[text()='Weekly']//ancestor::button",
+            "monthly": "//span[text()='Monthly']//ancestor::button",
+            "calendar" : {
+                "calendar button": "//span[@class[contains(.,'rz-calendar')]]//button",
+                "hour": "//div[@class='rz-timepicker']//span[@class[contains(.,'rz-hour-picker')]]//input",
+                "minute": "//div[@class='rz-timepicker']//span[@class[contains(.,'rz-minute-picker')]]//input",
+                "am/pm": "(//div[@class='rz-ampm-picker']//span)[2]",
+                "am/pm arrow": "(//div[@class='rz-ampm-picker']//span)[1]",
+                "ok": "//span[text()='Ok']//parent::button"
+            },
+            "repeat every": "//label[text()='Repeat every']//parent::div//following-sibling::div//child::input",
+            "day": "//label[text()='Day']//parent::div//following-sibling::div//child::input",
+            "days": "//div[@autoid='DaysActive']",
+            "by day of the month": "//label[text()='By day of the month']//preceding-sibling::div//div[@class[contains(.,'rz-radiobutton-box')]]",
+            "by day of the week": "//label[text()='By day of the week']//preceding-sibling::div//div[@class[contains(.,'rz-radiobutton-box')]]",
+            "week of the month(s)": "//label[text()='Week of the month(s)']//parent::div//following-sibling::div//div[@class[contains(.,'rz-dropdown ')]]",
+            "week of the month(s) dropdown": "//li[@class[contains(.,'rz-dropdown-item ')] and @aria-label='%s']",
+            "dropdown searchbar": "//div[@class[contains(.,'rz-multiselect-panel')] and @style[contains(.,'display: block')]]//child::input[@class='rz-inputtext']",
+            "dropdown checkbox": "//li[@class[contains(.,'rz-multiselect-item')] and @aria-label='%s']",
+            "day(s) of the week": "//label[text()='Day(s) of the week']//parent::div//following-sibling::div//div[@class[contains(.,'rz-dropdown ')]]",
+            "day(s) of the week checkbox": "//li[@class[contains(.,'rz-multiselect-item')] and @aria-label='%s']",
+            "month(s)": "//label[text()='Month(s)']//parent::div//following-sibling::div//div[@class[contains(.,'rz-dropdown ')]]"
+        }
+    },
+    "fuel prices": {
+        "fuel price grid": "//*[@class='rz-grid-table rz-grid-table-fixed rz-grid-table-striped  ']",
+        "fuel grades": "//*[text()='%s']",
+        "current price": "//tr[*//text()='%s']//td[5]//span",
+        "new price": "//tr[*//text()='%s']//td[6]/span/span",
+        "new price textbox": "//input",
+        "change price": "//*[text()='%s']/following::input",
+        "+": "//tr[*//text()='%s']//button[*//text()='add']",
+        "-": "//tr[*//text()='%s']//button[*//text()='remove']",
+        "immediately": "//*[text()='Immediately']//parent::div",
+        "after the next eod has been run": "//*[text()='After the next EOD has been run']//parent::div",
+        "do not send": "//*[text()='Do not send']//parent::div",
+        "dialogue send button": "//button//i[text()='send']",
+        "send": "//span[@class[contains(.,'application-button')] and contains(text(), 'Send')]"
+    },
+    "taxes": {
+        "rates": {
+            "add": "//div[@autoid='RatesCollapsiblepanel']//child::button[@autoid='AddButton']",
+            "edit": "//span[text()='%s']//parent::td//following-sibling::td//button[@autoid='UpdateTaxRateButton']",
+            "accept": "//button[@autoid='TaxRateEditOkButton']",
+            "cancel": "//button[@autoid='TaxRateEditCancelButton']",
+            "name": "//input[@autoid='TaxRateNameTextBox']",
+            "activated": "//div[@autoid='RatesCollapsiblepanel']//child::div[@autoid='switch']",
+            "receipt description": "//input[@autoid='TaxRateReceiptDescriptionTextBox']",
+            "percent": "//input[@autoid='TaxRatePercentNumeric']",
+            "minimum amount": "//input[@autoid='MinimumAmountNumeric']",
+            "rate type": "//div[@autoid='RatesCollapsiblepanel']//child::div[@autoid='TaxRateTypeDropDown']"
+        },
+        "groups": {
+            "add": "//div[@autoid='GroupsCollapsiblepanel']//child::button[@autoid='AddButton']",
+            "edit": "//span[text()='%s']//parent::td//following-sibling::td//button[@autoid='UpdateTaxGroupButton']",
+            "accept": "//button[@autoid='TaxGroupEditOkButton']",
+            "cancel": "//button[@autoid='TaxGroupEditCancelButton']",
+            "code": "//input[@autoid='TaxCodeNumeric']",
+            "tax name": "//input[@autoid='TaxGroupNameTextBox']",
+            "activated": "//label[@for='TaxGroupActive']//parent::div//preceding-sibling::div",
+            "pos description": "//input[@autoid='TaxGroupDescriptionTextBox']",
+            "tax rates dropdown": {
+                "tax rates": "//div[*/label[@autoid='TaxGroupRatesLabel']]//div[@class[contains(.,'rz-dropdown ')]]",
+                "search bar": "//input[@class='rz-lookup-search-input']",
+                "checkbox": "//tr[*//text()='%s']//*[@class[contains(.,'rz-chkbox-box')]]"
+            },
+            "identify taxed items by tax group code": "//div[@autoid='AutoSignOffRadio']",
+            "identify taxed items with _ and print receipt key": "//div[@autoid='AutoLockRadio']",
+            "receipt id": "//input[@autoid='TaxGroupReceiptIdTextBox']",
+            "receipt legend": "//input[@autoid='TaxGroupReceiptLegendTextBox']",
+            "group used for fuel tax assignment": "//div[@class[contains(.,'panel')]]//div[@class[contains(.,'row')] and *//text()='Group used for fuel tax assignment']//div[@class[contains(., 'rz-switch ')]]"
+        },
+        "options": {
+            "pst cascaded on gst": "//div[@autoid='OptionsCollapsiblepanel']//child::div[@autoid='switch']",
+            "fuel items receipt options": "//div[@autoid='OptionsCollapsiblepanel']//child::div[@autoid='TaxRateTypeDropDown']"
+        }
+    },
+    "items": {
+        "search by": {
+            "search": "//button[@autoid='searchbutton']",
+            "search for item": "//input[@autoid='searchtextbox']",
+            "plu/upc": "//label[text()='PLU/UPC']//preceding-sibling::div",
+            "description": "//label[text()='Description']//preceding-sibling::div",
+            "scan code": "//label[text()='Scan Code']//preceding-sibling::div",
+            "receipt description": "//label[text()='Receipt Description']//preceding-sibling::div",
+            "department": "//label[text()='Department']//parent::div//following-sibling::div//div[@class[contains(.,'dropdown-trigger')]]",
+            "item type": "//label[text()='Item Type']//parent::div//following-sibling::div//div[@class[contains(.,'dropdown-trigger')]]"
+        },
+        "add": "//button[@autoid='addbutton']",
+        "edit": "//button[@autoid='item%seditbutton']",
+        "general": {
+            "plu/upc": "//input[@autoid='plumask']",
+            "description": "//input[@autoid='descriptiontextbox']",
+            "department": "//label[@autoid='departmentlabel']//parent::div//following-sibling::div//div[@class[contains(.,'dropdown-trigger')]]",
+            "item type": "//label[@autoid='itemtypelabel']//parent::div//following-sibling::div//div[@class[contains(.,'dropdown-trigger')]]",
+            "receipt description": "//input[@autoid='receiptdesctextbox']",
+            "price required": "//div[@autoid='pricerequiredswitch']",
+            "this item sells for": "//input[@autoid='normalradio']",
+            "normal price": "//label[@autoid='normallabel']//following-sibling::span//input",
+            "buy _ at _ per unit and get one free": "//input[@autoid='getonefreeradio']",
+            "base plus one quantity": "//span[@autoid='getonefreequantitynumeric']//input",
+            "base plus one price": "//span[@autoid='getonefreeunitpricenumeric']//input",
+            "this item sells for _ per unit for the first _ items, every item afterwards at _": "//input[@autoid='unitadjustedradio']",
+            "group threshold unit price": "//span[@autoid='unitadjustedunitpricenumeric']//input",
+            "group threshold quantity": "//span[@autoid='unitadjustedquantitynumeric']//input",
+            "group threshold deal price": "//span[@autoid='unitadjusteddealpricenumeric']//input",
+            "this item's price is _ for _": "//input[@autoid='baseplusoneradio']",
+            "bulk quantity": "//span[@autoid='baseplusonequantitynumeric']//input",
+            "bulk price": "//span[@autoid='baseplusonepricenumeric']//input",
+            "this item sells for _ per unit or _ for _": "//input[@autoid='groupthresholdradio']",
+            "unit adjusted price": "//span[@autoid='groupthresholdunitpricenumeric']//input",
+            "unit adjusted quantity": "//span[@autoid='groupthresholdquantitynumeric']//input",
+            "unit adjusted deal price": "//span[@autoid='groupthresholddealpricenumeric']//input"
+        },
+        "scan codes": {
+            "expand upce": "//div[@autoid='expandupceswitch']",
+            "add": "//button[@autoid='scancodeaddbutton']",
+            "textbox": "//input[@autoid='scancodetextbox']",
+            "accept": "//button[@autoid='scancodeacceptbutton']",
+            "cancel": "//button[@autoid='scancodecancelbutton']",
+            "delete": "//button[@autoid='scancode%sdeletebutton']"
+        },
+        "linked items": {
+            "add": "//button[@autoid='linkeditemaddbutton']",
+            "textbox": "//input[@autoid='linkeditemtextbox']",
+            "accept": "//button[@autoid='linkeditemacceptbutton']",
+            "cancel": "//button[@autoid='linkeditemcancelbutton']",
+            "delete": "//button[@autoid='linkeditem%sdeletebutton']"
+        },
+        "options": {
+            "active for sale": "//div[@autoid='activeforsaleswitch']",
+            "food stampable": "//div[@autoid='foodstampableswitch']",
+            "discountable": "//div[@autoid='discountableswitch']",
+            "fee": "//div[@autoid='feeswitch']",
+            "allow refunds": "//div[@autoid='allowrefundsswitch']",
+            "quantity allowed": "//div[@autoid='quantityallowedswitch']",
+            "quantity required": "//div[@autoid='quantityrequiredswitch']",
+            "fractional quantity allowed": "//div[@autoid='allowfractionalquantityswitch']",
+            "return price": "//label[@autoid='returnpricelabel']//parent::div//following-sibling::div//input",
+            "unit of measure": "//div[@autoid='unitofmeasuredropdown']",
+            "tax group": "//div[@autoid='taxgroupdropdown']",
+            "restriction group": "//div[@autoid='restrictiongroupdropdown']",
+            "pricing group": "//div[@autoid='pricinggroupdropdown']",
+            "network product code": "//input[@autoid='networkproductcodemask']",
+            "incomm price min": "//span[@autoid='incommminpricenumeric']//input",
+            "incomm price max": "//span[@autoid='incommmaxpricenumeric']//input"
+        },
+        "qualifiers": {
+            "qualifiers dropdown": "//label[text()='Qualifiers']//parent::div//following-sibling::div//child::div[@class='rz-dropdown']",
+            "edit": "//button[@autoid='qualifierTypeTest Typeeditbutton']",
+            "delete": "//button[@autoid='qualifierTypeTest Typedeletebutton']",
+            "general": {
+                "description": "//input[@autoid='descriptiontextbox']",
+                "department": "//label[@autoid='departmentlabel']//parent::div//following-sibling::div//div[@class[contains(.,'rz-dropdown ')]]",
+                "receipt description": "//input[@autoid='receiptdesctextbox']",
+                "price required": "//div[@autoid='pricerequiredswitch']",
+                "this item sells for": "//input[@autoid='normalradio']",
+                "normal price": "//label[@autoid='normallabel']//following-sibling::span//input",
+                "buy _ at _ per unit and get one free": "//input[@autoid='getonefreeradio']",
+                "base plus one quantity": "//span[@autoid='getonefreequantitynumeric']//input",
+                "base plus one price": "//span[@autoid='getonefreeunitpricenumeric']//input",
+                "this item sells for _ per unit for the first _ items, every item afterwards at _": "//input[@autoid='unitadjustedradio']",
+                "group threshold unit price": "//span[@autoid='unitadjustedunitpricenumeric']//input",
+                "group threshold quantity": "//span[@autoid='unitadjustedquantitynumeric']//input",
+                "group threshold deal price": "//span[@autoid='unitadjusteddealpricenumeric']//input",
+                "this item's price is _ for _": "//input[@autoid='baseplusoneradio']",
+                "bulk quantity": "//span[@autoid='baseplusonequantitynumeric']//input",
+                "bulk price": "//span[@autoid='baseplusonepricenumeric']//input",
+                "this item sells for _ per unit or _ for _": "//input[@autoid='groupthresholdradio']",
+                "unit adjusted price": "//span[@autoid='groupthresholdunitpricenumeric']//input",
+                "unit adjusted quantity": "//span[@autoid='groupthresholdquantitynumeric']//input",
+                "unit adjusted deal price": "//span[@autoid='groupthresholddealpricenumeric']//input"
+            },
+            "options": {
+                "active for sale": "//div[@autoid='activeforsaleswitch']",
+                "food stampable": "//div[@autoid='foodstampableswitch']",
+                "discountable": "//div[@autoid='discountableswitch']",
+                "fee": "//div[@autoid='feeswitch']",
+                "allow refunds": "//div[@autoid='allowrefundsswitch']",
+                "quantity allowed": "//div[@autoid='quantityallowedswitch']",
+                "quantity required": "//div[@autoid='quantityrequiredswitch']",
+                "fractional quantity allowed": "//div[@autoid='allowfractionalquantityswitch']",
+                "return price": "//label[@autoid='returnpricelabel']//parent::div//following-sibling::div//input",
+                "unit of measure": "//div[@autoid='unitofmeasuredropdown']",
+                "tax group": "//div[@autoid='taxgroupdropdown']",
+                "restriction group": "//div[@autoid='restrictiongroupdropdown']",
+                "pricing group": "//div[@autoid='pricinggroupdropdown']",
+                "network product code": "//input[@autoid='networkproductcodemask']"
+            }
+        },
+        "tender restrictions": {
+            "cash": "//div[@autoid='cashcheckbox']",
+            "check": "//div[@autoid='checkcheckbox']",
+            "moneyorder": "//div[@autoid='moneyOrdercheckbox']",
+            "foodstamps": "//div[@autoid='foodStampscheckbox']",
+            "ebt": "//div[@autoid='ebtcheckbox']",
+            "giftcertificates": "//div[@autoid='giftCertificatescheckbox']",
+            "creditcards": "//div[@autoid='creditCardscheckbox']",
+            "fleetcards": "//div[@autoid='fleetCardscheckbox']",
+            "debitcards": "//div[@autoid='debitCardscheckbox']",
+            "radiofrequency": "//div[@autoid='radioFrequencycheckbox']",
+            "prepaidcards": "//div[@autoid='prepaidCardscheckbox']",
+            "smartcards": "//div[@autoid='smartCardscheckbox']",
+            "housecharges": "//div[@autoid='houseChargescheckbox']",
+            "driveoff": "//div[@autoid='driveOffcheckbox']",
+            "lotterywinningticket": "//div[@autoid='lotteryWinningTicketcheckbox']",
+            "lottowinningticket": "//div[@autoid='lottoWinningTicketcheckbox']",
+            "wicpayment": "//div[@autoid='wicPaymentcheckbox']",
+            "pumpfortest": "//div[@autoid='pumpForTestcheckbox']",
+            "userdefinedtendertypes": "//div[@autoid='userDefinedTenderTypescheckbox']",
+            "generic": "//div[@autoid='genericcheckbox']",
+            "outsidecredit": "//div[@autoid='outsideCreditcheckbox']",
+            "outsidedebit": "//div[@autoid='outsideDebitcheckbox']",
+            "cashacceptorchange": "//div[@autoid='cashAcceptorChangecheckbox']",
+            "auxilliarycredit": "//div[@autoid='auxilliaryCreditcheckbox']",
+            "outsideauxilliarycredit": "//div[@autoid='outsideAuxilliaryCreditcheckbox']",
+            "auxilliarydebit": "//div[@autoid='auxilliaryDebitcheckbox']",
+            "outsideauxilliarydebit": "//div[@autoid='outsideAuxilliaryDebitcheckbox']",
+            "mobilecredit": "//div[@autoid='mobileCreditcheckbox']",
+            "outsidemobilecredit": "//div[@autoid='outsideMobileCreditcheckbox']"
+        }
+    },
+    "crind cash acceptor": {
+        "max cash accepted per transaction": "//*[text()='Max cash accepted per transaction']/following::input[1]",
+        "max bill insertion retries": "//*[text()='Max Bill Insertion Retries']/following::input[1]",
+        "min $ amount reserved for fuel purchase": "//*[text()='Min $ amount reserved for fuel purchase']/following::input[1]",
+        "total $ amount in vault exceeds": "//*[text()='Total $ amount in vault exceeds']/following::input[1]",
+        "total number of bills in vault exceeds": "//*[text()='Total number of bills in vault exceeds']/following::input[@name='MaxCashPerTrans']",
+        "$1": "//*[@autoid='BillAccepted1switch']",
+        "$2": "//*[@autoid='BillAccepted2switch']",
+        "$5": "//*[@autoid='BillAccepted5switch']",
+        "$10": "//*[@autoid='BillAccepted10switch']",
+        "$20": "//*[@autoid='BillAccepted20switch']",
+        "$50": "//*[@autoid='BillAccepted50switch']",
+        "$100": "//*[@autoid='BillAccepted100switch']"
+    },
+    "period maintenance":{
+        "general": {
+            "required periods": "//div[text()='General']//ancestor::div[@autoid='panel']//child::div[@class[contains(., 'rz-buttonset')]]",
+            "day of week": "//div[text()='General']//ancestor::div[@autoid='panel']//child::input//ancestor::div[@class[contains(., 'rz-dropdown')]]"
+        },
+        "manager periods": {
+            "add": "//div[text()='Manager Periods']//ancestor::div[@autoid='panel']//child::span[text()='Add']//ancestor::button",
+            "existing periods": "//div[text()='Manager Periods']//ancestor::div[@autoid='panel']//tbody//tr//td[1]//span",
+            "description": "//input[@id='PeriodName']",
+            "start date": "(//div[text()='Manager Periods']//ancestor::div[@autoid='panel']//child::span[@class[contains(., 'calendar')]]//input)[1]",
+            "end date": "(//div[text()='Manager Periods']//ancestor::div[@autoid='panel']//child::span[@class[contains(., 'calendar')]]//input)[2]",
+            "check": "//div[text()='Manager Periods']//ancestor::div[@autoid='panel']//child::i[text()='check']//ancestor::button",
+            "close": "//div[text()='Manager Periods']//ancestor::div[@autoid='panel']//child::i[text()='close']//ancestor::button",
+            "edit": "//span[contains(., '%s')]//parent::td//following-sibling::td//child::i[text()='edit']",
+            "timer": "//span[contains(., '%s')]//parent::td//following-sibling::td//child::i[text()='timer']"
+        },
+        "store close options": {
+            "store close": "//input[@name='CloseShift']//ancestor::div[@autoid='switch']",
+            "force store close": "//input[@name='ForceStoreClose']//ancestor::div[@autoid='switch']",
+            "allow store closes at pos registers to start at": "//label[text()='Allow Store Closes at POS Registers to start at']//parent::div//following-sibling::div//child::input",
+            "force the store close at": "//label[text()='Force the store close at']//parent::div//following-sibling::div//div//span//input[@class='rz-inputtext  ']",
+            "start sending reminder messages": "//label[contains(., 'Start sending reminder')]//parent::div//following-sibling::div//div//span//input[@class='rz-inputtext  ']",
+            "display store close reminder every": "//label[contains(., 'Display store close reminder')]//parent::div//following-sibling::div//div//span//input[@class='rz-inputtext  ']",
+            "store close reminder message": "//div[@class='row']//child::textarea"
+        },
+        "till close reports": {
+            "print report":"//span[@title='%s']//following::div[contains(@class,'rz-switch')][1]",
+            "adjust report order": {
+                "down":"//span[@title='%s']//following::button[@type='button'][1]",
+                "up":"//span[@title='%s']//following::button[@type='button'][2]"
+            }
+        },
+        "shift close reports": {
+            "print report":"//p[contains(.,'Auxiliary Report')]//preceding::span[@title='%s']//following::div[contains(@class,'rz-switch')][1]",
+            "print standalone report":"//p[contains(.,'Auxiliary Report')]//preceding::span[@title='%s']//following::div[contains(@class,'rz-switch')][2]",
+            "adjust report order": {
+                "down":"//p[contains(.,'Auxiliary Report')]//preceding::span[@title='%s']//following::div[contains(@class,'rz-switch')][1]//following::button[@type='button'][1]",
+                "up":"//p[contains(.,'Auxiliary Report')]//preceding::span[@title='%s']//following::div[contains(@class,'rz-switch')][1]//following::button[@type='button'][2]"
+            }
+        },
+        "store close reports": {
+            "print report":"//p[contains(.,'Auxiliary Report')]//following::span[@title='%s']//following::div[contains(@class,'rz-switch')][1]",
+            "auxiliary reports":"//p[contains(.,'Auxiliary Report')]//following::span[@title='%s']//following::div[contains(@class,'rz-switch')][2]",
+            "adjust report order": {
+                "down":"//p[contains(.,'Auxiliary Report')]//following::span[@title='%s']//following::div[contains(@class,'rz-switch')][1]//following::button[@type='button'][1]",
+                "up":"//p[contains(.,'Auxiliary Report')]//following::span[@title='%s']//following::div[contains(@class,'rz-switch')][1]//following::button[@type='button'][2]"
+            }
+        }
+    },
+    "local accounts": {
+		"print store receipt copy": "//label[@for='PrintStoreReceipt']/preceding::div[@autoid='switch']",
+		"print customer receipt copy": "//label[@for='PrintCustomerReceipt']/preceding::div[@autoid='switch'][1]",
+        "add": "//button[*//text()='Add']",
+        "edit": "//tr[td[1]//text()='%s']//button[@autoid[contains(.,'edit')]]",
+        "delete": "//tr[td[1]//text()='%s']//button[@autoid[contains(.,'delete')]]",
+        "balance": "//tr[td[1]//text()='%s']//button[@autoid[contains(.,'balance')]]",
+        "search local accounts": "//input[@auto-id='SearchTextBox']",
+        "account type filter": "//div[input[@auto-id='SearchTextBox']]//div[@class[contains(.,'rz-dropdown ')] or @class='rz-dropdown']",
+        "account id": "//th[*//text()='Account ID']",
+        "account name": "//th[*//text()='Account Name']",
+        "taxation number": "//th[*//text()='Taxation Number']",
+        "type": "//th[*//text()='Type']",
+        "accounts grid": "//table//tbody",
+        "adjust balance": {
+          "account id": "//input[@name='LocalAccountId']",
+          "account name": "//input[@name='LocalAccountName']",
+          "current balance": "//input[@name='CurrentBalance']",
+          "adjust balance by": "//input[@name='Adjustment']",
+          "reason": "//input[@name='Reason']",
+          "confirm": "//button[*//span[text()='Confirm']]",
+          "cancel": "//button[*//span[text()='Cancel']]"
+        },
+		"general": {
+			"account type": "//div[@class='row' and *//label[text()='Account Type']]//div[@class[contains(.,'rz-dropdown ')]]",
+			"account id": "//input[@name='LocalAccountId']",
+            "account name": "//input[@name='LocalAccountName']",
+            "taxation number": "//input[@name='TaxationNumber']",
+			"account credit limit": "//input[@name='CreditLimit']",
+            "a warning message should display if the account balance reaches": "//input[@name='WarningThreshold']",
+            "maximum transaction amount when pos is offline": "//input[@name='OfflineMax']",
+            "print the current balance on the customer receipt": "//*[@for='PrintCurrentBalance']/preceding::div[@autoid='switch'][1]"	
+		},
+		"address": {
+			"street": "//input[@name='Street']",
+			"city": "//input[@name='City']",
+			"state": "//input[@name='State']",
+			"country": "//input[@name='Country']",
+			"postal code": "//input[@name='PostalCode']",
+			"phone": "//input[@name='Phone']",
+			"e-mail": "//input[@name='Email']"
+		},
+        "card account": {
+			"enable account": "//div[@autoid='panel' and *//text()='Card Account']//div[@class[contains(.,'row ')] and *//text()='Enable Account']//div[@autoid='switch']",
+			"card data is on": "//div[@autoid='panel' and *//text()='Card Account']//div[@class='row' and *//text()='Card Data is on']//div[@class[contains(.,'rz-dropdown ')]]",
+			"issuer number start position": "//input[@name='IssuerNumberPos']",
+			"issuer number": "//input[@name='IssuerNumber']",
+			"account number start position": "//input[@name='AccountNumberPos']",
+			"account number range start": "//input[@name='AccountNumberRangeStart']",
+			"account number range end": "//input[@name='AccountNumberRangeEnd']",
+			"validate expiration date": "//label[@for='ValidateExpDate']/preceding::div[@autoid='switch'][1]",
+			"start position": "//input[@name='ExpirationStartPosition']",
+			"date format":  "//div[@class[contains(.,'rz-buttonset')]]",
+			"discount group": "//label[text()='Discount Group']/following::div[@class='rz-dropdown valid'][1]",
+			"fuel restriction code": "//input[@name='FuelRestrictionCode']",
+			"fuel restriction start position": "//input[@name='FuelRestrictionStartPosition']",
+			"crind authorization amount": "//input[@name='CrindAuthorizationAmount']"
+        },
+        "negative card": {
+            "add": "//div[@autoid='panel' and *//text()='Negative Card']//button[@autoid='AddButton']",
+            "account number start": "//input[@name='AccountNumberStart']",
+            "account number end": "//input[@name='AccountNumberEnd']",
+            "accept": "//button[@autoid[contains(.,'check')]]",
+            "cancel": "//button[@autoid[contains(.,'close')]]",
+            "edit": "//tr[td/span[text()='%s']]//button[@autoid[contains(.,'edit')]]",
+            "delete": "//tr[td/span[text()='%s']]//button[@autoid[contains(.,'delete')]]"
+        },
+        "prompt configuration": {
+            "prompt": "//tr[*//text()='%s']//div[@class[contains(.,'rz-dropdown ')]]",
+            "start position": "//tr[*//text()='%s']//td[3]//input[@type='text' and not(@readonly)]",
+            "prompt value": "//tr[*//text()='%s']//td[4]//input[@type='text' and not(@readonly)]",
+            "prompt text": "//tr[*[1]//text()='%s']//input[@name='PromptText']",
+            "receipt description": "//tr[*[1]//text()='%s']//input[@name='ReceiptDescription']",
+            "print on receipt": "//tr[*[1]//text()='%s']//div[@class[contains(.,'rz-switch ')]]"
+        },
+        "sub accounts": {
+            "add": "//div[@class[contains(.,'panel')] and *//text()='Sub Accounts']//button[@autoid='AddButton']",
+            "sub-account id": "//input[@name='SubAccountId']",
+            "description": "//td[2]//input",
+            "vehicle reg no.": "//td[3]//input",
+            "enabled header toggle": "//th[4]//div[@class[contains(.,'rz-switch ')]]",
+            "enabled": "//tr[*//text()='%s']//div[@class[contains(.,'rz-switch ')]]",
+            "edit": "//tr[*//text()='%s']//button",
+            "accept": "//tbody//button[@autoid[contains(.,'save')]]",
+            "cancel": "//tbody//button[@autoid[contains(.,'cancel')]]"
+        }
+	}, 
+    "registers": {
+        "add": "//button[@autoid='AddButton']",
+        "edit": "//tr[*//text()='%s']//button[@autoid='EditButton']",
+        "delete": "//tr[*//text()='%s']//button[@autoid='DeleteButton']",
+        "register number": "//span[@autoid='RegisterNumberNumeric']//child::input",
+        "machine name": "//div[@autoid='MachineNameDropdown']",
+        "register group": "//div[@autoid='RegisterGroupIdDropDown']",
+        "personality": "//div[@autoid='RegisterTypeDropdown']",
+        "asset id": "//input[@autoid='AssetIdTextBox']",
+        "model number": "//input[@autoid='ModelNumberTextBox']",
+        "serial number": "//input[@autoid='SerialNumberTextBox']",
+        "line display": "//div[@autoid='LineDisplayTypeDropDown']",
+        "pinpad type": "//div[@autoid='PinpadTypeDropDown']",
+        "ip address": "//input[@autoid='PinpadIpAddressTextBox']",
+        "scanner ip": "//input[@autoid='ScannerIpTextBox']",
+        "printer type": "//div[@autoid='PrinterTypeDropDown']",
+        "printer ip": "//input[@autoid='PrinterIpAddressTextBox']",
+        "electronic signature": "//div[@autoid='switch'][@id='ElectronicSignature']",
+        "forward outside transaction": "//div[@autoid='switch'][@id='ForwardOutsideTransaction']",
+        "reboot pinpad": "//div[@autoid='RebootPinpadDatePicker']//input",
+        "scanner type": "//div[@autoid='ScannerConnectionTypeDropDown']",
+        "scanner com port": "//div[@autoid='ScannerComPortDropDown']"
+    },
+    "department keys": {
+        "code": "//div[@autoid='DepartmentDropDown']",
+        "caption": "//input[@autoid='CaptionTextBox']",
+        "icon": "//div[@autoid='IconSelectionDropDown']",
+        "empty dept key": "//div[@autoid='SpeedKey_%s']",
+        "dept key icon": "//div[@autoid='SpeedKey_%s']//div[@class='speedkey-image]",
+        "dept key delete": "//div[@autoid='SpeedKey_%s']/preceding-sibling::div[@class[contains(.,'remove')]]",
+        "first page arrow": "//a[@class[contains(.,'paginator-first')]]",
+        "previous page arrow": "//a[@class[contains(.,'paginator-prev')]]",
+        "next page arrow": "//a[@class[contains(.,'paginator-next')]]",
+        "last page arrow": "//a[@class[contains(.,'paginator-last')]]",
+        "add page": "//button[@autoid='AddPageButton']",
+        "delete page": "//button[@autoid='DeletePageButton']"
+    },
+    "speed keys": {
+        "search speed key menu": "//input[@auto-id='SearchTextBox' or @placeholder='Search Speed Key Menu']",
+        "add": "//button[*//text()='Add']",
+        "edit": "//tr[*//text()='%s']//button[@auto-id='UpdateButton']",
+        "delete": "//tr[*//text()='%s']//button[@auto-id='DeleteButton']",
+        "key": "//div[@autoid='SpeedKey_%s']",
+        "delete key": "//div[@class[contains(.,'speedkey-wrapper')] and div[@autoid='SpeedKey_%s']]//div[@class[contains(.,'remove')]]",
+        "description": "//input[@autoid='SpeedKeyMenuDescription']",
+        "primary menu": "//fieldset//div[@class[contains(.,'row ')] and *//text()='Primary Menu']//div[@autoid='switch']",
+        "key configuration": "//div[@class[contains(., 'buttonset')]]",
+        "code": "//div[@autoid='ItemDropDown']",
+        "menu id": "//div[@autoid='MenuIdDropDown']",
+        "caption": "//div[@class='row' and *//text()='Caption']//input",
+        "icon": "//div[@autoid='IconSelectionDropDown']",
+        "add page": "//button[@autoid='AddPageButton']",
+        "delete page": "//button[@autoid='DeletePageButton']",
+        "page": "//a[@class[contains(., 'rz-paginator-page ')]]",
+        "first page": "//a[@class[contains(., 'rz-paginator-first')]]",
+        "previous page": "//a[@class[contains(., 'rz-paginator-prev')]]",
+        "next page": "//a[@class[contains(., 'rz-paginator-next')]]",
+        "last page": "//a[@class[contains(., 'rz-paginator-last')]]"
+    },
+    "clock in/out adjustment": {
+        "clock in/out is not enabled": "//h2[text()='Clock In/Out is not enabled']",
+        "current": "//div[@aria-label='Current']",
+        "custom": "//div[@aria-label='Custom']",
+        "date start": "(//span[@class[contains(., 'rz-calendar')]]/button)[1]",
+        "date end": "//input[@name='EndRange']//following-sibling::button",
+        "employee": "//div[@class[contains(.,'rz-dropdown valid')]]",
+        "add": "//button[@autoid='AddButton']",
+        "clock in": "//input[@name='StartTime']//following-sibling::button",
+        "clock out": "//input[@name='EndTime']//following-sibling::button",
+        "accept": "//i[text()='check']//ancestor::button",
+        "cancel": "//i[text()='close']//ancestor::button",
+        "edit": "(//i[text()='edit']//ancestor::button)[%s]",
+        "delete": "(//i[text()='delete']//ancestor::button)[%s]"
+    },
+    "tank alerts": {
+        "edit": "//tr[td[1 and *//text()='%s']]//button[@autoid[contains(.,'edit')]]",
+        "low level alert": "//tr//td[5]//input",
+        "reorder level alert": "//tr//td[6]//input",
+        "accept": "//button[@autoid[contains(.,'save')]]",
+        "cancel": "//button[@autoid[contains(.,'cancel')]]",
+        "capacity table cell": "//tr[td[1 and *//text()='%s']]//td[3]",
+        "current level table cell": "//tr[td[1 and *//text()='%s']]//td[4]",
+        "low level alert table cell": "//tr[td[1 and *//text()='%s']]//td[5]",
+        "reorder level alert table cell": "//tr[td[1 and *//text()='%s']]//td[6]"
+    },
+    "tank stick reading": {
+        "capacity table cell": "//tr[*//text()='%s']//td[3]",
+        "current level table cell": "//tr[*//text()='%s']//td[4]",
+        "fuel volume table cell": "//tr[*//text()='%s']//td[5]",
+        "fuel height table cell": "//tr[*//text()='%s']//td[6]",
+        "water height table cell": "//tr[*//text()='%s']//td[7]",
+        "dip type table cell": "//tr[*//text()='%s']//td[8]",
+        "edit": "//tr[*//text()='%s']//button[@autoid[contains(.,'edit')]]",
+        "first page arrow": "//a[@class[contains(.,'paginator-first')]]",
+        "previous page arrow": "//a[@class[contains(.,'paginator-prev')]]",
+        "next page arrow": "//a[@class[contains(.,'paginator-next')]]",
+        "last page arrow": "//a[@class[contains(.,'paginator-last')]]",
+        "1": "//a[@class[contains(.,'paginator-page')] and text()='1']",
+        "2": "//a[@class[contains(.,'paginator-page')] and text()='2']",
+        "operator": "//div[@class='row' and *//text()='Operator']//div[@class[contains(.,'rz-dropdown ')]]",
+        "date and time": "//div[@class='row' and *//text()='Date and Time']//span[@class[contains(.,'calendar')]]//input",
+        "fuel volume": "//div[@class='row' and *//text()='Fuel Volume']//input",
+        "fuel height": "//div[@class='row' and *//text()='Fuel Height']//input",
+        "water height": "//div[@class='row' and *//text()='Water Height']//input",
+        "dip type": "//div[@class='row' and *//text()='Dip Type']//div[@class[contains(.,'rz-dropdown ')]]"
+    },
+    "insite360 interface": {
+        "register": "//span[text()='Register']",
+        "general": {
+            "export pricebook when third party changes are made to items or departments": "//input[@name='ExportPricebooksOnChange']//parent::div//parent::div[@autoid='switch']",
+            "price sign enabled. apply fuel prices changes immediately.": "//input[@name='ApplyFuelPricesImmediately']//parent::div//parent::div[@autoid='switch']",
+            "gilbarco id": "//input[@name='GvrId']",
+            "apply to all register groups": "//input[@name='ApplyToAllRegisterGroups']//parent::div//parent::div[@autoid='switch']"
+        },
+        "summary files": {
+            "store close": "//span[text()='%s']//ancestor::td//following-sibling::td//input[@name='StoreClose']//ancestor::div[@autoid='switch']",
+            "shift close": "//span[text()='%s']//ancestor::td//following-sibling::td//input[@name='ShiftClose']//ancestor::div[@autoid='switch']"
+        }
+    },
+    "store close": {
+        "clear suspended sales": "//table//span[text()='Clear Suspended Sales']//parent::td//following-sibling::td//child::span",
+        "change business period": "//table//span[text()='Change Business Period']//parent::td//following-sibling::td//child::span",
+        "close registers": "//table//span[text()='Close Registers']//parent::td//following-sibling::td//child::span",
+        "record fuel inventory": "//table//span[text()='Record Fuel Inventory']//parent::td//following-sibling::td//child::span",
+        "close networks": "//table//span[text()='Close Networks']//parent::td//following-sibling::td//child::span",
+        "send fuel prices to dispensers": "//table//span[text()='Send Fuel Prices To Dispensers']//parent::td//following-sibling::td//child::span",
+        "generating end of period summary files": "//table//span[text()='Generating End Of Period Summary Files']//parent::td//following-sibling::td//child::span"
+    },
+    "extraction tool": {
+        "import_tab": {
+            "import dropdown": "//*[@autoid='importDropDown']",
+            "refresh files": "//button[@autoid='importRefreshButton']",
+            "import": "//button[@autoid='importButton']",
+            "cancel import": "//button[@autoid='cancelImportButton']",
+            "select import item": "//button[@autoid='importButton']//following::label[text()='%s']/preceding::div[@class[contains(.,'rz-chkbox-box')]][1]",
+            "progress bar": "//*[@class[contains(.,'rz-progressbar-value')] and @style='width: 100%;']"
+        },
+        "export_tab": {
+            "refresh directories": "//button[@autoid='exportRefreshButton']",
+            "export dropdown": "//*[@autoid='exportDropDown']",
+            "file name": "//*[text()='File Name']/following::input[1]",
+            "output file": "//*[text()='Output File']/following::input[1]",
+            "compress file": "//*[text()='Compress File']/following::div[@class[contains(.,'rz-chkbox-box')]][1]",
+            "export": "//button[@autoid='exportButton']",
+            "cancel export": "//button[@autoid='cancelExportButton']",
+            "select all": "//button[@autoid='selectAllButton']",
+            "clear all": "//button[@autoid='clearAllButton']",
+            "select export item": "//button[@autoid='exportButton']//following::label[text()='%s']/preceding::div[@class[contains(.,'rz-chkbox-box')]][1]"
+        }
+    },
+    "crind merchandising": {
+        "enable crind merchandising": "//label[@for='EnableCrindMerchandising']//preceding::div[@autoid='switch']",
+        "vendor name": "//input[@name='VendorName']",
+        "prompt location": "//label[contains(text(), 'Prompt Location')]//ancestor::div[@class='row']//child::div[@class[contains(.,'rz-dropdown ')]]",
+        "category": {
+            "add": "//span[@title='Category']//preceding::button[@autoid='AddButton']",
+            "input": "//span[contains(text(),'Category')]//following::input[contains(@class,'rz-textbox valid')]",
+            "category names": "//span[text()='Category']//ancestor::legend//following::div//tbody//tr//td[1]",
+            "accept":"//i[contains(text(),'check')]//ancestor::button[@type='button']",
+            "cancel":"//i[contains(text(),'close')]//ancestor::button[@type='button']",
+            "edit":"//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'edit')]//ancestor::button",
+            "delete":"//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'delete')]//ancestor::button",
+            "up": "//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'arrow_upward')]//ancestor::button",
+            "down":"//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'arrow_downward')]//ancestor::button"
+        },
+        "items": {
+            "select category": "//span[contains(text(),'Items')]//following::div[@class[contains(.,'rz-dropdown ')]]",
+            "add": "//span[contains(text(), 'Items')]//following::button[@autoid='AddButton']",
+            "item add listbox": {
+                "search item": "//span[text()='Items']//ancestor::legend//following::div//input[@class='rz-inputtext']",
+                "select item": "//div[@class='rz-listbox-list-wrapper']//following::li[@aria-label='%s']",
+                "all_available_items": "//div[@class='rz-listbox-list-wrapper']//following::li[@class[contains(., 'rz-multiselect-item')]]",
+                "accept":"//i[contains(text(),'done')]//ancestor::button[@type='button']",
+                "cancel":"//i[contains(text(),'close')]//ancestor::button[@type='button']"
+            },
+            "item description edit input": "//span[text()='Items']//ancestor::legend//following::div//span[@title='%s']//input",
+            "item descriptions": "//span[text()='Items']//ancestor::legend//following::div//tbody//tr//td[2]",
+            "item buttons": {
+                "available": "//span[text()='Items']//ancestor::legend//following::div//span[@title='%s']//parent::td//following-sibling::td//div[@class[contains(., 'rz-chkbox-box')]]",
+                "edit":"//span[text()='Items']//ancestor::legend//following::div//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'edit')]//ancestor::button",
+                "delete":"//span[text()='Items']//ancestor::legend//following::div//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'delete')]//ancestor::button",
+                "up": "//span[text()='Items']//ancestor::legend//following::div//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'arrow_upward')]//ancestor::button",
+                "down":"//span[text()='Items']//ancestor::legend//following::div//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'arrow_downward')]//ancestor::button",
+                "accept": "//span[text()='Items']//ancestor::legend//following::div//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'check')]//ancestor::button",
+                "cancel": "//span[text()='Items']//ancestor::legend//following::div//span[@title='%s']//ancestor::tr/td//i[contains(text(), 'close')]//ancestor::button"
+            }
+        }       
+    },
+    "tank inventory": {
+        "capacity table cell": "//label[contains(text(),'%s')]//ancestor::tr/td//label[contains(@autoid, 'CapacityLabel')]",
+        "current level table cell": "//label[contains(text(),'%s')]//ancestor::tr/td//label[contains(@autoid, 'CurrentLevelLabel')]",
+        "group table cell": "//label[contains(text(),'%s')]//ancestor::tr/td//label[contains(@autoid, 'GroupLabel')]",
+        "adjustment level table cell": "//label[contains(text(),'%s')]//ancestor::tr/td//label[contains(@autoid, 'AdjustmentLevelLabel')]",
+        "reason for adjustment table cell": "//label[contains(text(),'%s')]//ancestor::tr/td//label[contains(@autoid, 'ReasonForAdjustmentLabel')]",
+        "edit":"//label[contains(text(),'%s')]//ancestor::tr/td//i[contains(text(), 'edit')]//ancestor::button",
+        "operator": "//label[contains(text(), 'Operator')]//ancestor::div[@class='row']//child::div[@class[contains(.,'rz-dropdown ')]]",
+        "date and time": "//div[@autoid='DateTimePicker']//child::input[contains(@class, 'rz-inputtext  ')]",
+        "adjustment level": "//input[@name='VolumeAdjustment']",
+        "reason for adjustment": "//label[contains(text(), 'Reason for Adjustment')]//ancestor::div[@class='row']//child::div[@class[contains(.,'rz-dropdown ')]]"
+    },
+    "qualifiers": {
+        "types": {
+            "add": "//div[text()='Types']//parent::div//parent::div//parent::div//child::button",
+            "description": "//input[@autoid='DescriptionTextBox']",
+            "package quantity": "//span[@autoid='PackageQuantity']//input",
+            "accept": "//button[@autoid='AcceptButton']",
+            "cancel": "//button[@autoid='CancelButton']",
+            "edit": "//button[@typeid='%s'][@autoid='EditButton']",
+            "delete": "//button[@typeid='%s'][@autoid='DeleteButton']"
+        },
+        "groups": {
+            "add": "//div[text()='Groups']//parent::div//parent::div//parent::div//child::button",
+            "description": "//input[@autoid='DescriptionTextBox']",
+            "qualifier types": "//div[@autoid='QualifierTypeDropDown']",
+            "accept": "//button[@autoid='AcceptButton']",
+            "cancel": "//button[@autoid='CancelButton']",
+            "edit": "//span[text()='%s']//parent::td//following-sibling::td//button[@autoid='EditButton']",
+            "delete": "//span[text()='%s']//parent::td//following-sibling::td//button[@autoid='DeleteButton']"
+        }
+    }
+}

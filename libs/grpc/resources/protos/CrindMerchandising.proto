@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+import "Common.proto";
+
+option csharp_namespace = "Gilbarco.POS.FuelConfiguration";
+
+service CrindMerchandisingService
+{
+    rpc GetCrindMerchandise (GetCrindMerchandiseRequest) returns (GetCrindMerchandiseReply);
+    rpc SetCrindMerchandise (SetCrindMerchandiseRequest) returns (SetCrindMerchandiseReply);
+
+    rpc SetCrindMerchandisingEnabled (SetCrindMerchandisingEnabledRequest) returns (SetCrindMerchandisingEnabledReply);
+}
+
+message GetCrindMerchandiseRequest
+{
+
+}
+
+message GetCrindMerchandiseReply
+{
+    CrindMerchandising CrindMerchandising = 1;
+}
+
+message SetCrindMerchandiseRequest
+{
+    CrindMerchandising CrindMerchandising = 1;
+}
+
+message SetCrindMerchandiseReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message SetCrindMerchandisingEnabledRequest
+{
+    bool Enabled = 1;
+    Common.Language Language = 2;
+}
+
+message SetCrindMerchandisingEnabledReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+
+message CrindMerchandising
+{
+    bool Enabled = 1;
+    string VendorName = 2;
+    int32 PromptLocation = 3;
+    repeated MerchCategory Categories = 4;
+}
+
+message MerchCategory
+{
+    string Name = 1;
+    repeated MerchItem Items= 2;
+    int32 DisplayOrder = 3;
+}
+
+message MerchItem
+{
+    string Plu = 1;
+    string Description = 2;
+    bool Available = 3;
+    int32 DisplayOrder = 4;
+}

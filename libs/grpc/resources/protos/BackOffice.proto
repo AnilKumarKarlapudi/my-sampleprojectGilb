@@ -1,0 +1,170 @@
+syntax = "proto3";
+
+import "Common.proto";
+
+option csharp_namespace = "Gilbarco.POS.BackOffice.Grpc";
+
+service BackOffice
+{
+	rpc GetBackOfficeConfiguration (GetBackOfficeConfigurationRequest) returns (GetBackOfficeConfigurationReply);
+	rpc SetBackOfficeConfiguration (SetBackOfficeConfigurationRequest) returns (SetBackOfficeConfigurationReply);
+	rpc GetBackOfficeDocuments (GetBackOfficeDocumentsRequest) returns (GetBackOfficeDocumentsReply);
+	rpc GetThirdPartyDataConfiguration (GetThirdPartyDataConfigurationRequest) returns (GetThirdPartyDataConfigurationReply);
+	rpc SetThirdPartyDataConfiguration (SetThirdPartyDataConfigurationRequest) returns (SetThirdPartyDataConfigurationReply);
+	// rpc ExportPriceBook (ExportPriceBookRequest) returns (ExportPriceBookReply);
+	// rpc RepollXmlFiles (RepollXmlFilesRequest) returns (RepollXmlFilesReply);
+	rpc RecordTransaction (RecordTransactionRequest) returns (RecordTransactionReply);
+	rpc ClosePeriod (ClosePeriodRequest) returns (ClosePeriodReply);
+}
+
+message GetBackOfficeConfigurationRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetBackOfficeConfigurationReply
+{
+	BackOfficeConfiguration Configuration = 1;
+}
+
+message SetBackOfficeConfigurationRequest
+{
+	Common.Language Language = 1;
+	BackOfficeConfiguration Configuration = 2;
+}
+
+message SetBackOfficeConfigurationReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetBackOfficeDocumentsRequest
+{
+	Common.Language Language = 1;
+	InterfaceVersion Version = 2;
+}
+
+message GetBackOfficeDocumentsReply
+{
+	repeated Common.PeriodCloseFile Documents = 1;
+}
+
+message GetThirdPartyDataConfigurationRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetThirdPartyDataConfigurationReply
+{
+	ThirdPartyDataConfiguration Configuration = 1;
+}
+
+message SetThirdPartyDataConfigurationRequest
+{
+	Common.Language Language = 1;
+	ThirdPartyDataConfiguration Configuration = 2;
+}
+
+message SetThirdPartyDataConfigurationReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message RecordTransactionRequest
+{
+	// Gilbarco.POS.Contracts.Models.Reporting.Transaction serialized to JSON 
+	// (for now anyway, could be defined here and mapped)
+	string TransactionRecord = 1;
+}
+
+message RecordTransactionReply
+{
+}
+
+message ClosePeriodRequest
+{
+	// Gilbarco.POS.Contracts.Period serialized to JSON 
+	// (for now anyway, could be defined here and mapped)
+	string PeriodJson = 1;
+}
+
+message ClosePeriodReply
+{
+}
+
+message BackOfficeConfiguration
+{
+	bool Enabled = 1;
+	InterfaceVersion Version = 2;
+	bool GeneratePjr = 3;
+	bool EnforceSchema = 4;
+	bool ReassignPlu = 5;
+	bool CalculateNetSales = 6;
+	bool GenerateNetworkPeriodFiles = 7;
+	bool UseLoyaltyProgramName = 8;
+	bool GenerateAckFiles = 9;
+	bool DropUpcCheckDigit = 10;
+	bool UseManifests = 11;
+	bool GenerateCombinedPjr = 12;
+	bool IncludeOriginalCashierId = 13;
+	bool AllowPlainTextFtp = 14;
+	bool EnablePolling = 15;
+	string UserName = 16;
+	string Password = 17;
+	string PullPath = 18;
+	string PushPath = 19;
+	bool ZeroBasePosCodeModifier = 20;
+	bool AlertCashierAfterUpdate = 21;
+	bool FoodStampableByDefault = 22;
+	int32 ThrottleCount = 23;
+	int32 ThrottleDelay = 24;
+	repeated Common.PeriodCloseFile Documents = 25;
+	bool ShowArchiveTldFilesOption = 26;
+	bool ArchiveTldFiles = 27;
+	int32 ArchiveDaysForTldFiles = 28;
+	bool EnableFtp = 29;
+}
+
+enum InterfaceVersion
+{
+	Disabled = 0;
+	NacsXml3_3 = 3;
+	NacsXml3_4 = 4;
+}
+
+message ThirdPartyDataConfiguration
+{
+	bool GeneratePjr = 1;
+	bool ZipPjr = 2;
+	bool GenerateCombinedPjr = 3;
+	bool ZipCombinedPjr = 4;
+	bool ExportPriceBookWhenModified = 5;
+	bool ExportPriceBookNightly = 6;
+	bool CopyDiscountFiles = 7;
+	bool WetstockExportEnabled = 8;
+	bool ExportMetersByGrade = 9;
+	bool ExportMetersByDispenser = 10;
+	bool ExportFuelPrices = 11;
+	bool CopyEndOfPeriodSummaryFiles = 12;
+	repeated ThirdPartyHost Hosts = 13; 
+	string FuelGradeMovementURL = 14;
+}
+
+message ThirdPartyHost
+{
+	int64 HostId = 1;
+	string Description = 2;
+	string Address = 3;
+	int32 Port = 4;
+	string UserName = 5;
+	string Password = 6;
+	string FtpFolder = 7;
+	bool UseFtps = 8;
+	bool SendPjrFiles = 9;
+	bool SendPriceBook = 10;
+	bool SendWetstock = 11;
+	bool SendEndOfPeriodData = 12;
+	bool SendFuelPrices = 13;
+}

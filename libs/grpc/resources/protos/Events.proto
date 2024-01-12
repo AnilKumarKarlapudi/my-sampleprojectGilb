@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option csharp_namespace = "Gilbarco.POS.Events";
+
+service Events 
+{
+	rpc Ping (PingRequest) returns (PingReply);
+	rpc GetNextEvent (GetNextEventRequest) returns (stream GetNextEventReply);
+	rpc BulkUpdateComplete (BulkUpdateCompleteRequest) returns (BulkUpdateCompleteReply);
+}
+
+message PingRequest 
+{
+}
+
+message PingReply
+{
+}
+
+message GetNextEventRequest 
+{
+	repeated int32 EventTypes = 1;
+}
+
+message GetNextEventReply
+{
+	int32 EventType = 1;
+	int64 ConfigurationChanged = 2;
+	string EventData = 3;
+}
+
+message BulkUpdateCompleteRequest 
+{
+	int64 ConfigurationType = 1;
+	string DisplayMessage = 2;
+}
+
+message BulkUpdateCompleteReply
+{
+}
+

@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package Common;
+
+enum Language
+{
+	DefaultLanguage = 0;
+	English = 1;
+	French = 2;
+	Spanish = 3;
+}
+
+enum Currency
+{
+	DefaultCurrency = 0;
+	USD = 1;
+}
+
+enum ResultCode
+{
+	Success = 0;
+	ValidationFailure = 1;
+	FatalError = 2;
+}
+
+message Address
+{
+	string Line1 = 1;
+	string Line2 = 2;
+	string Line3 = 3;
+	string City = 4;
+	string State = 5;
+	string PostalCode = 6;
+}
+
+message Telephone
+{
+	string AreaCode = 1;
+	string PhoneNumber = 2;
+}
+
+enum Frequency 
+{
+	Once = 0;
+	Daily = 1;
+	Weekly = 2;
+	Monthly = 3;
+}
+
+message PeriodCloseFile
+{
+	string id = 1;
+	string name = 2;
+	bool enabledAtStoreClose = 3;
+	bool enabledAtShiftClose = 4;
+	bool enabledAtTillClose = 5;
+}
+
+message FtpConfiguration
+{
+	int32 HostIdentifier = 1;
+	string HostDescription = 2;
+	string HostAddress = 3;
+	int32 HostPort = 4;
+	string UserName = 5;
+	string Password = 6;
+	string FtpFolder = 7;
+	bool UseSecureFtp = 8;
+	bool SendPjr = 9;
+	bool SendWetstock = 10;
+	bool UseImplicitFtps = 11;
+	bool SendEopXml = 12;
+	bool SendFuelPriceData = 13;
+	bool SendReports = 14;
+}

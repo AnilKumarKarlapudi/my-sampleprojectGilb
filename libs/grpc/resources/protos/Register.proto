@@ -1,0 +1,507 @@
+syntax = "proto3";
+
+import "Common.proto";
+import "color.proto";
+import "money.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Gilbarco.POS.Configuration";
+
+service RegisterService
+{
+    rpc GetRegister (GetRegisterRequest) returns (GetRegisterReply);
+    rpc GetAllRegisters (GetAllRegistersRequest) returns (GetAllRegistersReply);
+    rpc GetAllRegistersForReports (GetAllRegistersRequest) returns (GetAllRegistersReply);
+    rpc UpdateRegister (Register) returns (UpdateRegisterReply);
+    rpc AddRegister (Register) returns (AddRegisterReply);
+    rpc DeleteRegister (DeleteRegisterRequest) returns (DeleteRegisterReply);
+    rpc GetRegisterByMachineName (GetRegisterByMachineNameRequest) returns (GetRegisterByMachineNameReply);
+
+    rpc GetExpressLaneConfiguration(GetExpressLaneConfigurationRequest) returns (GetExpressLaneConfigurationReply);
+    rpc SetExpressLaneConfiguration(SetExpressLaneConfigurationRequest) returns (SetExpressLaneConfigurationReply);
+
+    rpc GetRegisterGroupAssignments (GetRegisterGroupAssignmentsRequest) returns (GetRegisterGroupAssignmentsReply);
+    rpc UpdateRegisterGroupAssignments(UpdateRegisterGroupAssignmentsRequest) returns (UpdateRegisterGroupAssignmentsReply);
+
+    rpc GetRegisterGroup(GetRegisterGroupRequest) returns (GetRegisterGroupReply);
+    rpc UpdateRegisterGroup(UpdateRegisterGroupRequest) returns (UpdateRegisterGroupReply);
+    rpc AddRegisterGroup(AddRegisterGroupRequest) returns (AddRegisterGroupReply);
+    rpc DeleteRegisterGroup(DeleteRegisterGroupRequest) returns (DeleteRegisterGroupReply);
+
+    rpc GetAvailableColors (GetAvailableColorsRequest) returns (GetAvailableColorsReply);
+
+    rpc GetSpeedKeyMenus(GetSpeedKeyMenusRequest) returns (GetSpeedKeyMenusReply);
+    rpc AddSpeedKeyMenu(AddSpeedKeyMenuRequest) returns (AddSpeedKeyMenuReply);
+    rpc UpdateSpeedKeyMenu(UpdateSpeedKeyMenuRequest) returns (UpdateSpeedKeyMenuReply);
+    rpc DeleteSpeedKeyMenu(DeleteSpeedKeyMenuRequest) returns (DeleteSpeedKeyMenuReply);
+}
+
+message GetRegisterRequest
+{
+    Common.Language Language = 1;
+    int32 RegisterId = 2;
+}
+
+message GetRegisterReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    Register Register = 3;
+}
+
+message GetAllRegistersRequest
+{
+    Common.Language Language = 1;
+}
+
+message GetAllRegistersReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated Register Registers = 3;
+}
+
+message GetAllRegistersForReportsRequest
+{
+    Common.Language Language = 1;
+}
+
+message GetAllRegistersForReportsReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated Register Registers = 3;
+}
+
+message GetExpressLaneConfigurationRequest
+{
+    Common.Language Language = 1;
+}
+
+message GetExpressLaneConfigurationReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+
+    ExpressLaneConfiguration ExpressLaneConfigurations = 3;
+}
+
+message SetExpressLaneConfigurationRequest
+{
+    Common.Language Language = 1;
+    ExpressLaneConfiguration ExpressLaneConfigurations = 3;
+}
+
+message SetExpressLaneConfigurationReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message GetRegisterGroupAssignmentsRequest
+{
+    Common.Language Language = 1;
+}
+
+message GetRegisterGroupAssignmentsReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated RegisterGroupAssignment RegisterGroupAssignments = 3;
+}
+
+message GetRegisterGroupRequest
+{
+    Common.Language Language = 1;
+    int32 RegisterGroupId = 2;
+}
+
+message GetRegisterGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    RegisterGroup RegisterGroup = 3;
+}
+
+message UpdateRegisterGroupRequest
+{
+    Common.Language Language = 1;
+    RegisterGroup RegisterGroup = 2;
+}
+
+message UpdateRegisterReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+message DeleteRegisterRequest
+{
+	Common.Language Language = 1;
+	int32 RegisterId = 2;
+}
+message AddRegisterReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+message DeleteRegisterReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+message UpdateRegisterGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message AddRegisterGroupRequest
+{
+    Common.Language Language = 1;
+    RegisterGroup RegisterGroup = 2;
+}
+
+message AddRegisterGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message UpdateRegisterGroupAssignmentsRequest
+{
+    Common.Language Language = 1;
+    repeated RegisterGroupAssignment RegisterGroupAssignments = 2;
+}
+
+message UpdateRegisterGroupAssignmentsReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+message DeleteRegisterGroupRequest
+{
+    Common.Language Language = 1;
+    int32 RegisterGroupId = 2;
+}
+
+message DeleteRegisterGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message RegisterSettings 
+{
+    bool CombinedTLDFiles = 1;
+    int32 MaxCashierControl = 3;
+    int32 MaxExpressLane = 4;
+}
+
+message Register
+{
+    enum RegisterType
+    {
+        UNKNOWN = 0;
+        CWS = 1;
+        EDGE = 2;
+        ELCC = 3;
+        EL = 4;
+        FLEX = 5;
+    }
+
+    int32 RegisterId = 1;
+    int32 RegisterGroupId = 2;
+    string MachineName = 3;
+    RegisterType Type = 4;
+    string ModelNumber = 5;
+    string SerialNumber = 6;
+    string NetworkAddress = 7;
+    bool SignatureCaptureEnabled = 8;
+    string ScannerAddress = 9;
+    int32 ScannerType = 10;
+    int32 LineDisplayType = 11;
+    string LineDisplayIpAddress = 12;
+    bool ForwardOutsideTransactions = 13;
+    string PrinterIpAddress = 14;
+    RegisterSettings Settings = 15;
+    string AssetId = 16;
+}
+
+message GetAvailableColorsRequest
+{
+    Common.Language Language = 1;
+}
+
+message GetAvailableColorsReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated google.type.Color AvailableColors = 3;
+}
+
+enum FoodOrderOption
+{
+    Disabled = 0;
+    FoodOrderToExpressLane = 1;
+    ExpressLaneWithFoodOrdering = 2;
+    FoodOrderToPayment = 3;
+    ExpressLaneStartsFoodOrdering = 4;
+}
+
+message ExpressLaneConfiguration
+{
+    enum ReceiptPrintOption
+    {
+        Always = 0;
+        PromptCustomer = 1;
+        Never = 2;
+    }
+
+    //General
+    ReceiptPrintOption ReceiptPrintingConfiguration = 1;
+    bool UseQualiferTypeAsDescription = 2;
+    bool AttendantAlarmEnabled = 3;
+    bool ShowQualifierPrice = 4;
+    bool ShowBasketCountOnReceipt = 5;
+    bool EnableKeyInCode = 6;
+
+    string BagPlu = 7;
+
+    int32 PromptNeedAssistanceInactivityLimit = 8;
+    int32 PromptCashierControlConsoleInactivityLimit  = 9;
+    int32 DisplayThankYouTimeout  = 10;
+
+    //Branding
+    int32 BrandingVersionId = 11;
+    bool DisplayWelcomeOnStartMenu = 12;
+    bool DisplayLogoOnStartMenu = 13;
+
+    repeated MediaFile PreTransactionImages = 14;
+    repeated MediaFile TenderImages = 15;
+    repeated MediaFile TransactionImages = 16;
+    repeated MediaFile LogoImages = 17;
+    repeated MediaFile BackgroundImages = 18;
+
+    google.type.Color BackgroundColor = 19;
+    google.type.Color CashierButtonColor = 20;
+    google.type.Color StartButtonColor = 21;
+    google.type.Color GradientCashierButtonColor = 22;
+    google.type.Color GradientStartButtonColor = 23;
+
+    // Advertisement
+    int32 AdvertisementVersionId = 24;
+    repeated MediaFile AdvertisementMedia = 25;
+    int32 MediaDisplayInterval = 26;
+    bool OverrideMediaDisplayAndPlayCompleteVideo = 27;
+
+    // Foodordering
+    repeated string FoodOrderingServerIPAddresses = 28;
+    string FoodOrderingServerIpAddress = 29;
+    bool AllowFowardingToKitchenPriorToPayment = 30;
+
+    // Terminals
+    int32 MaxNumberOfExpressLaneTerminals = 31;
+    repeated FoodOrderOption FoodOrderingAvailableOptions = 32;
+    repeated ExpressLaneTerminalConfiguration ExpressLaneTerminalConfigurations = 33;
+}
+
+message ExpressLaneTerminalConfiguration
+{
+    int32 TerminalId = 1;
+    int32 RegisterId = 2;
+
+    bool PrepayFuel = 3;
+    bool PostpayFuel = 4;
+    bool AlertCashier = 5;
+
+    bool AcceptCash = 6;
+    bool PhysicalCashAcceptorConnected = 7;
+    FoodOrderOption FoodOrderConfiguration = 8;
+    bool FoodOrderPayCashier = 9;
+}
+
+message MediaFile
+{
+    enum MediaFileStatus
+    {
+        Unselected = 0;
+        Selected = 1;
+        MarkedForDeletion = 2;
+    }
+
+    string FileName = 1;
+    MediaFileStatus Status = 2;
+}
+
+
+message RegisterGroupAssignment
+{
+    int32 RegisterGroupId = 1;
+    string Description = 2;
+    repeated int32 RegisterAssignments = 3;
+}
+
+message RegisterGroup
+{
+    //General
+    string Name = 1;
+    int32 RegisterGroupId = 2;
+    int32 DefaultSpeedKeyMenuId = 3;
+    bool ShowSpeedKeyButtonsAtSignOn = 4;
+    bool ShowDepartmentKeyButtonsAtSignOn = 5;
+    bool PerformCustomerSignatureVerification = 6;
+    int32 AutoSignOffDuration = 7;
+    int32 AutoLockDuration = 8;
+
+    //SafeDrops -Prompts
+    bool PromptForPouchEnvelopeColor = 9;
+    repeated string PouchEnvelopeColor = 10;
+    bool PromptForPouchEnvelopeNumber = 11;
+
+    //SafeDrops - Warnings
+    bool EnableSafeDropWarning = 12;
+    google.type.Money FirstSafeDropWarningThreshold = 13;
+    google.type.Money SecondSafeDropWarningThreshold = 14;
+
+    //Transaction Options
+    bool AllowSalesWithDrawerOpen = 15;
+    int32 DisplayChangeDuration = 16;
+    bool DisplayPLU = 17;
+    bool PrintReciept = 18;
+    int32 MaxItemQuantity = 19;
+    int32 MaxTransactionItems = 20;
+    google.type.Money MaxLineAmount = 21;
+    google.type.Money MaxTotalAmount = 22;
+
+    //Till Counts
+    bool EnterPouchOnSignOn = 23;
+    int32 OpeningBalanceMode = 24;
+    google.type.Money OpeningBalanceAmount = 25;
+    bool SuppressOpenCloseTillCounts = 26;
+
+    //Receipt
+    repeated string ReceiptHeader = 27;
+    repeated string ReceiptFooter = 28;
+    int32 HeaderAlignment = 29;
+    int32 FooterAlignment = 30;
+
+    //Customer Display
+    bool ScrollCustomerDisplay = 31;
+    string CustomerDisplay = 32;
+    //ReasonCodes
+    repeated RegisterGroupFunction ReasonCodes = 33;
+    //Sales & Refunds
+    bool AllowSales = 34;
+    bool AllowRefunds = 35;
+    bool UsePromotionalPricingForRefunds = 36;
+    bool AllowSalesRefundTransaction = 37;
+    google.type.Money MaxRefundAmount = 38;
+
+    //Fuel Sales
+    bool AllowPumpControl = 39;
+    bool DisplayDispenserRange = 40;
+    int32 DispenserRangeStart = 41;
+    int32 DispenserRangeStop = 42;
+    repeated string StoreOptionColors = 43;
+    int32 FuelDispenserCount = 44;
+}
+
+message RegisterGroupFunction
+{
+    int32 FunctionId = 1;
+    string FunctionDescription = 2;
+    bool ReasonCodeRequired = 3;
+    repeated int32 ReasonCodes = 4;
+}
+
+enum SpeedKeyMenuFilter
+{
+    AllMenus = 0;
+    SpeedKeyMenusOnly = 1;
+    DepartmentKeyMenusOnly = 2;
+}
+
+message SpeedKey
+{
+    int32 PageNumber = 1;
+    int32 Position = 2;
+    string ItemIdAssigned = 3;
+    // This maps MenuIdAssigned as nullable<int32>
+    google.protobuf.Int32Value  MenuIdAssigned = 4;
+    string Icon = 5;
+    string Caption = 6;
+}
+
+message SpeedKeyMenu
+{
+    int32 MenuId = 1;
+    int32 Level = 2;
+    string Description = 3;
+    bool IsDepartment = 4;
+    repeated SpeedKey SpeedKeys = 5;
+}
+
+message GetSpeedKeyMenusRequest
+{
+    Common.Language Language = 1;
+    SpeedKeyMenuFilter Filter = 2;
+    bool IncludeSpeedKeys = 3;
+}
+
+message GetSpeedKeyMenusReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated SpeedKeyMenu Menus = 3;
+}
+
+message AddSpeedKeyMenuRequest
+{
+    Common.Language Language = 1;
+    SpeedKeyMenu SpeedKeyMenu = 2;
+}
+
+message AddSpeedKeyMenuReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+
+message UpdateSpeedKeyMenuRequest
+{
+    Common.Language Language = 1;
+    SpeedKeyMenu SpeedKeyMenu = 2;
+}
+
+message UpdateSpeedKeyMenuReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message DeleteSpeedKeyMenuRequest
+{
+    Common.Language Language = 1;
+    int32 MenuId = 2;
+    bool IsDepartment = 3;
+}
+
+message DeleteSpeedKeyMenuReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message GetRegisterByMachineNameRequest
+{
+    Common.Language Language = 1;
+    string MachineName = 2;
+}
+
+message GetRegisterByMachineNameReply
+{
+    bool Success = 1;
+    Register Register = 2;
+    string ErrorMessage = 4;
+}

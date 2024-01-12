@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+import "Common.proto";
+
+option csharp_namespace = "Gilbarco.POS.Configuration";
+
+service FeatureActivationService 
+{
+	rpc ActivateFeatures (ActivateFeaturesRequest) returns (ActivateFeaturesReply);
+
+	rpc GetFeatureConfiguration (GetFeatureConfigurationRequest) returns (GetFeatureConfigurationReply);
+	rpc GetBundles (GetBundlesRequest) returns (GetBundlesReply);
+	rpc UpdateBundle (UpdateBundleRequest) returns (UpdateBundleReply);
+
+	rpc GetUpgradeApprovalStatus (GetUpgradeApprovalStatusRequest) returns (GetUpgradeApprovalStatusReply);
+	rpc SetUpgradeApprovalStatus (SetUpgradeApprovalStatusRequest) returns (SetUpgradeApprovalStatusReply);
+}
+
+message GetFeatureConfigurationRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetFeatureConfigurationReply
+{
+	bool Success = 1;
+	FeatureActivation Configuration = 2;
+}
+
+message GetBundlesRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetBundlesReply
+{
+	repeated Bundle Bundles = 1;
+}
+
+message UpdateBundleRequest 
+{
+	Common.Language Language = 1;
+	Bundle Bundle = 2;
+}
+
+message UpdateBundleReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message ActivateFeaturesRequest 
+{
+	Common.Language Language = 1;
+	FeatureActivation Configuration = 2;
+}
+
+message ActivateFeaturesReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetUpgradeApprovalStatusRequest
+{
+}
+
+message GetUpgradeApprovalStatusReply
+{
+	UpgradeApprovalStatus Status = 1;
+}
+
+message SetUpgradeApprovalStatusRequest
+{
+	UpgradeApprovalStatus Status = 1;
+}
+
+message SetUpgradeApprovalStatusReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message FeatureActivation
+{
+	string EncryptedFeatureActivationMask = 1;
+	string MACAddress = 2;
+	repeated Bundle Bundles = 3;
+	string SiteKey = 4; 
+	string AdminPassword = 5;
+	string SiteCode = 6;
+}
+
+message Bundle
+{
+	int32 BundleId = 1;
+    string Description = 2;
+    string ActivationDate = 3;
+    string ActivationCmp = 4;
+    int32 TextId = 5;
+	bool IsActive = 6;
+}
+
+message UpgradeApprovalStatus
+{
+	string GvrId = 1;
+	string ApprovalCode = 2;
+	bool IsExpired = 3;
+	bool AllowDefaultGvrId = 4;
+}

@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+option csharp_namespace = "Gilbarco.Common.RemoteSupport";
+
+package RemoteSupport;
+
+service RemoteSupport 
+{
+  rpc GetStatus (GetStatusRequest) returns (GetStatusReply);
+  rpc EnableRemoteSupport (EnableSupportRequest) returns (EnableSupportReply);
+  rpc DisableRemoteSupport (DisableSupportRequest) returns (DisableSupportReply);
+  rpc GenerateNewPassword (GeneratePasswordRequest) returns (GeneratePasswordReply);
+  rpc SynchronizeConfiguration (SynchronizeConfigurationRequest) returns (SynchronizeConfigurationReply);
+  rpc RestartNetop (RestartNetopRequest) returns (RestartNetopReply);
+  rpc ClearPrintQueue (ClearPrintQueueRequest) returns (ClearPrintQueueReply);
+
+  // the following are internal to GVRSupport/GVRSupportLibrary and shouldn't be used by anyone else
+  // TODO: Split to another service
+  rpc EnableLocalRemoteSupport (EnableLocalRemoteSupportRequest) returns (EnableLocalRemoteSupportReply);
+  rpc DisableLocalRemoteSupport (DisableSupportRequest) returns (DisableSupportReply);
+  rpc SetRemoteSupportPassword (SetRemoteSupportPasswordRequest) returns (SetRemoteSupportPasswordReply);
+  rpc SetLocalRemoteSupportPassword (SetRemoteSupportPasswordRequest) returns (SetRemoteSupportPasswordReply);
+  rpc RestartLocalNetop (RestartNetopRequest) returns (RestartNetopReply);
+}
+
+message GetStatusRequest 
+{
+}
+
+message GetStatusReply 
+{
+  enum PasswordType
+  {
+    NoSymbols = 0;
+    Strong = 1;
+    HardcodedDefault = 2;
+  }
+  bool supportEnabled = 1;
+  bool enhancedModeEnabled = 2;
+  string tunnelStatus = 3;
+  string supportPassword = 4;
+  bool runningInEnhancedMode = 5;
+  bool localSupportOnly = 6;
+  PasswordType passwordType = 7;
+  bool extendSupportAtAllTimes = 8;
+  string commanderServiceID = 9;
+}
+
+message EnableSupportRequest 
+{
+}
+
+message EnableSupportReply 
+{
+  string data = 1;
+}
+
+message DisableSupportRequest 
+{
+}
+
+message DisableSupportReply 
+{
+  string data = 1;
+}
+
+message GeneratePasswordRequest 
+{
+}
+
+message GeneratePasswordReply 
+{
+  string password = 1;
+}
+
+message SynchronizeConfigurationRequest 
+{
+}
+
+message SynchronizeConfigurationReply 
+{
+}
+
+message RestartNetopRequest 
+{
+}
+
+message RestartNetopReply 
+{
+}
+
+message ClearPrintQueueRequest 
+{
+}
+
+message ClearPrintQueueReply 
+{
+}
+
+message EnableLocalRemoteSupportRequest 
+{
+  string password = 1;
+}
+
+message EnableLocalRemoteSupportReply 
+{
+}
+
+message SetRemoteSupportPasswordRequest 
+{
+  string password = 1;
+}
+
+message SetRemoteSupportPasswordReply 
+{
+}

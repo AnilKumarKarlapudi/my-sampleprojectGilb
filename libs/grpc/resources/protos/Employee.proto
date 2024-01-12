@@ -1,0 +1,227 @@
+syntax = "proto3";
+
+import "Common.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Gilbarco.POS.Configuration";
+
+service EmployeeService 
+{
+	rpc AddEmployee (AddEmployeeRequest) returns (AddEmployeeReply);
+	rpc GetEmployees (GetEmployeesRequest) returns (GetEmployeesReply);
+	rpc GetEmployee (GetEmployeeRequest) returns (GetEmployeeReply);
+	rpc UpdateEmployee (UpdateEmployeeRequest) returns (UpdateEmployeeReply);
+
+	rpc GetPasswordHash (GetPasswordHashRequest) returns (GetPasswordHashReply);
+	rpc SetPasswordHash (SetPasswordHashRequest) returns (SetPasswordHashReply);
+	rpc ChangePassword (ChangePasswordRequest) returns (ChangePasswordReply);
+	rpc GetPasswordResetToken (GetPasswordResetTokenRequest) returns (GetPasswordResetTokenReply);
+	rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordReply);
+	rpc GetPassportUser (GetPassportUserRequest) returns (GetPassportUserReply);
+	rpc ResetAccessFailedCount (ResetAccessFailedCountRequest) returns (ResetAccessFailedCountReply);
+	rpc IncrementAccessFailedCount (IncrementAccessFailedCountRequest) returns (IncrementAccessFailedCountReply);
+}
+
+message AddEmployeeRequest 
+{
+	Common.Language Language = 1;
+	Employee Employee = 2;
+	bool BulkUpdate = 3;
+}
+
+message AddEmployeeReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetEmployeeRequest 
+{
+	string EmployeeId = 1;
+	Common.Language Language = 2;
+}
+
+message GetEmployeeReply
+{
+	Employee Employee = 1;
+}
+
+message GetEmployeesRequest 
+{
+	Common.Language Language = 1;
+	bool UnfilteredResults  = 2;
+}
+
+message GetEmployeesReply
+{
+	repeated Employee Employees = 1;
+}
+
+message UpdateEmployeeRequest 
+{
+	Common.Language Language = 1;
+	Employee Employee = 2;
+	bool ResetPassword = 3;
+	bool BulkUpdate = 4;
+}
+
+message UpdateEmployeeReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetPasswordHashRequest 
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+}
+
+message GetPasswordHashReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	string PasswordHash = 3;
+}
+
+message SetPasswordHashRequest 
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+	string PasswordHash = 3;
+}
+
+message SetPasswordHashReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message ChangePasswordRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+	string CurrentPassword = 3;
+	string NewPassword = 4;
+	string ResetToken = 5;
+}
+
+message ChangePasswordReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetPasswordResetTokenRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+}
+
+message GetPasswordResetTokenReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	string Token = 3;
+}
+
+message ResetPasswordRequest 
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+}
+
+message ResetPasswordReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message Employee
+{
+	string EmployeeId = 1;
+	string FirstName = 2;
+	string LastName = 3;
+	google.protobuf.Timestamp DateOfBirth = 4;
+	Common.Address Address = 5;
+	Common.Telephone Telephone = 6;
+	bool Active = 7;
+	bool ClockInOutRequired = 8;
+	int32 SecurityGroupId = 9;
+	Common.Language Language = 10;
+	bool OverrideBlindBalancing = 11;
+	bool BlindBalancingEnabled = 12;
+	bool IsSystemEmployee = 13;
+	google.protobuf.Timestamp TerminationDate = 14;
+	
+	/*string Email = 13;
+	string NormalizedEmail = 14;
+	bool EmailConfirmed = 15;
+	string PasswordHash = 16;
+	string SecurityStamp = 17;
+	string ConcurrencyStamp = 18;
+	bool PhoneNumberConfirmed = 19;
+	bool TwoFactorEnabled = 20;
+	google.protobuf.Timestamp LockoutEnd = 21;
+	bool LockoutEnabled = 22;
+	bool AccessFailedCount = 23;*/
+}
+
+message GetPassportUserRequest
+{
+    Common.Language Language = 1;
+    string EmployeeId = 2;
+}
+
+message GetPassportUserReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    PassportUser PassportUser = 3;
+}
+
+message PassportUser
+{
+    string Id = 1;
+    string UserName = 2;
+    string NormalizedUserName = 3;
+    string Email = 4;
+    string NormalizedEmail = 5;
+    bool EmailConfirmed = 6;
+    string PasswordHash = 7;
+    string SecurityStamp = 8;
+    string ConcurrencyStamp = 9;
+    string PhoneNumber = 10;
+    bool PhoneNumberConfirmed = 11;
+    bool TwoFactorEnabled = 12;
+    google.protobuf.Timestamp LockoutEnd = 13;
+    bool LockoutEnabled = 14;
+    int32 AccessFailedCount = 15;
+    string FirstName = 16;
+    string LastName = 17;
+	int32 PasswordStatus = 18;
+}
+
+message ResetAccessFailedCountRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+}
+
+message ResetAccessFailedCountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message IncrementAccessFailedCountRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+}
+
+message IncrementAccessFailedCountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}

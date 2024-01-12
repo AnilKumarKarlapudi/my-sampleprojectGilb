@@ -1,0 +1,444 @@
+syntax = "proto3";
+
+import "money.proto";
+import "month.proto";
+import "dayOfWeek.proto";
+import "Common.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Gilbarco.POS.Configuration";
+
+service StoreService 
+{
+	rpc GetStoreOptions (GetStoreOptionsRequest) returns (GetStoreOptionsReply);
+	rpc SetStoreOptions (SetStoreOptionsRequest) returns (SetStoreOptionsReply);
+
+	rpc GetDonationConfiguration (GetDonationConfigurationRequest) returns (GetDonationConfigurationReply);
+	rpc SetDonationConfiguration (SetDonationConfigurationRequest) returns (SetDonationConfigurationReply);
+
+	rpc GetAccountingOptions (GetAccountingOptionsRequest) returns (GetAccountingOptionsReply);
+	rpc SetAccountingOptions (SetAccountingOptionsRequest) returns (SetAccountingOptionsReply);
+
+	// move to I360 service itself
+	rpc GetInsite360Configuration (GetInsite360ConfigurationRequest) returns (GetInsite360ConfigurationReply);
+	rpc SetInsite360Configuration (SetInsite360ConfigurationRequest) returns (SetInsite360ConfigurationReply);
+	// rpc RegisterSite (RegisterSiteRequest) returns (RegisterSiteReply);
+
+	// recovery
+	rpc GetSystemRecoveryConfiguration (GetSystemRecoveryConfigurationRequest) returns (GetSystemRecoveryConfigurationReply);
+	rpc SetSystemRecoveryConfiguration (SetSystemRecoveryConfigurationRequest) returns (SetSystemRecoveryConfigurationReply);
+
+    // Local Accounts Maintenance
+
+	// Income/Expense Account Maintenance
+	rpc AddIncomeExpenseAccount (AddIncomeExpenseAccountRequest) returns (AddIncomeExpenseAccountReply);
+	rpc GetIncomeExpenseAccounts (GetIncomeExpenseAccountsRequest) returns (GetIncomeExpenseAccountsReply);
+	rpc UpdateIncomeExpenseAccount (UpdateIncomeExpenseAccountRequest) returns (UpdateIncomeExpenseAccountReply);
+	rpc DeleteIncomeExpenseAccount (DeleteIncomeExpenseAccountRequest) returns (DeleteIncomeExpenseAccountReply);
+}
+
+message GetStoreOptionsRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetStoreOptionsReply
+{
+	StoreOptions Options = 1;
+}
+
+message SetStoreOptionsRequest 
+{
+	Common.Language Language = 1;
+	StoreOptions Options = 2;
+}
+
+message SetStoreOptionsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetDonationConfigurationRequest
+{
+}
+
+message GetDonationConfigurationReply
+{
+	DonationConfiguration Configuration = 1;
+}
+
+message SetDonationConfigurationRequest 
+{
+	Common.Language Language = 1;
+	DonationConfiguration Configuration = 2;
+}
+
+message SetDonationConfigurationReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetAccountingOptionsRequest 
+{
+}
+
+message GetAccountingOptionsReply
+{
+	AccountingOptions Options = 1;
+}
+
+message SetAccountingOptionsRequest 
+{
+	Common.Language Language = 1;
+	AccountingOptions Options = 2;
+}
+
+message SetAccountingOptionsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;	
+}
+
+message GetInsite360ConfigurationRequest 
+{
+}
+
+message GetInsite360ConfigurationReply
+{
+	Insite360Configuration Configuration = 1;
+}
+
+message SetInsite360ConfigurationRequest 
+{
+	Common.Language Language = 1;
+	Insite360Configuration Configuration = 2;
+}
+
+message SetInsite360ConfigurationReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddIncomeExpenseAccountRequest 
+{
+	Common.Language Language = 1;
+	IncomeExpenseAccount Account = 2;	
+}
+
+message AddIncomeExpenseAccountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetIncomeExpenseAccountsRequest 
+{
+	Common.Language Language = 1;
+	bool SystemAccounts = 2;
+}
+
+message GetIncomeExpenseAccountsReply
+{
+	repeated IncomeExpenseAccount Accounts = 1;
+}
+
+message UpdateIncomeExpenseAccountRequest 
+{
+	Common.Language Language = 1;
+	IncomeExpenseAccount Account = 2;
+}
+
+message UpdateIncomeExpenseAccountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteIncomeExpenseAccountRequest 
+{
+	Common.Language Language = 1;
+	IncomeExpenseAccount Account = 2;
+}
+
+message DeleteIncomeExpenseAccountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetSystemRecoveryConfigurationRequest
+{
+}
+
+message GetSystemRecoveryConfigurationReply
+{
+	SystemRecoveryConfiguration Configuration = 1;
+}
+
+message SetSystemRecoveryConfigurationRequest 
+{
+	Common.Language Language = 1;
+	SystemRecoveryConfiguration Configuration = 2;
+}
+
+message SetSystemRecoveryConfigurationReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message StoreOptions
+{
+	GeneralSettings General = 1;
+	LocalizationSettings Localization = 2;
+	PasswordSettings Password = 3;
+	RetentionSettings Retention = 4;
+	TimeClockSettings TimeClock = 5;
+	TaxSettings Tax = 6;
+	CouponSettings Coupon = 7;
+	MiscellaneousSettings Miscellaneous = 8;
+	SystemSettings System = 9;
+}
+
+message LocalizationSettings
+{
+	Common.Language SystemLanguage = 1;
+	Common.Currency SystemCurrency = 2;
+	int32 TransactionTimeAlert = 3;
+	bool ShowTransactionTimeAlert = 4;
+}
+
+message GeneralSettings
+{
+	string StoreNumber = 1;
+	string StoreName = 2;
+	Common.Address Address = 3;
+	Common.Telephone StoreTelephone = 4;
+	Common.Telephone HelpDeskTelephone = 5;	
+	bool UseStoreAddressForReceipt = 8;
+	bool AllSaleOfItemsNotOnFile = 9;
+}
+
+message PasswordSettings
+{
+	bool PasswordRequired = 1;
+	int32 MinimumLength = 2;
+	int32 MaximumLength = 3;
+	string GenericPassword = 4;
+	int32 MaximumPasswordAge = 5;
+	int32 MaximumInvalidLogins = 6;
+	int32 PasswordsRemembered = 7;
+	bool RemoteAccessAlwaysEnabled = 8;
+	bool EnhancedSupportPasswordsEnabled = 9;
+	bool IncludeSymbolsInSupportPassword = 10;
+}
+
+message RetentionSettings
+{
+	int32 Receipt = 1;
+	int32 ElectronicJournal = 2;
+	int32 DetailedSales = 3;
+	int32 SystemEvents = 4;
+	int32 Reports = 5;
+	int32 NetworkJournal = 6;
+}
+
+message TimeClockSettings
+{
+	bool Enabled = 1;
+	bool RequireClockInReason = 2;
+	bool PrintReceipt = 3;
+	repeated string Reasons = 4;
+}
+
+message TaxSettings
+{
+	enum ReceiptPrintOption
+	{
+		DoNotPrint = 0;
+		PrintIndividualRates = 1;
+		PrintTotalOnly = 2;
+	}
+	ReceiptPrintOption ReceiptOption = 1;
+	string ReceiptDescription = 2;
+	bool PrintTaxTotalIfZero = 3;
+	string TaxInvoiceText = 4;
+	string TaxNumber = 5;
+	string TaxNumberDescription = 6;
+	bool CascadedPST=7;
+	int32 PrintGSTOnly=8;
+	int32 NumberPSTAllowed=9;
+	int32 NumberGSTAllowed=10;
+}
+
+message MiscellaneousSettings
+{
+	bool SuppressFees = 1;
+	bool WaitForSuspends = 2;
+	bool EnablePriceEmbeddedBarcode = 3;
+	int32 EmbeddedPriceLength = 4;
+	bool PrintAgeVerificationReceiptIndicator = 5;
+	bool AcceptExpiredDriverLicense = 6;
+	repeated string PouchColors = 7;
+}
+
+message CouponSettings
+{
+	bool UseDepartmentKeys = 1;
+	int32 CouponDepartment = 2;
+	google.type.Money MaximumValueForCoupon = 3;
+}
+
+message SystemSettings
+{
+	int32 MaxFuelItems = 1;
+	bool PosControlsEntryMethod = 2;
+	bool RestrictTransactionAfterSplitPay = 3;
+	bool SendAllItemsOnEbtFood = 4;
+	bool FillUpFuelEnabled = 5;
+	bool PromptForCrindReceiptOnDebitUnderrun = 6;
+}
+
+message DonationConfiguration
+{
+	bool InsideEnabled = 1;
+	bool OutsideEnabled = 2;
+	string Name = 3;
+	bool PlaySound = 4;
+	string NetworkProductCode = 5;
+	repeated DonationOption Options = 6;
+}
+
+message DonationOption
+{
+	int32 Type = 1; // PosConstants.DonationOptionType
+	google.type.Money CustomValue = 2;
+}
+
+message AccountingOptions
+{
+	string EmployeeID = 1;
+	GeneralAccountingOptions GeneralOptions = 2; 
+	repeated TenderVariance TenderVariances = 3;
+	repeated Safe Safes = 4;
+}
+
+message GeneralAccountingOptions
+{
+	bool FeesVisible = 1;
+	bool AllowPreview = 2;
+	int32 MaximumTillCounts = 3;
+}
+
+message Safe
+{
+	string SafeId = 1;
+	string SafeName = 2;
+	bool PrimarySafe = 3;
+	string OrigSafeId = 4;
+}
+
+message TenderVariance
+{
+	string TenderName = 1;
+	google.type.Money Variance = 2;
+	int32 TenderCode = 3; 
+	int32 SiteId = 4;
+}
+
+message Insite360Configuration
+{
+	bool Enabled = 1;
+	bool ExportPriceBook = 2;
+	bool PriceSignEnabled = 3;
+	string GilbarcoId = 4;
+	bool ApplyReceiptDataToAllRegisterGroups = 5;
+	string ReceiptDataRegisterGroup = 6;
+	repeated Common.PeriodCloseFile SummaryFiles = 7;
+}
+
+message Reminder
+{
+	string Name = 1;
+	string Message = 2;
+	bool Enabled = 3;
+	bool DisplayOnMws = 4;
+	bool DisplayOnPos = 5;
+	Schedule Schedule = 6;
+}
+
+message Schedule
+{
+	Common.Frequency Frequency = 1;
+	google.protobuf.Timestamp Start = 2;
+	oneof ScheduleChoice
+	{
+		DailySchedule DailySchedule = 3;
+		WeeklySchedule WeeklySchedule = 4;
+		MonthlySchedule MonthlySchedule = 5;
+	}
+}
+
+message DailySchedule
+{
+	int32 Interval = 3;
+}
+
+message WeeklySchedule
+{
+	int32 Interval = 3;
+	repeated google.type.DayOfWeek Days = 1;
+}
+
+message MonthlySchedule
+{
+	oneof DayChoice
+	{
+		int32 Day = 1;
+		DayOfMonth DayOfMonth = 2;
+	}
+	
+	repeated google.type.Month Months = 3;
+}
+
+message DayOfMonth
+{
+	int32 Week = 1;
+	google.type.DayOfWeek Day = 2;
+}
+
+message IncomeExpenseAccount
+{
+	string AccountId = 1;
+	string Description = 2;
+	int32 AccountType = 3;
+	bool AllowMiscTenderTransfers = 4;
+}
+
+message SystemRecoveryConfiguration
+{
+	google.protobuf.Timestamp MaintenanceStartTime = 1;
+	bool CaptureImageAfterUpgrade = 2;
+    bool ArchiveBackupSets = 3;
+    int32 ArchiveBackupRetentionDays = 4;
+    bool MirrorServerImage = 5;
+    google.protobuf.Timestamp  MirrorJobStartTime = 6;
+    string MirrorBackupName = 7;
+    string MirrorImageName = 8;
+    string DifferentialBackupsEnabled = 9;
+    int32 TransactionLogIntervalMinutes = 10;
+    int32 TranactionLogFailureCounter = 11;
+    string CurrentMaintenanceJobStatus = 12;
+    string JobBackupTypeOverride = 13;
+    int32 DatabaseShrinkFailureCount = 14;
+	repeated DaysIncluded DaysActive = 15;
+	repeated string ClientNames = 16;
+}
+message DaysIncluded
+{
+	bool Active = 1;
+	google.type.DayOfWeek Day = 2;
+}

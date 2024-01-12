@@ -1,0 +1,115 @@
+{
+  "provider": {
+    "url": "http://10.40.22.10/api",
+	"skip": true,
+	"ignore_errors": true
+  },
+  "services": {
+    "tools": {
+      "healthchecker": "/Pinpad/getHealthCheck",
+      "description": "Tools",
+      "instances": [
+        {
+          "ip": {
+            "type": "static",
+            "value": "10.5.50.5"
+          }
+        },
+        {
+          "ip": {
+            "type": "resolver",
+            "value": "tools/ip"
+          }
+        }
+      ]
+    },
+    "network-sim": {
+      "healthchecker": "/api/concord/status",
+      "description": "Network Simulator",
+      "instances": [
+        {
+          "ip": {
+            "type": "static",
+            "value": "10.5.50.5"
+          },
+          "port": {
+            "type": "static",
+            "value": 5000
+          }
+        },
+        {
+          "ip": {
+            "type": "resolver",
+            "value": "network/ip"
+          },
+          "port": {
+            "type": "static",
+            "value": 5000
+          }
+        }
+      ]
+    },
+    "loyalty-sim": {
+      "healthchecker": "@ping",
+      "description": "Loyalty Simulator Web",
+      "instances": [
+        {
+          "ip": {
+            "type": "static",
+            "value": "10.5.50.5"
+          }
+        },
+        {
+          "ip": {
+            "type": "resolver",
+            "value": "loyalty/ip"
+          },
+          "port": {
+            "type": "resolver",
+            "value": "loyalty/ports",
+            "attr": "sim_port"
+          }
+        }
+      ]
+    },
+    "loyalty-sim-ui": {
+      "healthchecker": "@ping",
+      "description": "Loyalty Simulator UI",
+      "instances": [
+        {
+          "ip": {
+            "type": "static",
+            "value": "10.5.50.5"
+          }
+        },
+        {
+          "ip": {
+            "type": "resolver",
+            "value": "loyalty/ip"
+          },
+          "port": {
+            "type": "resolver",
+            "value": "loyalty/ports",
+            "attr": "ui_port"
+          }
+        }
+      ]
+    },
+    "network-message-parser": {
+      "healthchecker": "@ping",
+      "description": "EDH Network Message parser",
+      "instances": [
+        {
+          "ip": {
+            "type": "static",
+            "value": "10.4.38.122"
+          },
+          "port": {
+            "type": "static",
+            "value": 3000
+          }
+        }
+      ]
+    }
+  }
+}

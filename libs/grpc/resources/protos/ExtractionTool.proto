@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+import "Common.proto";
+
+option csharp_namespace = "Gilbarco.POS.Configuration";
+
+service ExtractionToolService 
+{
+	rpc GetAvailableImportFiles(GetAvailableImportFilesRequest) returns (GetAvailableImportFilesReply);
+	rpc GetExtractionToolDirectories(GetExtractionToolDirectoriesRequest) returns (GetExtractionToolDirectoriesReply);
+	rpc ExportConfiguration(ExtractionConfigurationRequest) returns (ExtractionConfigurationReply);
+	rpc ImportConfiguration(ExtractionConfigurationRequest) returns (ExtractionConfigurationReply);
+	rpc GetExtractionStatus(GetExtractionStatusRequest) returns (GetExtractionStatusReply);
+}
+
+message GetAvailableImportFilesRequest
+{
+}
+
+message GetAvailableImportFilesReply
+{
+	repeated ExtractionFile ImportFiles = 1;
+}
+
+message ExtractionFile
+{
+	string Directory = 1;
+	string FileName = 2;
+	repeated ExtractionToolSection Sections = 3;
+}
+
+message GetExtractionToolDirectoriesRequest
+{
+}
+
+message GetExtractionToolDirectoriesReply
+{
+	repeated string Directories = 1;
+}
+
+message ExtractionConfigurationRequest
+{
+	Common.Language Language = 1;
+	ExtractionFile File = 2;
+	bool Compressed = 3;
+	repeated ExtractionToolSection Sections = 4;
+	string EmployeeId = 5;
+}
+
+message ExtractionConfigurationReply
+{
+}
+
+message GetExtractionStatusRequest
+{
+}
+
+message GetExtractionStatusReply
+{
+	ProgressUpdate Update = 1;
+}
+
+enum ExtractionToolSection
+{
+	Section_Taxes = 0;
+	Section_Discounts = 1;
+	Section_Items = 2;
+	Section_Departments = 3;
+	Section_RegisterGroups = 4;
+	Section_SpeedKeys = 5;
+	Section_DepartmentKeys = 6;
+	//CouponKeys removed
+	Section_StoreOptions = 7;
+	Section_AccountingOptions = 8;
+	Section_TenderKeys = 9;
+	Section_LocalAccounts = 10;
+	Section_PaidInPaidOut = 11;
+	Section_PeriodMaintenance = 12;
+	Section_SecurityGroups = 13;
+	Section_ReasonCodes = 14;
+	Section_CarwashProgramming = 15;
+	Section_LoyaltyInterface = 16;
+	Section_ReminderMaintenance = 17;
+	Section_CrindMerchandising = 18;
+	Section_ThirdPartyDataInterface = 19;
+	Section_ReportMaintenance = 20;
+	Section_BackOfficeInterfaceOptions = 21;
+	Section_ForecourtInstallation = 22;
+}
+
+enum ExtractionToolCategory
+{
+	Category_PriceBook = 0;
+	Category_Register = 1;
+	Category_Store = 2;
+	Category_SiteSpecificData = 3;
+	Category_Fuel = 4;
+}
+
+message ProgressUpdate
+{
+	bool Success = 1;
+	double PercentComplete = 2;
+	string Message = 3;
+	bool IsImport = 4;
+}

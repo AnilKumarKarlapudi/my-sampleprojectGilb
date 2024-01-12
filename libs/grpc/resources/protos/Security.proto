@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+import "Common.proto";
+
+option csharp_namespace = "Gilbarco.POS.Configuration";
+
+service SecurityService 
+{
+	rpc AddSecurityGroup (AddSecurityGroupRequest) returns (AddSecurityGroupReply);
+	rpc GetSecurityGroups (GetSecurityGroupsRequest) returns (GetSecurityGroupsReply);	
+	rpc UpdateSecurityGroup (UpdateSecurityGroupRequest) returns (UpdateSecurityGroupReply);
+	rpc DeleteSecurityGroup (DeleteSecurityGroupRequest) returns (DeleteSecurityGroupReply);
+
+	rpc GetApplications (GetApplicationsRequest) returns (GetApplicationsReply);	
+
+	rpc HasAccess (AccessCheckRequest) returns (AccessCheckReply);
+	rpc GetSecurityGroupById (GetSecurityGroupByIdRequest) returns (GetSecurityGroupByIdReply);	
+}
+
+message AddSecurityGroupRequest 
+{
+	Common.Language Language = 1;
+	SecurityGroup SecurityGroup = 2;	
+}
+
+message AddSecurityGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetSecurityGroupsRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetSecurityGroupsReply
+{
+	repeated SecurityGroup SecurityGroups = 1;
+}
+
+message UpdateSecurityGroupRequest 
+{
+	Common.Language Language = 1;
+	SecurityGroup SecurityGroup = 2;
+}
+
+message UpdateSecurityGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteSecurityGroupRequest 
+{
+	Common.Language Language = 1;
+	SecurityGroup SecurityGroup = 2;
+}
+
+message DeleteSecurityGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetApplicationsRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetApplicationsReply
+{
+	repeated Application Applications = 1;
+}
+
+message SecurityGroup
+{
+	int32 SecurityGroupId = 1;
+	string Description = 2;
+	int32 Level = 3;
+	repeated PermittedFunction PermittedFunctions = 4;
+}
+
+message PermittedFunction
+{
+	int32 ApplicationId = 1;
+	int32 FunctionId = 2;
+}
+
+message Application
+{
+	int32 ApplicationId = 1;
+	string ApplicationName = 2;
+	string Description = 3;
+	repeated ApplicationFunction Functions = 4;
+}
+
+message ApplicationFunction
+{
+	int32 FunctionId = 1;
+	string Description = 2;
+}
+
+message AccessCheckRequest 
+{
+	int32 SecurityGroupId = 1;
+	PermittedFunction PermittedFunction = 2;
+}
+
+message AccessCheckReply
+{
+	bool Success = 1;
+	bool HasAccess = 2;
+	string ErrorMessage = 3;
+}
+
+message GetSecurityGroupByIdRequest 
+{
+	int32 SecurityGroupId = 1;
+	Common.Language Language = 2;
+}
+
+message GetSecurityGroupByIdReply
+{
+	bool Success = 1;
+	SecurityGroup SecurityGroup = 2;
+	string ErrorMessage = 3;
+}

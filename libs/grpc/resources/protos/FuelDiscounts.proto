@@ -1,0 +1,249 @@
+syntax = "proto3";
+
+import "money.proto";
+import "Common.proto";
+
+option csharp_namespace = "Gilbarco.POS.FuelConfiguration";
+
+service FuelDiscounts
+{
+	rpc GetManualFuelDiscounts (GetManualFuelDiscountsRequest) returns (GetManualFuelDiscountsReply);
+	rpc AddManualFuelDiscount (AddManualFuelDiscountRequest) returns (AddManualFuelDiscountReply);
+	rpc UpdateManualFuelDiscount (UpdateManualFuelDiscountRequest) returns (UpdateManualFuelDiscountReply);
+	rpc DeleteManualFuelDiscount (DeleteManualFuelDiscountRequest) returns (DeleteManualFuelDiscountReply);
+
+	rpc GetCashFuelDiscounts (GetCashFuelDiscountsRequest) returns (GetCashFuelDiscountsReply);
+	rpc AddCashFuelDiscount (AddCashFuelDiscountRequest) returns (AddCashFuelDiscountReply);
+	rpc UpdateCashFuelDiscount (UpdateCashFuelDiscountRequest) returns (UpdateCashFuelDiscountReply);
+	rpc DeleteCashFuelDiscount (DeleteCashFuelDiscountRequest) returns (DeleteCashFuelDiscountReply);
+
+	rpc GetFuelDiscountGroups (GetFuelDiscountGroupsRequest) returns (GetFuelDiscountGroupsReply);
+	rpc AddFuelDiscountGroup (AddFuelDiscountGroupRequest) returns (AddFuelDiscountGroupReply);
+	rpc UpdateFuelDiscountGroup (UpdateFuelDiscountGroupRequest) returns (UpdateFuelDiscountGroupReply);
+	rpc DeleteFuelDiscountGroup (DeleteFuelDiscountGroupRequest) returns (DeleteFuelDiscountGroupReply);
+
+	rpc GetCarwashFuelDiscounts (GetCarwashFuelDiscountsRequest) returns (GetCarwashFuelDiscountsReply);
+	rpc AddCarwashFuelDiscount (AddCarwashFuelDiscountRequest) returns (AddCarwashFuelDiscountReply);
+	rpc UpdateCarwashFuelDiscount (UpdateCarwashFuelDiscountRequest) returns (UpdateCarwashFuelDiscountReply);
+	rpc DeleteCarwashFuelDiscount (DeleteCarwashFuelDiscountRequest) returns (DeleteCarwashFuelDiscountReply);
+}
+
+message GetManualFuelDiscountsRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetManualFuelDiscountsReply
+{
+	repeated ManualFuelDiscount discounts = 1;
+}
+
+message AddManualFuelDiscountRequest
+{
+	Common.Language Language = 1;
+	ManualFuelDiscount discount = 2;
+}
+
+message AddManualFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message UpdateManualFuelDiscountRequest
+{
+	Common.Language Language = 1;
+	ManualFuelDiscount discount = 2;
+}
+
+message UpdateManualFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteManualFuelDiscountRequest
+{
+	ManualFuelDiscount discount = 1;
+}
+
+message DeleteManualFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetCashFuelDiscountsRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetCashFuelDiscountsReply
+{
+	repeated CashFuelDiscount discounts = 1;
+}
+
+message AddCashFuelDiscountRequest
+{
+	Common.Language Language = 1;
+	CashFuelDiscount discount = 2;
+}
+
+message AddCashFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message UpdateCashFuelDiscountRequest
+{
+	Common.Language Language = 1;
+	CashFuelDiscount discount = 2;
+}
+
+message UpdateCashFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteCashFuelDiscountRequest
+{
+	CashFuelDiscount discount = 1;
+}
+
+message DeleteCashFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetFuelDiscountGroupsRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetFuelDiscountGroupsReply
+{
+	repeated FuelDiscountGroup discounts = 1;
+}
+
+message AddFuelDiscountGroupRequest
+{
+	Common.Language Language = 1;
+	FuelDiscountGroup discount = 2;
+}
+
+message AddFuelDiscountGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message UpdateFuelDiscountGroupRequest
+{
+	Common.Language Language = 1;
+	FuelDiscountGroup discount = 2;
+}
+
+message UpdateFuelDiscountGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteFuelDiscountGroupRequest
+{
+	FuelDiscountGroup discount = 1;
+}
+
+message DeleteFuelDiscountGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetCarwashFuelDiscountsRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetCarwashFuelDiscountsReply
+{
+	repeated CarwashFuelDiscount discounts = 1;
+}
+
+message AddCarwashFuelDiscountRequest
+{
+	Common.Language Language = 1;
+	CarwashFuelDiscount discount = 2;
+}
+
+message AddCarwashFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message UpdateCarwashFuelDiscountRequest
+{
+	Common.Language Language = 1;
+	CarwashFuelDiscount discount = 2;
+}
+
+message UpdateCarwashFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteCarwashFuelDiscountRequest
+{
+	CarwashFuelDiscount discount = 1;
+}
+
+message DeleteCarwashFuelDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message PPUDiscount
+{
+	int32 DiscountId = 1;
+	int32 GradeId = 2;
+	string GradeName = 3;
+	google.type.Money Amount = 4;
+}
+
+message ManualFuelDiscount
+{
+	int32 DiscountId = 1;
+	string Description = 2;
+	bool IsFreeFuel = 3;
+	google.type.Money FreeFuelAmount = 4;
+	repeated PPUDiscount GradeDiscounts = 5;
+}
+
+message CashFuelDiscount
+{
+	string Description = 1;
+	int32 DiscountId = 2;
+	repeated PPUDiscount GradeDiscounts = 3;
+}
+
+message FuelDiscountGroup
+{
+	int32 GroupId = 1;
+	string Description = 2;
+	int32 DiscountId = 3;
+	repeated PPUDiscount GradeDiscounts = 4;
+}
+
+message CarwashFuelDiscount
+{
+	int32 PackageId = 1;
+	string Description = 2;
+	int32 DiscountId = 3;
+	repeated PPUDiscount GradeDiscounts = 4;
+}

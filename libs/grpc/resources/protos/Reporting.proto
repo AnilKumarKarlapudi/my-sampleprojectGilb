@@ -1,0 +1,1260 @@
+syntax = "proto3";
+
+import "money.proto";
+import "Common.proto";
+import "dayOfWeek.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Gilbarco.POS.Reporting";
+
+service Reporting
+{
+	rpc Ping (PingRequest) returns (PingReply);
+
+	// get the list of period types in use by the given application
+	rpc GetReportPeriods (GetReportPeriodsRequest) returns (GetReportPeriodsReply);
+	
+	// get the list of periods that have been opened
+	rpc GetPeriods (GetPeriodsRequest) returns (GetPeriodsReply);
+	rpc GetManagerPeriods (GetManagerPeriodsRequest) returns (GetManagerPeriodsReply);
+	rpc UpdateManagerPeriod (UpdateManagerPeriodRequest) returns (UpdateManagerPeriodReply);
+	rpc AddManagerPeriod (AddManagerPeriodRequest) returns (AddManagerPeriodReply);
+	rpc DeleteManagerPeriod (DeleteManagerPeriodRequest) returns (DeleteManagerPeriodReply);
+
+	rpc GetReportConfigurations (GetReportConfigurationsRequest) returns (GetReportConfigurationsReply);
+	rpc SetReportConfigurations (SetReportConfigurationsRequest) returns (SetReportConfigurationsReply);
+
+	//Period Maintenance
+	rpc GetStoreCloseSettings (GetStoreCloseSettingsRequest) returns (GetStoreCloseSettingsReply);
+	rpc SetStoreCloseSettings (SetStoreCloseSettingsRequest) returns (SetStoreCloseSettingsReply);
+
+	rpc GenerateReport (GenerateReportRequest) returns (GenerateReportReply);
+
+	rpc GetNetworkJournalData (GetNetworkJournalDataRequest) returns (GetNetworkJournalDataReply);
+
+	rpc GetNetworkList (GetNetworkListRequest) returns (GetNetworkListReply);
+	rpc GetNetworkReports (GetNetworkReportsRequest) returns (GetNetworkReportsReply);
+	rpc GenerateNetworkReport (stream GenerateNetworkReportRequest) returns (stream GenerateNetworkReportReply);
+
+	rpc GetCurrentTill (GetCurrentTillRequest) returns (GetCurrentTillReply);
+	rpc OpenTill (OpenTillRequest) returns (OpenTillReply);
+	rpc CloseTill (CloseTillRequest) returns (CloseTillReply);
+
+	rpc GetStoreCloseStatus (GetStoreCloseStatusRequest) returns (GetStoreCloseStatusReply);
+	rpc GetStoreCloseAllowed (GetStoreCloseAllowedRequest) returns (GetStoreCloseAllowedReply);
+	rpc StartStoreClose (StartStoreCloseRequest) returns (StartStoreCloseReply);
+	rpc WaitForStoreCloseCompletion (WaitForStoreCloseCompletionRequest) returns (WaitForStoreCloseCompletionReply);
+
+	rpc GetShiftCloseStatus (GetShiftCloseStatusRequest) returns (GetShiftCloseStatusReply);
+	rpc GetShiftCloseAllowed (GetShiftCloseAllowedRequest) returns (GetShiftCloseAllowedReply);
+	rpc StartShiftClose (StartShiftCloseRequest) returns (StartShiftCloseReply);
+	rpc WaitForShiftCloseCompletion (WaitForShiftCloseCompletionRequest) returns (WaitForShiftCloseCompletionReply);
+
+	rpc UpdateRegisterStatus (UpdateRegisterStatusRequest) returns (UpdateRegisterStatusReply);
+	rpc GetPreviousPeriod (GetPreviousPeriodRequest) returns (GetPreviousPeriodReply);
+	rpc GetCurrentPeriod (GetCurrentPeriodRequest) returns (GetCurrentPeriodReply);
+
+	rpc IsEmployeeClockedIn (IsEmployeeClockedInRequest) returns (IsEmployeeClockedInReply);
+	rpc GetEmployeeTimeClockData (GetEmployeeTimeClockDataRequest) returns (GetEmployeeTimeClockDataReply);
+	rpc GetTimeClockEntry (GetTimeClockEntryRequest) returns (GetTimeClockEntryReply);
+	rpc AddTimeClockEntry (AddTimeClockEntryRequest) returns (AddTimeClockEntryReply);
+	rpc DeleteTimeClockEntry (DeleteTimeClockEntryRequest) returns (DeleteTimeClockEntryReply);
+	rpc UpdateTimeClockEntry (UpdateTimeClockEntryRequest) returns (UpdateTimeClockEntryReply);
+	rpc ClockIn (ClockInRequest) returns (ClockInReply);
+
+	rpc RecordJournalEntry (RecordJournalEntryRequest) returns (RecordJournalEntryReply);
+	rpc RecordSystemEvent (RecordSystemEventRequest) returns (RecordSystemEventReply);
+	rpc RecordTransaction (RecordTransactionRequest) returns (RecordTransactionReply);
+	rpc GetTransactionReceipts (GetTransactionReceiptsRequest) returns (GetTransactionReceiptsReply);
+	rpc GetReceiptText (GetReceiptTextRequest) returns (GetReceiptTextReply);
+
+	rpc SuspendTransaction (SuspendTransactionRequest) returns (SuspendTransactionReply);
+	rpc ResumeTransaction (ResumeTransactionRequest) returns (ResumeTransactionReply);
+	rpc GetSuspendedTransactions (GetSuspendedTransactionsRequest) returns (GetSuspendedTransactionsReply);
+	rpc UpdateSuspendedTransaction (UpdateSuspendedTransactionRequest) returns (UpdateSuspendedTransactionReply);
+
+	rpc GetChangeRefundDueTransactions (GetChangeRefundDueTransactionsRequest) returns (GetChangeRefundDueTransactionsReply);
+	rpc LockChangeRefundDueTransaction (LockChangeRefundDueTransactionRequest) returns (LockChangeRefundDueTransactionReply);
+
+	rpc GetReportMaintenanceConfiguration (GetReportMaintenanceConfigurationRequest) returns (GetReportMaintenanceConfigurationReply);
+	rpc SetReportMaintenanceConfiguration (SetReportMaintenanceConfigurationRequest) returns (SetReportMaintenanceConfigurationReply);
+
+	rpc GetSecurityCameraConfiguration (GetSecurityCameraConfigurationRequest) returns (GetSecurityCameraConfigurationReply);
+	rpc SetSecurityCameraConfiguration (SetSecurityCameraConfigurationRequest) returns (SetSecurityCameraConfigurationReply);
+
+	rpc ActivateFuelPricesAtEOD (ActivateFuelPricesAtEODRequest) returns (ActivateFuelPricesAtEODReply);
+
+	rpc GetSystemEventReportInfo (GetSystemEventReportInfoRequest) returns (GetSystemEventReportInfoReply);
+
+	rpc ReloadNetworkReports (ReloadNetworkReportsRequest) returns (ReloadNetworkReportsReply);
+	
+	rpc GetDispenserVersions (GetDispenserVersionsRequest) returns (GetDispenserVersionsReply);
+
+	// Tank Inventories
+	rpc GetTankInventories (GetTankInventoryRequest) returns (GetTankInventoryReply);
+	rpc SetManualTankReading (SetManualTankReadingRequest) returns (SetManualTankReadingReply);
+	rpc AddTankInventoryAdjustment (AddTankInventoryAdjustmentRequest) returns (AddTankInventoryAdjustmentReply);
+	rpc SetTankInventories (SetTankInventoriesRequest) returns (SetTankInventoriesReply);
+	rpc SetTankInventory (SetTankInventoryRequest) returns (SetTankInventoryReply);
+	rpc GetTankMonitorReadings (GetTankMonitorReadingsRequest) returns (GetTankMonitorReadingsReply);
+
+	rpc ActivateToken (ActivateTokenRequest) returns (ActivateTokenReply);
+	rpc DeactivateToken (DeactivateTokenRequest) returns (DeactivateTokenReply);
+	
+	rpc GetElectronicJournalsForUpload (GetElectronicJournalsForUploadRequest) returns (GetElectronicJournalsForUploadReply);
+	rpc SetElectronicJournalsToUploaded (SetElectronicJournalsToUploadedRequest) returns (SetElectronicJournalsToUploadedReply);
+}
+
+message PingRequest
+{
+}
+
+message PingReply
+{
+}
+
+message GetReportPeriodsRequest
+{
+	Common.Language Language = 1;
+	repeated int32 Applications = 2;
+}
+
+message GetReportPeriodsReply
+{
+	repeated ReportPeriodList ReportPeriods = 1;
+}
+
+message GetPeriodsRequest
+{
+	Common.Language Language = 1;
+	repeated int32 PeriodTypes = 2;
+}
+
+message GetPeriodsReply
+{
+	repeated PeriodList Periods = 1;
+}
+
+message GetManagerPeriodsRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetManagerPeriodsReply
+{
+	repeated ManagerPeriod ManagerPeriods = 1;
+}
+
+message UpdateManagerPeriodRequest
+{
+	Common.Language Language = 1;
+	ManagerPeriod ManagerPeriod = 2;
+}
+
+message UpdateManagerPeriodReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddManagerPeriodRequest
+{
+	Common.Language Language = 1;
+	ManagerPeriod ManagerPeriod = 2;
+}
+
+message AddManagerPeriodReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteManagerPeriodRequest
+{
+	Common.Language Language = 1;
+	int32 PeriodId = 2;
+}
+
+message DeleteManagerPeriodReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetReportConfigurationsRequest
+{
+	Common.Language Language = 1;
+	int32 ApplicationId = 2;
+}
+
+message GetReportConfigurationsReply
+{
+	ApplicationReportConfiguration ApplicationReportConfiguration = 1;
+}
+
+message SetReportConfigurationsRequest
+{
+	Common.Language Language = 1;
+	ApplicationReportConfiguration ApplicationReportConfiguration = 2;
+}
+
+message SetReportConfigurationsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetStoreCloseSettingsRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetStoreCloseSettingsReply
+{
+	StoreCloseSettings StoreCloseSettings = 1;
+}
+
+message SetStoreCloseSettingsRequest 
+{
+	Common.Language Language = 1;
+	StoreCloseSettings StoreCloseSettings = 2;
+}
+
+message SetStoreCloseSettingsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GenerateReportRequest
+{
+	Common.Language Language = 1;
+	int32 ApplicationId = 2;
+	int32 ReportId = 3;
+	string EmployeeId = 4;
+	string EmployeeName = 5;
+	int32 PeriodTypeId = 6;
+	Period Period = 7;
+}
+
+message GenerateReportReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	string ReportHtml = 3;
+}
+
+message GetNetworkJournalDataRequest
+{
+}
+
+message GetNetworkJournalDataReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	repeated NetworkJournalSource Sources = 3;
+	repeated NetworkJournalXref JournalTypes = 4;
+}
+
+message GetNetworkListRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+}
+
+message GetNetworkListReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	repeated Network Networks = 3;
+}
+
+message GetNetworkReportsRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+	int32 PspId = 3;
+}
+
+message GetNetworkReportsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	repeated NetworkReport Reports = 3;
+}
+
+message GenerateNetworkReportRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+	int32 PspId = 3;
+	bool IsLoyalty = 4;
+	string ReportId = 5;
+	string ReportParameterId = 6;
+	string ReportParameterValueId = 7;
+	PromptReply Reply = 8;
+}
+
+message GenerateNetworkReportReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	PromptRequest Prompt = 3;
+	string Path = 4;
+}
+
+message RecordSystemEventRequest
+{
+	SystemEvent SystemEvent = 1;
+}
+
+message RecordSystemEventReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message RecordJournalEntryRequest
+{
+	JournalEntry Entry = 1;
+}
+
+message RecordJournalEntryReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message RecordTransactionRequest
+{
+	// Gilbarco.POS.Contracts.Models.Reporting.Transaction serialized to JSON 
+	// (for now anyway, could be defined here and mapped)
+	string TransactionRecord = 1;
+	bool WaitForCompletion = 2;
+}
+
+message RecordTransactionReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	repeated TenderTotal TenderTotals = 3;
+}
+
+message GetTransactionReceiptsRequest
+{
+	google.protobuf.Timestamp StartTime = 1;
+	google.protobuf.Timestamp EndTime = 2;
+	int32 SearchType = 3;
+	int32 TargetId = 4;
+}
+
+message GetTransactionReceiptsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	repeated ReceiptSearchResult ReceiptResults = 3;
+}
+
+message GetReceiptTextRequest
+{
+	int32 RegisterId = 1;
+	int32 TransactionNumber = 2;
+}
+
+message GetReceiptTextReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	string ReceiptText = 3;
+}
+
+message SuspendTransactionRequest
+{
+	SuspendedTransaction Transaction = 1;
+}
+
+message SuspendTransactionReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message ResumeTransactionRequest
+{
+	int32 RegisterId = 1;
+	int32 TransactionId = 2;
+	int32 ResumingRegisterId = 3;
+}
+
+message ResumeTransactionReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	SuspendedTransaction Transaction = 3;
+}
+
+message GetSuspendedTransactionsRequest
+{
+}
+
+message GetSuspendedTransactionsReply
+{
+	repeated SuspendedTransaction Transactions = 1;
+}
+
+message UpdateSuspendedTransactionRequest
+{
+	SuspendedTransaction Transaction = 1;
+	bool IsComplete = 2;
+}
+
+message UpdateSuspendedTransactionReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetChangeRefundDueTransactionsRequest
+{
+}
+
+message GetChangeRefundDueTransactionsReply
+{
+	repeated ChangeRefundDueTransaction Transactions = 1;
+}
+
+message LockChangeRefundDueTransactionRequest
+{
+	Common.Language Language = 1;
+	ChangeRefundDueTransaction Transaction = 2;
+}
+
+message LockChangeRefundDueTransactionReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetCurrentTillRequest
+{
+	Common.Language Language = 1;
+	int32 RegisterId = 2;
+	string AttendantId = 3;
+}
+
+message GetCurrentTillReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	optional Till Till = 3;
+}
+
+message OpenTillRequest
+{
+	Common.Language Language = 1;
+	int32 RegisterId = 2;
+	string EmployeeId = 3;
+}
+
+message OpenTillReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	optional Till Till = 3;
+}
+
+message CloseTillRequest
+{
+	Common.Language Language = 1;
+	int32 RegisterId = 2;
+	string TillId = 3;
+	string AttendantId = 4;
+}
+
+message CloseTillReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetStoreCloseStatusRequest
+{
+}
+
+message GetStoreCloseStatusReply
+{
+	PeriodCloseStatus Status = 1;
+}
+
+message GetStoreCloseAllowedRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetStoreCloseAllowedReply
+{
+	bool Allowed = 1;
+	string Reason = 2;
+}
+
+message StartStoreCloseRequest
+{
+	Common.Language Language = 1;
+	bool StartUpgradeAfterCompletion = 2;
+	string EmployeeId = 3;
+}
+
+message StartStoreCloseReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message WaitForStoreCloseCompletionRequest
+{
+}
+
+message WaitForStoreCloseCompletionReply
+{
+}
+
+message GetShiftCloseStatusRequest
+{
+}
+
+message GetShiftCloseStatusReply
+{
+	PeriodCloseStatus Status = 1;
+}
+
+message GetShiftCloseAllowedRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetShiftCloseAllowedReply
+{
+	bool Allowed = 1;
+	string Reason = 2;
+}
+
+message StartShiftCloseRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+}
+
+message StartShiftCloseReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message WaitForShiftCloseCompletionRequest
+{
+}
+
+message WaitForShiftCloseCompletionReply
+{
+}
+
+message UpdateRegisterStatusRequest
+{
+	int32 RegisterId = 1;
+	int32 Status = 2;
+}
+
+message UpdateRegisterStatusReply
+{
+}
+
+message GetPreviousPeriodRequest
+{
+	int32 NumberOfDaysPrevious = 1;
+	int32 ShiftNumber = 2;
+}
+
+message GetPreviousPeriodReply
+{
+	// Gilbarco.POS.Contracts.Period serialized to JSON 
+	// (for now anyway, could be defined here and mapped)
+	string PeriodJson = 1;
+}
+
+message GetCurrentPeriodRequest
+{
+	int32 PeriodTypeId = 1;
+}
+
+message GetCurrentPeriodReply
+{
+	string PeriodJson = 1;
+}
+
+message IsEmployeeClockedInRequest
+{
+	Common.Language Language = 1;
+	string EmployeeId = 2;
+}
+
+message IsEmployeeClockedInReply
+{
+	bool ClockedIn = 1;
+}
+
+message GetEmployeeTimeClockDataRequest
+{
+	TimeClockRange TimeClockRange = 1;
+}
+
+message GetEmployeeTimeClockDataReply
+{
+	repeated TimeClockRange TimeEntries = 1;
+}
+
+message GetTimeClockEntryRequest
+{
+	TimeClockRange TimeClockRange = 1;
+}
+
+message GetTimeClockEntryReply
+{
+	bool Exists = 1;
+}
+
+message AddTimeClockEntryRequest
+{
+	TimeClockRange TimeClockRange = 1;
+	string ManagerId = 2;
+}
+
+message AddTimeClockEntryReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteTimeClockEntryRequest
+{
+	TimeClockRange TimeClockRange = 1;
+	string ManagerId = 2;
+}
+
+message DeleteTimeClockEntryReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message UpdateTimeClockEntryRequest
+{
+	TimeClockRange NewTimeClockRange = 1;
+	TimeClockRange PreviousTimeClockRange = 2;
+	string ManagerId = 3;
+}
+
+message UpdateTimeClockEntryReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message ClockInRequest
+{
+	string EmployeeId = 1;
+	int32 RegisterId = 2;
+}
+
+message ClockInReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message TimeClockRange
+{
+	string EmployeeId = 2;
+	google.protobuf.Timestamp StartTime = 3;
+	google.protobuf.Timestamp EndTime = 4;	
+}
+
+message GetReportMaintenanceConfigurationRequest
+{	
+}
+
+message GetReportMaintenanceConfigurationReply
+{
+	ReportMaintenanceConfiguration Configuration = 1;
+}
+
+message SetReportMaintenanceConfigurationRequest
+{
+	Common.Language Language = 1;
+	ReportMaintenanceConfiguration Configuration = 2;
+}
+
+message SetReportMaintenanceConfigurationReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetSecurityCameraConfigurationRequest
+{
+}
+
+message GetSecurityCameraConfigurationReply
+{
+	SecurityCameraConfiguration Configuration = 1;
+}
+
+message SetSecurityCameraConfigurationRequest 
+{
+	Common.Language Language = 1;
+	SecurityCameraConfiguration Configuration = 2;
+}
+
+message SetSecurityCameraConfigurationReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message ActivateFuelPricesAtEODRequest
+{
+	bool Value = 1;
+}
+
+message ActivateFuelPricesAtEODReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetSystemEventReportInfoRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetSystemEventReportInfoReply
+{
+	google.protobuf.Timestamp StartDate = 1;
+	google.protobuf.Timestamp EndDate = 2;
+    repeated int32 SourceIds = 3;
+	repeated SystemEventAppl Applications = 4;
+}
+
+message ReloadNetworkReportsRequest
+{
+}
+
+message ReloadNetworkReportsReply
+{
+}
+
+message ActivateTokenRequest
+{
+	string AttendantId = 1;
+	string Token = 2;
+}
+
+message ActivateTokenReply
+{
+	bool Activated = 1;
+}
+
+message DeactivateTokenRequest
+{
+	string AttendantId = 1;
+}
+
+message DeactivateTokenReply
+{
+}
+
+message GetTankInventoryRequest
+{
+	Common.Language Language = 1;
+}
+
+message GetTankInventoryReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	repeated TankInventory TankInventories= 3;
+}
+
+message SetManualTankReadingRequest
+{
+	Common.Language Language = 1;
+	ManualTankReading ManualTankReading = 2;
+}
+
+message SetManualTankReadingReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddTankInventoryAdjustmentRequest
+{
+    Common.Language Language = 1;
+    TankInventoryAdjustment TankInventoryAdjustment = 2;
+}
+
+message AddTankInventoryAdjustmentReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message SetTankInventoriesRequest
+{
+    repeated TankInventory Inventories = 1;
+    Common.Language Language = 2;
+}
+
+message SetTankInventoriesReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message SetTankInventoryRequest
+{
+    Common.Language Language = 1;
+    TankInventory TankInventory = 2;
+}
+
+message SetTankInventoryReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message GetTankMonitorReadingsRequest
+{
+	Common.Language Language = 1;
+	int32 PeriodId = 2;
+}
+
+message GetTankMonitorReadingsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	repeated TankMonitorReading Readings = 3;
+}
+
+message ReportPeriodList
+{
+	int32 ApplicationId = 1;
+	repeated int32 PeriodTypes = 2;
+}
+
+message PeriodList
+{
+	int32 PeriodTypeId = 1;
+	string Name = 2;
+	repeated Period Periods = 3;
+}
+
+message Period
+{
+	int32 PeriodId = 1;
+	int32 SubPeriodId = 2;
+	string TillId = 3;
+	google.protobuf.Timestamp StartDate = 4;
+	google.protobuf.Timestamp EndDate = 5;
+	string Name = 6;
+	int32 RegisterId = 7; 
+	string EmployeeId = 8;
+	string EmployeeName = 9;
+    int32 RegisterIdStart = 10;
+	int32 RegisterIdEnd = 11;
+	int32 TransactionIdStart = 12;
+	int32 TransactionIdEnd = 13;
+
+    string SortParameter = 14;
+    string SortDirection = 15;
+    string SourceIdClause = 16;
+    string SourceIdDescription = 17;
+    string JournalTypeClause = 18;
+    string JournalTypeDescription = 19;
+    string ExceptionFlag = 20;
+    string JournalText = 21;
+
+	string HeaderEmployeeList = 22;
+	string HeaderSourceList = 23;
+	string HeaderApplIdFuncId = 24;
+	string HeaderEventText = 25;
+	string EmployeeList = 26;
+    string SourceList = 27;
+	string EventText = 28;
+	string SortMethod = 29;
+	string ApplFuncXml = 30;
+}
+
+message ManagerPeriod
+{
+	int32 PeriodId = 1;
+	string Name = 2;
+	google.protobuf.Timestamp StartDate = 3;
+	google.protobuf.Timestamp EndDate = 4;		
+}
+
+message ApplicationReportConfiguration
+{
+	int32 ApplicationId = 1;
+	repeated ConfigReport ReportConfigurations = 2;
+}
+
+message ConfigReport
+{
+	int32 ReportId = 1;
+	string ReportName = 2;
+	int32 ReportPrintOrder = 3;
+	bool PrintReport = 4;
+	bool PrintStandAloneReport = 5;
+}
+
+message StoreCloseSettings
+{
+	repeated int32 PeriodTypes = 1;
+	google.type.DayOfWeek FirstDayOfWeek = 2;
+	google.protobuf.Timestamp StoreCloseBeginTime = 3;
+    google.protobuf.Timestamp StoreCloseEndTime = 4;
+	google.protobuf.Timestamp StoreClosePreferredTime = 5;
+	google.protobuf.Timestamp StoreCloseRemindTime = 6;
+    string StoreCloseMessage = 7;
+	bool CloseShift = 8;
+	bool ForceStoreClose = 9;
+	bool FirstDayOfWeekChangeable = 10;
+}
+
+message Network
+{
+	int32 PspId = 1;
+	string Name = 2;
+}
+
+message NetworkReport
+{
+	string ReportId = 1;
+	string Name = 2;
+	bool IsLoyalty = 3;
+	repeated ReportParameter Parameters = 4;
+}
+
+message ReportParameter
+{
+   string ReportParameterId = 1;
+   string Name = 2;
+   repeated ReportParameterGroup Days = 3;		// values associated to particular calendar day
+   repeated ReportParameterValue Values = 4;	// fixed set of values (no calendar selection)
+}
+
+message ReportParameterGroup
+{
+	google.protobuf.Timestamp Day = 1;	
+    repeated ReportParameterValue Values = 2;
+}
+
+message ReportParameterValue
+{
+    string ReportParameterValueId = 1;
+    string Name = 2;
+}
+
+enum PromptType
+{
+	String = 0;
+	Boolean = 1;
+	Selection = 2;		
+}
+
+message PromptRequest
+{
+	PromptType PromptType = 1;
+	string PromptText = 2;
+	bool EchoInput = 3;
+	int32 MinimumLength = 4;
+	int32 MaximumLength = 5;
+	string ValidCharacters = 6;	
+	repeated PromptOption Options = 7;
+}
+
+message PromptReply
+{
+	string StringValue = 1;
+	bool BooleanValue = 2;
+}
+
+message PromptOption
+{
+	string DisplayText = 1;
+	string Value = 2;
+}
+
+message ReportMaintenanceConfiguration
+{
+	bool PrintReport = 1;
+	bool GeneratePdf = 2;
+	bool PdfHasPassword = 3;
+	string PdfPassword = 4;
+	bool CopyToXmlGateway = 5;
+	bool CopyToPpXmlData = 6;
+	bool CopyToInsite360 = 7;
+	bool CopyToAlternateDestination = 8;
+	string AlternateDestination = 9;
+	bool CopyToFtpLocation = 10;
+	Common.FtpConfiguration FtpConfiguration = 11;
+}
+
+message Till
+{
+	string TillId = 1;
+	int32 PeriodId = 2;
+	google.protobuf.Timestamp OpenDate = 3;
+	google.protobuf.Timestamp BusinessDate = 4;
+	int32 LastTransactionNumber = 5;
+	repeated TenderTotal TenderTotals = 6;
+	bool IsTokenActive = 7;
+}
+
+message SuspendedTransaction
+{
+	int32 RegisterId = 1;
+	int32 TransactionId = 2;
+	bool IsPrepay = 3;
+	google.type.Money TransactionTotal = 4;
+	// Gilbarco.POS.Contracts.Models.Reporting.Transaction serialized to JSON 
+	// (for now anyway, could be defined here and mapped)
+	string TransactionRecord = 5;
+}
+
+message ChangeRefundDueTransaction
+{
+	int32 DeviceType = 1;
+	int32 DeviceID = 2;
+	int32 TransactionID = 3;
+	google.protobuf.Timestamp Timestamp = 4;
+	bool RefundFlag = 5;
+	google.type.Money RefundAmount = 6;
+	google.type.Money TotalAmount = 7;
+	google.type.Money InsertedAmount = 8;
+	google.type.Money ChangeDispensed = 9;
+}
+
+message JournalEntry
+{
+	int32 MessageId = 1;
+    int32 RegisterId = 2;
+    int32 TransactionId = 3;
+    string EmployeeId = 4;
+    string JournalText = 5;
+	google.protobuf.Timestamp Timestamp = 6;
+	int64 SequenceNumber = 7;
+}
+
+message NetworkJournalXref
+{
+	int32 JournalType = 1;
+	string Description = 2;
+}
+
+message NetworkJournalSource
+{
+	int32 SourceId = 1;
+	string Description = 2;
+}
+
+message SystemEvent
+{
+    int32 ApplicationId = 1;
+    int32 FunctionId = 2;
+    int32 MessageId = 3;
+    string EmployeeId = 4;
+    int32 RegisterId = 5;
+    google.protobuf.Timestamp Timestamp = 6;
+    bool IsApplicationEvent = 7;
+    string EventText = 8;
+}
+
+message SystemEventAppl
+{
+	int32 ApplicationId = 1;
+	string ApplicationName = 2;
+	int32 FunctionId = 3;
+	string FunctionName = 4;
+	int32 EventMessageType = 5;
+}
+
+message TenderTotal
+{
+    int32 TenderId = 1;
+    google.type.Money Total = 2;
+    google.type.Money DrawerTotal = 3;
+}
+
+message ReceiptSearchResult
+{
+    int32 TransactionNumber = 1;
+    int32 RegisterId = 2;
+    google.protobuf.Timestamp Timestamp = 3;
+    google.type.Money Amount = 4;
+}
+
+message SecurityCameraConfiguration
+{
+	bool Enabled = 1;
+	int32 Format = 2;
+	string FieldSeparator = 3;
+	bool IncludeForecourtTransactions = 4;
+	int32 ConnectionType = 5;
+	string ComPort = 6;
+	string CombinedComPort = 7;
+	string Host = 8;
+	int32 Port = 9;
+}
+
+message PeriodCloseStatus
+{
+    repeated PeriodCloseStepStatus Steps = 1;
+    repeated PeriodCloseRegisterStatus Registers = 2;
+    repeated PeriodCloseNetworkStatus Networks = 3;
+}
+
+message PeriodCloseStepStatus
+{
+	int32 Step = 1;
+	int32 Status = 2;
+}
+
+message PeriodCloseRegisterStatus
+{
+	int32 RegisterId = 1;
+	int32 Status = 2;
+}
+
+message PeriodCloseNetworkStatus
+{
+	int32 PspId = 1;
+    string DisplayName = 2;
+    string DisplayMessage = 3;
+    int32 Status = 4;
+    bool Successful = 5;
+}
+
+message GetDispenserVersionsRequest
+{
+	int32 DeviceId = 1;
+}
+
+message GetDispenserVersionsReply
+{
+	repeated DispenserVersion DispenserVersions = 1;
+}
+
+message DispenserVersion
+{
+	int32 DeviceId = 1;
+	string ApplicationVersion = 2;
+	string BiosVersion = 3;
+	string DcbVersion = 4;
+	string RfidInterfaceBoardVersion = 5;
+	string FirmwareVersion = 6;
+	string SpotPinpadSerialNum = 7;
+	string SpotOsVersion = 8;
+	string SpotPinpadVersion = 9;
+	string SpotEmvVersion = 10;
+	string SpotOptVersion = 11;
+	string SpotSetupVersion = 12;
+	string SpotAs2805Version = 13;
+	string ContactlessEmvVersion = 14;
+	string SpotVipaVersion = 15;
+}
+
+message TankMonitorReading
+{
+	int32 TankId = 1;
+	TankInventory Inventory = 2;
+    TankAlarms Alarms = 3;
+}
+
+message TankInventory
+{
+	int32 TankId = 1;
+	string ProductName = 2;
+	google.protobuf.Timestamp DateTime = 3;
+    google.type.Money FuelLevel = 4;
+    google.type.Money FuelVolume = 5;
+    google.type.Money TemperatureCompensatedVolume = 6;
+    google.type.Money FuelTemperature = 7;
+    google.type.Money Ullage = 8;
+    google.type.Money WaterLevel = 9;
+    google.type.Money WaterVolume = 10;
+}
+
+message ManualTankReading
+{
+    google.protobuf.Timestamp DateTime = 1;
+    int32 TankId = 2;
+    google.type.Money FuelHeight = 3;
+    google.type.Money WaterHeight = 4;
+    int32 PeriodId = 5;
+    string EmployeeId= 6;
+    int32 SubperiodId = 7;
+    string ProductName = 8; 
+    google.type.Money Volume = 9;
+    bool IsCurrent = 10;
+}
+
+message TankInventoryAdjustment
+{
+    google.protobuf.Timestamp DateTime = 1;
+    int32 TankId = 2;
+    int32 PeriodId = 3;
+    int32 SubperiodId = 4;
+    google.type.Money VolumeAdjustment = 5;
+    string EmployeeId = 6;
+    string ProductName = 7;
+    string ReasonCode = 8;
+}
+
+message TankAlarms
+{
+    bool Leak = 1;
+    bool Theft = 2;
+    bool HighWater = 3;
+    bool Overfill = 4;
+    bool Low = 5;
+    bool Reorder = 6;
+}
+
+message GetElectronicJournalsForUploadRequest
+{
+	int32 MaxRows = 1;
+}
+
+message GetElectronicJournalsForUploadReply
+{
+	repeated JournalEntry JournalEntries = 1;
+}
+
+message ElectronicJournalKey
+{
+	int64 SequenceNumber = 1;
+	int32 RegisterId = 2;
+}
+
+message SetElectronicJournalsToUploadedRequest
+{
+	repeated ElectronicJournalKey ElectronicJournalKeys = 1;
+	int32 DaysToKeep = 3;
+}
+
+message SetElectronicJournalsToUploadedReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}

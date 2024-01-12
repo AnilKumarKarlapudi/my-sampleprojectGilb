@@ -1,0 +1,137 @@
+syntax = "proto3";
+
+option csharp_namespace = "Gilbarco.ASU.Grpc";
+
+service ASU 
+{
+    rpc StagePackage (StageRequest) returns (stream StageStatus);
+    rpc StartUpgrade (StartUpgradeRequest) returns (StartUpgradeReply);
+    rpc DeferUpgrade (DeferUpgradeRequest) returns (DeferUpgradeReply);
+    rpc ErrorKeyPressed (ErrorKeyPressedRequest) returns (ErrorKeyPressedReply);
+    rpc ActivationChanged (ActivationChangedRequest) returns (ActivationChangedReply);
+    rpc GetPendingPackages (GetPendingPackagesRequest) returns (GetPendingPackagesReply);
+    rpc GetInstalledPackages (GetInstalledPackagesRequest) returns (GetInstalledPackagesReply);
+}
+
+message StageRequest 
+{
+    string packageName = 1;
+}
+
+message StageStatus
+{
+    string packageName = 1;
+    string status = 2;
+    int32 percentComplete = 3;
+    bool complete = 4;
+    StageResult result = 5;
+    string error = 6;
+}
+
+message StartUpgradeRequest 
+{
+    bool localOnly = 1;
+    bool makeFactoryImage = 2;
+    bool backgroundAllowed = 3;
+    repeated Package packages = 4;
+}
+
+message StartUpgradeReply
+{
+}
+
+message DeferUpgradeRequest 
+{
+}
+
+message DeferUpgradeReply
+{
+}
+
+message ErrorKeyPressedRequest 
+{
+    ErrorKey key = 1;
+    string machineName = 2;
+    bool cookieEntered = 3;
+}
+
+message ActivationChangedRequest
+{
+}
+
+message ActivationChangedReply
+{
+}
+
+message ErrorKeyPressedReply
+{
+}
+
+message GetPendingPackagesRequest
+{
+}
+
+message GetPendingPackagesReply
+{
+    repeated Package Packages = 1;
+}
+
+message GetInstalledPackagesRequest
+{
+}
+
+message GetInstalledPackagesReply
+{
+    repeated Package Packages = 1;
+}
+
+message Package
+{
+    PackageType Type = 1;
+    InstallType InstallType = 2;
+    string Version = 3;
+    bool InstallEDH = 4;   
+    bool UserInteraction = 5;   
+    int32 Deferrals = 6;
+    int32 MaximumDeferrals = 7;
+    string PackageReleaseType = 8;
+}
+
+enum PackageType
+{
+    Base = 0;
+    ServicePack = 1;
+    MaintenancePack = 2;
+    QuickFix = 3;
+}
+
+enum InstallType
+{
+    Clean = 0;
+    Upgrade = 1;
+}
+
+enum ErrorKey
+{
+    Retry = 0;
+    Rollback = 1;
+    Continue = 2;
+    Abort = 3;
+    CancelAutoRollback = 4;
+    SnoozeAutoRollback = 5;
+}
+
+enum StageResult
+{
+    Success = 0;
+    UnknownPackage = 1;
+    Failure = 2;
+    InsufficientDiskSpace = 3;
+    UnzipFailure = 4;
+    InvalidCertificate = 5;
+    InvalidSignature = 6;
+    ControlFileMissing = 7;
+    ControlFileInvalid = 8;
+    ScanFailure = 9;
+    ImageFileMissing = 10;
+}

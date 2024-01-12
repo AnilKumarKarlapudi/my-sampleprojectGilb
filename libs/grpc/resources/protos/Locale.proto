@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "Gilbarco.POS.Configuration";
+
+service CultureService 
+{
+	rpc GetLocales (GetLocalesRequest) returns (GetLocalesReply);
+}
+
+message GetLocalesRequest 
+{
+}
+
+message Locale
+{
+	int32 LanguageId = 1;
+	int32 LocaleId = 2;
+}
+
+message GetLocalesReply
+{
+	repeated Locale Cultures = 1;
+}
+

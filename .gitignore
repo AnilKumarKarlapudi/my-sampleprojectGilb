@@ -1,0 +1,45 @@
+# Python-generated folders and files
+__pycache__/
+*.py[cod]
+*.py.class
+
+# Output tests results
+output/
+reports/
+
+# Legacy code
+legacy/
+
+# IDEs generated folders
+.idea/
+.vscode/
+
+# Application data folders and files
+hornets/data/Clean_Site/
+hornets/data/Configured_Site/
+hornets/data/NetworkStandard.json
+hornets/data/StandardConfig.json
+
+# Resources
+
+resources/chrome/webdriver
+
+# Python virtual environment folder
+venv/
+.venv/
+
+# Local folders
+Documentation/
+GPUCache/
+Program Files/
+# Tools/
+Doxyfile
+Images/
+
+# Other files
+py_filter.bat
+*.log
+*.db
+
+# ChromeDriver
+resources/chrome/webdriver/chromedriver.exe

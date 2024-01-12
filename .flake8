@@ -1,0 +1,4 @@
+[flake8]
+max-line-length = 119
+exclude = .\venv, .\legacy, .\.git, libs\grpc\resources\*, *.proto, *.key , *.pem, hornets/components/mws/mws_locators.py, hornets/components/pos/pos_locators.py
+ignore = E741, W503, W504

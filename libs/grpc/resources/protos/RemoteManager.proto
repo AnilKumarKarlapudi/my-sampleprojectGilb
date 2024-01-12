@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+import "money.proto";
+import "Common.proto";
+
+option csharp_namespace = "Gilbarco.POS.RemoteManagerService";
+
+service RemoteManagerGrpc
+{
+    rpc PerformRegistration (PerformRegistrationRequest) returns (PerformRegistrationReply);
+
+    rpc SendPushSaleEvent (SendPushSaleEventRequest) returns (SendPushSaleEventReply);
+
+    rpc GetConfiguration (GetConfigurationRequest) returns (GetConfigurationReply);
+    rpc SetConfiguration (SetConfigurationRequest) returns (SetConfigurationReply);
+    
+    rpc EmailSignUp (EmailSignUpRequest) returns (EmailSignUpReply);
+}
+
+message PerformRegistrationRequest
+{
+    string GvrId = 1;
+}
+
+message PerformRegistrationReply
+{
+    bool Success = 1;
+    string Message = 2;
+}
+
+message SendPushSaleEventRequest
+{
+    string TransactionRecord = 1;
+    string PjrData = 2;
+}
+
+message SendPushSaleEventReply
+{
+    bool Success = 1;
+    string Message = 2;
+}
+
+message I360Options
+{
+    string GvrId = 1;
+    int32 CheckInStatus = 2;
+    bool IsSiteRegistered = 3;
+    bool ExportPricebooksOnChange = 4;
+    bool ApplyFuelPricesImmediately = 5;
+    int32 ContractStatus = 6;
+    int32 IndoorReceiptRegisterGroup = 7;
+    int32 PopUpDisplay = 8;
+    bool HardwareMismatch = 9;
+    bool HardwareMismatchAwaitingGvrId = 10;
+}
+
+message I360Document
+{
+    string Document = 1;
+    bool StoreClose = 3;
+    bool ShiftClose = 4;
+}
+
+message I360Configuration
+{
+    I360Options Options = 1;
+    repeated I360Document Documents = 2;
+}
+
+message GetConfigurationRequest
+{
+}
+
+message GetConfigurationReply
+{
+    I360Configuration Configuration = 1;
+}
+
+message SetConfigurationRequest
+{
+    I360Configuration Configuration = 1;
+}
+
+message SetConfigurationReply
+{
+    bool Success = 1;    
+    string Message = 2;
+}
+
+message EmailSignUpRequest
+{
+    string Email = 1;
+    string FirstName = 2;
+    string LastName = 3;
+}
+
+message EmailSignUpReply
+{
+    bool Success = 1;
+    string Message = 2;
+}

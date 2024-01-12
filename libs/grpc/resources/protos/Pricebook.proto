@@ -1,0 +1,1294 @@
+syntax = "proto3";
+
+import "money.proto";
+import "timeOfDay.proto";
+import "dayOfWeek.proto";
+import "Common.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Gilbarco.POS.Configuration";
+
+service PricebookService 
+{
+    rpc AddTaxRate (AddTaxRateRequest) returns (AddTaxRateReply);
+	rpc GetTaxRates (GetTaxRatesRequest) returns (GetTaxRatesReply);	
+	rpc UpdateTaxRate (UpdateTaxRateRequest) returns (UpdateTaxRateReply);
+    
+    rpc AddTaxGroup (AddTaxGroupRequest) returns (AddTaxGroupReply);
+	rpc GetTaxGroups (GetTaxGroupsRequest) returns (GetTaxGroupsReply);	
+	rpc UpdateTaxGroup (UpdateTaxGroupRequest) returns (UpdateTaxGroupReply);
+
+    rpc AddDepartment (AddDepartmentRequest) returns (AddDepartmentReply);
+	rpc GetDepartments (GetDepartmentsRequest) returns (GetDepartmentsReply);	
+	rpc UpdateDepartment (UpdateDepartmentRequest) returns (UpdateDepartmentReply);
+    rpc DeleteDepartment (DeleteDepartmentRequest) returns (DeleteDepartmentReply);
+    rpc DeleteAllDepartments (DeleteAllDepartmentsRequest) returns (DeleteAllDepartmentsReply);
+
+    rpc AddItems (AddItemsRequest) returns (AddItemsReply);
+	rpc GetItems (GetItemsRequest) returns (GetItemsReply);	
+	rpc UpdateItem (UpdateItemRequest) returns (UpdateItemReply);
+    rpc DeleteAllItems (DeleteAllItemsRequest) returns (DeleteAllItemsReply);
+
+    rpc GetItemDescriptions (GetItemDescriptionsRequest) returns (GetItemDescriptionsReply);
+    rpc GetItemsForCrindMerch (GetItemsForCrindMerchRequest) returns (GetItemsForCrindMerchReply);
+
+    rpc AddQualifierType (AddQualifierTypeRequest) returns (AddQualifierTypeReply);
+    rpc GetQualifierTypes (GetQualifierTypesRequest) returns (GetQualifierTypesReply);
+    rpc UpdateQualifierType (UpdateQualifierTypeRequest) returns (UpdateQualifierTypeReply);
+    rpc DeleteQualifierType (DeleteQualifierTypeRequest) returns (DeleteQualifierTypeReply);
+
+    rpc AddQualifierGroup (AddQualifierGroupRequest) returns (AddQualifierGroupReply);
+    rpc GetQualifierGroups (GetQualifierGroupsRequest) returns (GetQualifierGroupsReply);
+    rpc UpdateQualifierGroup (UpdateQualifierGroupRequest) returns (UpdateQualifierGroupReply);
+    rpc DeleteQualifierGroup (DeleteQualifierGroupRequest) returns (DeleteQualifierGroupReply);
+
+    rpc AddItemList (AddItemListRequest) returns (AddItemListReply);
+	rpc GetItemLists (GetItemListsRequest) returns (GetItemListsReply);	
+	rpc UpdateItemList (UpdateItemListRequest) returns (UpdateItemListReply);
+    rpc DeleteItemList (DeleteItemListRequest) returns (DeleteItemListReply);
+    rpc DeleteAllItemLists (DeleteAllItemListsRequest) returns (DeleteAllItemListsReply);
+    
+    rpc AddPriceGroup (AddPriceGroupRequest) returns (AddPriceGroupReply);
+	rpc GetPriceGroups (GetPriceGroupsRequest) returns (GetPriceGroupsReply);	
+	rpc UpdatePriceGroup (UpdatePriceGroupRequest) returns (UpdatePriceGroupReply);
+    rpc DeletePriceGroup (DeletePriceGroupRequest) returns (DeletePriceGroupReply);
+    
+	rpc GetPluExceptions (GetPluExceptionsRequest) returns (GetPluExceptionsReply);	
+
+    rpc AddManualDiscount (AddManualDiscountRequest) returns (AddManualDiscountReply);
+    rpc GetManualDiscounts (GetManualDiscountsRequest) returns (GetManualDiscountsReply);
+    rpc UpdateManualDiscount (UpdateManualDiscountRequest) returns (UpdateManualDiscountReply);
+    rpc DeleteManualDiscount (DeleteManualDiscountRequest) returns (DeleteManualDiscountReply);
+    rpc DeleteAllManualDiscounts (DeleteAllManualDiscountsRequest) returns (DeleteAllManualDiscountsReply);
+
+    rpc AddMixAndMatch (AddMixAndMatchRequest) returns (AddMixAndMatchReply);
+	rpc GetMixAndMatch (GetMixAndMatchRequest) returns (GetMixAndMatchReply);	
+	rpc UpdateMixAndMatch (UpdateMixAndMatchRequest) returns (UpdateMixAndMatchReply);
+    rpc DeleteMixAndMatch (DeleteMixAndMatchRequest) returns (DeleteMixAndMatchReply);
+    rpc DeleteAllMixAndMatch (DeleteAllMixAndMatchRequest) returns (DeleteAllMixAndMatchReply);
+
+    rpc AddCombo (AddComboRequest) returns (AddComboReply);
+	rpc GetCombos (GetCombosRequest) returns (GetCombosReply);	
+	rpc UpdateCombo (UpdateComboRequest) returns (UpdateComboReply);
+    rpc DeleteCombo (DeleteComboRequest) returns (DeleteComboReply);
+    rpc DeleteAllCombos (DeleteAllCombosRequest) returns (DeleteAllCombosReply);
+
+    rpc GetTenderCodes (GetTenderCodesRequest) returns (GetTenderCodesReply);
+    rpc GetDiscountCodes (GetDiscountCodesRequest) returns (GetDiscountCodesReply);
+    rpc GetPromotionReasonCodes (GetPromotionReasonCodesRequest) returns (GetPromotionReasonCodesReply);
+
+    rpc GetRestrictionGroups (GetRestrictionGroupsRequest) returns (GetRestrictionGroupsReply);
+    rpc AddRestrictionGroup (AddRestrictionGroupRequest) returns (AddRestrictionGroupReply);
+    rpc UpdateRestrictionGroup (UpdateRestrictionGroupRequest) returns (UpdateRestrictionGroupReply);
+    rpc DeleteRestrictionGroup (DeleteRestrictionGroupRequest) returns (DeleteRestrictionGroupReply);
+
+	rpc GetReasonCodes (GetReasonCodesRequest) returns (GetReasonCodesReply);
+	rpc AddReasonCode (AddReasonCodeRequest) returns (AddReasonCodeReply);
+	rpc UpdateReasonCode (UpdateReasonCodeRequest) returns (UpdateReasonCodeReply);
+	rpc DeleteReasonCode (DeleteReasonCodeRequest) returns (DeleteReasonCodeReply);
+
+    rpc GetTenderGroups (GetTenderGroupsRequest) returns (GetTenderGroupsReply);
+    rpc SetTenderGroupsPricingLevels (SetTenderGroupsPricingLevelsRequest) returns (SetTenderGroupsPricingLevelsReply);
+    rpc GetTenders (GetTendersRequest) returns (GetTendersReply);
+    rpc AddTender (AddTenderRequest) returns (AddTenderReply);
+
+    rpc GetDepartmentStoreOptions (GetDepartmentStoreOptionsRequest) returns (GetDepartmentStoreOptionsReply);
+    
+    rpc UpdateTender (UpdateTenderRequest) returns (UpdateTenderReply);
+    rpc GetUniqueTenderId (GetUniqueTenderIdRequest) returns (GetUniqueTenderIdReply);
+    
+    // Restriction Maintenance
+}
+
+// messages 
+
+message GetTenderCodesRequest 
+{
+	Common.Language Language = 1;
+    bool RestrictableOnly = 2;
+}
+
+message GetTenderCodesReply
+{
+	repeated TenderCode TenderCodes = 1;
+}
+
+message GetDiscountCodesRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetDiscountCodesReply
+{
+	repeated DiscountCode Codes = 1;
+}
+
+message GetPromotionReasonCodesRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetPromotionReasonCodesReply
+{
+	repeated PromotionReasonCode Codes = 1;
+}
+
+message GetRestrictionGroupsRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetRestrictionGroupsReply
+{
+	repeated RestrictionGroup Groups = 1;
+}
+
+message AddRestrictionGroupRequest
+{
+    Common.Language Language = 1;
+    RestrictionGroup RestrictionGroup = 2;
+}
+
+message AddRestrictionGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message UpdateRestrictionGroupRequest
+{
+    Common.Language Language = 1;
+    RestrictionGroup RestrictionGroup = 2;
+}
+
+message UpdateRestrictionGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message DeleteRestrictionGroupRequest
+{
+    Common.Language Language = 1;
+    RestrictionGroup RestrictionGroup = 2;
+}
+
+message DeleteRestrictionGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message AddTaxRateRequest 
+{
+	Common.Language Language = 1;
+    TaxRate Rate = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddTaxRateReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetTaxRatesRequest 
+{
+	Common.Language Language = 1;
+    bool FilterSystemData = 2;
+}
+
+message GetTaxRatesReply
+{
+	repeated TaxRate Rates = 1;
+}
+
+message UpdateTaxRateRequest 
+{
+	Common.Language Language = 1;
+    TaxRate Rate = 2;
+    bool BulkUpdate = 3;
+}
+
+message UpdateTaxRateReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddTaxGroupRequest 
+{
+	Common.Language Language = 1;
+    TaxGroup Group = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddTaxGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetTaxGroupsRequest 
+{
+	Common.Language Language = 1;
+    bool FilterSystemData = 2;
+}
+
+message GetTaxGroupsReply
+{
+	repeated TaxGroup Groups = 1;
+}
+
+message UpdateTaxGroupRequest 
+{
+	Common.Language Language = 1;
+    TaxGroup Group = 2;
+    bool BulkUpdate = 3;
+}
+
+message UpdateTaxGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddDepartmentRequest 
+{
+	Common.Language Language = 1;
+    Department Department = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddDepartmentReply
+{
+	Common.ResultCode Result = 1;
+	string Message = 2;
+}
+
+message GetDepartmentsRequest 
+{
+	Common.Language Language = 1;
+    bool IncludeSystemDepartments = 2;
+}
+
+message GetDepartmentsReply
+{
+	repeated Department Departments = 1;
+}
+
+message UpdateDepartmentRequest 
+{
+	Common.Language Language = 1;
+    Department Department = 2;
+    bool ApplyChangesToItems = 3;
+    bool BulkUpdate = 4;
+}
+
+message GetUniqueTenderIdRequest 
+{
+}
+
+message GetUniqueTenderIdReply
+{
+	int32 UniqueTenderId = 1;
+}
+
+message UpdateDepartmentReply
+{
+	Common.ResultCode Result = 1;
+	string Message = 2;
+}
+
+message DeleteDepartmentRequest 
+{
+	Common.Language Language = 1;
+    Department Department = 2;
+    bool ReassignItems = 3;
+    int32 NewDepartmentId = 4;
+    bool BulkUpdate = 5;
+}
+
+message DeleteDepartmentReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteAllDepartmentsRequest 
+{
+	Common.Language Language = 1;
+    bool BulkUpdate = 2;
+}
+
+message DeleteAllDepartmentsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddItemsRequest 
+{
+	Common.Language Language = 1;
+    repeated Item Items = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddItemsReply
+{
+	Common.ResultCode Result = 1;
+	string Message = 2;
+}
+
+message GetItemsRequest 
+{
+	Common.Language Language = 1;
+    ItemFilter Filter = 2;
+}
+
+message GetItemsReply
+{
+	repeated Item Items = 1;
+}
+
+message UpdateItemRequest 
+{
+	Common.Language Language = 1;
+    Item Item = 2;
+    bool BulkUpdate = 3;
+    bool RemoveUnusedQualifiers = 4;
+}
+
+message UpdateItemReply
+{
+	Common.ResultCode Result = 1;
+	string Message = 2;
+}
+
+message DeleteItemRequest 
+{
+	Common.Language Language = 1;
+    Item Item = 2;
+    bool BulkUpdate = 3;
+}
+
+message DeleteItemReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteAllItemsRequest 
+{
+	Common.Language Language = 1;
+    bool BulkUpdate = 2;
+}
+
+message DeleteAllItemsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetItemDescriptionsRequest
+{
+    Common.Language Language = 1;
+    ItemFilter Filter = 2;
+}
+
+message GetItemDescriptionsReply
+{
+    repeated ItemDescription Items = 1;
+}
+
+message AddQualifierTypeRequest 
+{
+	Common.Language Language = 1;
+    QualifierType Type = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddQualifierTypeReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+    int32 QualifierTypeId = 3;
+}
+
+message GetQualifierTypesRequest 
+{
+	Common.Language Language = 1;
+    bool FilterSystemData = 2;
+}
+
+message GetQualifierTypesReply
+{
+	repeated QualifierType Types = 1;
+}
+
+message UpdateQualifierTypeRequest 
+{
+	Common.Language Language = 1;
+    QualifierType Type = 2;
+    bool BulkUpdate = 3;
+}
+
+message UpdateQualifierTypeReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteQualifierTypeRequest 
+{
+	Common.Language Language = 1;
+    QualifierType Type = 2;
+    bool BulkUpdate = 3;
+}
+
+message DeleteQualifierTypeReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddQualifierGroupRequest 
+{
+	Common.Language Language = 1;
+    QualifierGroup Group = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddQualifierGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+    int32 QualifierGroupId = 3;
+}
+
+message GetQualifierGroupsRequest 
+{
+	Common.Language Language = 1;
+    bool FilterSystemData = 2;
+}
+
+message GetQualifierGroupsReply
+{
+	repeated QualifierGroup Groups = 1;
+}
+
+message UpdateQualifierGroupRequest 
+{
+	Common.Language Language = 1;
+    QualifierGroup Group = 2;
+    bool BulkUpdate = 3;
+}
+
+message UpdateQualifierGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteQualifierGroupRequest 
+{
+	Common.Language Language = 1;
+    QualifierGroup Group = 2;
+    bool BulkUpdate = 3;
+}
+
+message DeleteQualifierGroupReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddItemListRequest 
+{
+	Common.Language Language = 1;
+    ItemList List = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddItemListReply
+{
+	Common.ResultCode Result = 1;
+	string Message = 2;
+    repeated ItemResult ItemResults = 3;
+}
+
+message GetItemListsRequest 
+{
+	Common.Language Language = 1;
+    string ItemListId = 2;
+}
+
+message GetItemListsReply
+{
+	repeated ItemList Lists = 1;
+}
+
+message UpdateItemListRequest 
+{
+	Common.Language Language = 1;
+    ItemList List = 2;
+    bool BulkUpdate = 3;
+}
+
+message UpdateItemListReply
+{
+	Common.ResultCode Result = 1;
+	string Message = 2;
+    repeated ItemResult ItemResults = 3;
+}
+
+message DeleteItemListRequest 
+{
+	Common.Language Language = 1;
+    ItemList List = 2;
+    bool BulkUpdate = 3;
+}
+
+message DeleteItemListReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteAllItemListsRequest 
+{
+	Common.Language Language = 1;
+    bool BulkUpdate = 2;
+}
+
+message DeleteAllItemListsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddPriceGroupRequest
+{
+    Common.Language Language = 1;
+    PriceGroup PriceGroup = 2;
+}
+
+message AddPriceGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message GetPriceGroupsRequest
+{
+    Common.Language Language = 1;
+}
+
+message GetPriceGroupsReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated PriceGroup PriceGroups = 3;
+}
+
+message UpdatePriceGroupRequest
+{
+	Common.Language Language = 1;
+    PriceGroup PriceGroup = 2;
+    int32 TaxGroupId = 3;
+    google.type.Money PriceChange = 4;
+}
+
+message UpdatePriceGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message DeletePriceGroupRequest
+{
+	Common.Language Language = 1;
+    PriceGroup PriceGroup = 2;
+}
+
+message DeletePriceGroupReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message GetPluExceptionsRequest
+{
+    Common.Language Language = 1;
+    int32 PriceGroupId = 2;
+}
+
+message GetPluExceptionsReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+    repeated PluException PluExceptions = 3;
+}
+
+message AddManualDiscountRequest
+{
+    Common.Language Language = 1;
+    ManualDiscount Discount = 2;
+}
+
+message AddManualDiscountReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message GetManualDiscountsRequest 
+{
+	Common.Language Language = 1;
+    bool IncludeStoreCoupon = 2;
+}
+
+message GetManualDiscountsReply
+{
+	repeated ManualDiscount Discounts = 1;
+}
+
+message UpdateManualDiscountRequest 
+{
+	Common.Language Language = 1;
+    ManualDiscount Discount = 2;
+}
+
+message UpdateManualDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteManualDiscountRequest 
+{
+	Common.Language Language = 1;
+    ManualDiscount Discount = 2;
+}
+
+message DeleteManualDiscountReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteAllManualDiscountsRequest 
+{
+	Common.Language Language = 1;
+}
+
+message DeleteAllManualDiscountsReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddMixAndMatchRequest 
+{
+	Common.Language Language = 1;
+    MixAndMatch Discount = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddMixAndMatchReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetMixAndMatchRequest 
+{
+	Common.Language Language = 1;
+    string PromotionId = 2;
+}
+
+message GetMixAndMatchReply
+{
+	repeated MixAndMatch Discounts = 1;
+}
+
+message UpdateMixAndMatchRequest 
+{
+	Common.Language Language = 1;
+    MixAndMatch Discount = 2;
+    bool BulkUpdate = 3;
+}
+
+message UpdateMixAndMatchReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteMixAndMatchRequest 
+{
+	Common.Language Language = 1;
+    MixAndMatch Discount = 2;
+    bool BulkUpdate = 3;
+}
+
+message DeleteMixAndMatchReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteAllMixAndMatchRequest 
+{
+	Common.Language Language = 1;
+    bool BulkUpdate = 2;
+}
+
+message DeleteAllMixAndMatchReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message AddComboRequest 
+{
+	Common.Language Language = 1;
+    Combo Discount = 2;
+    bool BulkUpdate = 3;
+}
+
+message AddComboReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetCombosRequest 
+{
+	Common.Language Language = 1;
+    string PromotionId = 2;
+}
+
+message GetCombosReply
+{
+	repeated Combo Discounts = 1;
+}
+
+message UpdateComboRequest 
+{
+	Common.Language Language = 1;
+    Combo Discount = 2;
+    bool BulkUpdate = 3;
+}
+
+message UpdateComboReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteComboRequest 
+{
+	Common.Language Language = 1;
+    Combo Discount = 2;
+    bool BulkUpdate = 3;
+}
+
+message DeleteComboReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteAllCombosRequest 
+{
+	Common.Language Language = 1;
+    bool BulkUpdate = 2;
+}
+
+message DeleteAllCombosReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetReasonCodesRequest
+{
+	Common.Language Language = 1;
+    bool FilterSystemData = 2;
+}
+
+message GetReasonCodesReply
+{
+	repeated ReasonCode ReasonCodes = 1;
+}
+
+message AddReasonCodeRequest
+{
+	Common.Language Language = 1;
+	ReasonCode ReasonCode = 2;
+}
+
+message AddReasonCodeReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+	int32 NewId = 3;
+}
+
+message UpdateReasonCodeRequest
+{
+	Common.Language Language = 1;
+	ReasonCode ReasonCode = 2;
+}
+
+message UpdateReasonCodeReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message DeleteReasonCodeRequest
+{
+	Common.Language Language = 1;
+	ReasonCode ReasonCode = 2;
+}
+
+message DeleteReasonCodeReply
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetTenderGroupsRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetTenderGroupsReply
+{
+	repeated TenderGroup TenderGroups = 1;
+}
+
+message SetTenderGroupsPricingLevelsRequest 
+{
+    repeated TenderGroup TenderGroups = 1;
+}
+
+message SetTenderGroupsPricingLevelsReply
+{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message GetTendersRequest 
+{
+	Common.Language Language = 1;
+    bool IncludeFuelPresets = 2;
+}
+
+message GetTendersReply
+{
+	repeated Tender Tenders = 1;
+}
+
+message AddTenderRequest 
+{
+	Common.Language Language = 1;
+    Tender Tender = 2;
+}
+
+message AddTenderReply 
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message UpdateTenderRequest 
+{
+	Common.Language Language = 1;
+    Tender Tender = 2;
+}
+
+message UpdateTenderReply 
+{
+	bool Success = 1;
+	string ErrorMessage = 2;
+}
+
+message GetDepartmentStoreOptionsRequest 
+{
+	Common.Language Language = 1;
+}
+
+message GetDepartmentStoreOptionsReply
+{
+	DepartmentStoreOptions DepartmentStoreOptions = 1;
+}
+
+// types 
+
+message ItemFilter
+{
+	string PluId = 1;
+	string ScanCode = 2;
+    string Description = 3;
+    optional int32 DepartmentId = 4;
+    repeated int32 ItemTypes = 5;
+    string CarwashPackage = 6;
+    string ReceiptDescription = 7;
+}
+
+message TaxRate
+{
+    int32 TaxRateId = 1;
+    string Name = 2;
+    google.type.Money Percent = 3;
+    bool Active = 4;
+    string ReceiptDescription = 5;
+    google.type.Money MinimumAmount = 6;
+    int32 RateType = 7;
+}
+
+message TaxGroup
+{
+    int32 TaxGroupId = 1;
+    string Name = 2;
+    string Description = 3;
+    repeated int32 TaxRates = 4;
+    bool Active = 5;
+    string ReceiptIdentifier = 6;
+    string ReceiptLegend = 7;
+    bool FuelTax = 8;
+}
+
+message Department
+{
+    int32 DepartmentId = 1;
+    string Name = 2;
+    string ProductCode = 3;
+    int32 RestrictionGroupId = 4;
+    int32 TaxGroupId = 5;
+    string GroupId = 6;
+    bool Active = 7;
+    bool Negative = 8;
+    bool FoodStampable = 9;
+    bool Discountable = 10;
+    bool ShowOnPos = 11;
+    bool ShowAsCoupon = 12;
+    bool ShowOnTillCloseReport = 13;
+    bool AllowFractionalQuantity = 14;
+    repeated int32 RestrictedTenders = 15;
+}
+
+// protobuf doesn't have inheritance, this is for everything shared between Item and ItemQualifier
+message ItemBase
+{
+    string ItemId = 1;
+    string InventoryItemId = 2;
+    string Description = 3;
+    string ReceiptDescription = 4;
+    int32 LineItemCode = 5;
+    string ProductCode = 6;
+    int32 TaxGroupId = 7;
+    int32 DepartmentId = 8;
+    int32 RestrictionGroupId = 9;
+    bool Active = 10;
+    bool FoodStampable = 11;
+    bool Refundable = 12;
+    bool Discountable = 13;
+    bool PriceRequired = 14;
+    bool QuantityAllowed = 15;
+    bool QuantityRequired = 16;
+    bool IsFee = 17;
+    bool AllowFractionalQuantity = 18;
+    int32 PricingMethod = 19;
+    google.type.Money UnitPrice = 20;
+    google.type.Money DealPrice = 21;
+    google.type.Money ReturnPrice = 22;
+    google.type.Money DealQuantity = 23;
+    google.type.Money MaximumExtendedAmount = 24;
+    int32 PricingGroupId = 25;
+}
+
+message Item
+{
+    ItemBase Values = 1;
+    google.type.Money MinimumPrice = 2;
+    google.type.Money MaximumPrice = 3;
+    google.type.Money SellingUnits = 4;
+    int32 QualifierGroupId = 5;
+    repeated ItemQualifier Qualifiers = 6;
+    repeated int32 RestrictedTenders = 7;
+    repeated string ScanCodes = 8;
+    repeated string LinkedItems = 9;
+    string LinkedItemListId = 10;
+}
+
+message ItemDescription
+{
+    string ItemId = 1;
+    string Description = 2;
+    string DepartmentName = 3;
+    google.type.Money UnitPrice = 4;
+}
+
+message ItemQualifier
+{
+    ItemBase Values = 1;
+    int32 QualifierTypeId = 2;
+}
+
+message QualifierType
+{
+    int32 QualifierTypeId = 1;
+    string Name = 2;
+    optional int32 PackageQuantity = 3;
+}
+
+message QualifierGroup
+{
+    int32 QualifierGroupId = 1;
+    string Name = 2;
+    repeated int32 QualifierTypes = 3;
+}
+
+message TenderCode
+{
+    int32 TenderCodeId = 1;
+    string Name = 2;
+}
+
+message DiscountCode
+{
+    int32 DiscountCodeId = 1;
+    string Name = 2;
+    string DisplayName = 3;
+}
+
+message PromotionReasonCode
+{
+    int32 PromotionReasonId = 1;
+    string Name = 2;
+    string DisplayName = 3;
+}
+
+message TimeRestriction
+{
+    int32 RestrictionId = 1;
+    google.protobuf.Timestamp Date = 2;
+    bool AllDay = 3;
+    google.protobuf.Timestamp StartTime = 4;
+    google.protobuf.Timestamp EndTime = 5;
+    repeated google.type.DayOfWeek ActiveDays = 6;
+}
+
+message RestrictionRule
+{
+    int32 RestrictionCode = 1;
+    int32 RestrictionValue = 2;
+}
+
+message RestrictionGroup
+{
+    int32 RestrictionGroupId = 1;
+    string Name = 2;
+    repeated RestrictionRule ItemRestrictions = 3;
+    repeated TimeRestriction DayRestrictions = 4;
+    repeated TimeRestriction DateRestrictions = 5;
+    bool PreferScan = 6;
+    bool ManualEntry = 7;
+    bool ManagerOverride = 8;
+    bool DefaultButton = 9;
+    bool AgeConfirm = 10;
+}
+
+message ItemList
+{
+	string ItemListId = 1;
+    string Description = 2;
+    repeated ItemListEntry Items = 3;
+}
+
+message ItemListEntry
+{
+	string ItemId = 1;
+    int32 QualifierTypeId = 2;
+    int32 PackageQuantity = 3;
+}
+
+message PriceGroup
+{
+    int32 PriceGroupId = 1;
+    string Description = 2;
+    repeated string Items = 3;
+}
+
+message PluException
+{
+    string PluId = 1;
+    string Description = 2;
+    google.type.Money UnitPrice = 3;
+    google.type.Money DealPrice = 4;
+    google.type.Money DealQuantity = 5;
+}
+
+// protobuf doesn't have inheritance, this is for everything shared between all discount types (MixAndMatch, Combo, Manual, etc.)
+message Discount
+{
+    int32 DiscountId = 1;
+    string Description = 2;
+    int32 DiscountMethod = 3;
+    google.type.Money Value = 4;
+    int32 TransactionLimit = 5;
+    google.protobuf.Timestamp BeginDate = 6;
+    google.protobuf.Timestamp EndDate = 7;
+    google.type.TimeOfDay DailyStartTime = 8;
+    google.type.TimeOfDay DailyStopTime = 9;
+    repeated google.type.DayOfWeek ExcludedDays = 10;
+    string PromotionId = 11;
+    int32 PromotionReasonId = 12;
+    bool ExcludeFromBestDeal = 13;
+}
+
+message ManualDiscount
+{
+    Discount Values = 1;
+    google.type.Money MaxAmountOff = 2;
+    google.type.Money MaxPercentOff = 3;
+    bool ApplyAfterOtherDiscounts = 4;
+    bool RelievesTax = 5;
+}
+
+message MixAndMatch
+{
+    Discount Values = 1;
+	int32 MinimumQuantity = 2;
+    repeated string ItemLists = 3;
+}
+
+message Combo
+{
+    Discount Values = 1;
+	int32 ProrationType = 2;
+    repeated ComboList ComboLists = 3;
+}
+
+message ComboList
+{
+    string ItemListId = 1;
+	int32 ProrationType = 2;
+    int32 MinimumQuantity = 3;
+    google.type.Money Amount = 4;
+}
+
+message ReasonCode
+{
+	int32 ReasonCodeId = 1;
+	string Description = 2;
+}
+
+enum ItemResult
+{
+	Success = 0;
+    UnknownItem = 1;
+    InvalidItemId = 2;
+	ItemInactive = 3;
+    ItemNotDiscountable = 4;
+	FatalError = 5;
+}
+
+message TenderGroup
+{
+    int32 TenderGroupId = 1;
+    string Description = 2;
+    int32 PriceLevelId = 3;
+}
+
+message Tender
+{
+	int32 TenderId = 1;
+    int32 TenderGroupId = 2;
+	bool Active = 3;
+    string Description = 4;
+    string ReceiptDescription = 5;
+    string TenderButtonDescription = 6;   
+    bool EnableSafeDrops = 7;
+    bool PrintTaxInvoiceOnReceipt = 8;
+    int32 TenderCodeId = 9;
+    google.type.Money MinimumAllowed = 10;
+    google.type.Money MaximumAllowed = 11;
+    int32 RepeatedUseLimit = 12;
+    google.type.Money MaximumRefund = 13;
+    int32 PrimaryTenderForChange = 14;
+    google.type.Money MaximumPrimaryChangeAllowed = 15;
+    int32 SecondaryTenderForChange = 16;
+    Common.Currency Currency = 17;
+    repeated RegisterGroupTenderOptions RegisterGroups = 18;
+    repeated TenderDenomination Denominations = 19;
+    repeated TenderPreset Presets = 20;
+    bool UseCardTenderKey = 21;
+    int32 FormOfPayment = 22;
+    bool NegotiableFlag = 23;
+    bool IsTillTender = 24;
+    bool IsDebit = 25;
+    bool IsDriveOff = 26;
+    bool IsImprinter  = 27;
+    bool IsIntegrated  = 28;
+}
+
+message RegisterGroupTenderOptions
+{   
+    int32 RegisterGroupId = 1;
+    bool AllowSales = 2;
+    bool AllowRefunds = 3;
+    bool AllowLoans = 4;
+    bool AllowPaidIns = 5;
+    bool AllowPaidOuts = 6;
+    bool AllowOpenCashDrawer = 7; 
+}
+
+message TenderDenomination
+{
+    int32 TenderDenominationId = 1;
+    string Description = 2;
+    google.type.Money Amount = 3;
+    bool IsBill = 4;
+}
+
+message TenderPreset
+{
+    int32 ApplicationId = 1;
+    int32 FunctionId = 2;
+    bool ShowNextHighest = 4;
+    bool ShowExactAmount = 5;
+    repeated int32 Denominations = 6;    
+    string Description = 7;
+}
+
+message DepartmentStoreOptions
+{
+    int32 DepartmentLimit = 1;
+    bool ShowGroupId = 2;
+    int32 CustomerReservedGroupID = 3;
+    int32 CustomerFuelReservedGroupID = 4;
+    int32 CashCardReservedGroupID = 5;
+    int32 CustomerMinimumGroupID = 6;
+    int32 CustomerMaximumGroupID = 7;
+}
+
+message ItemForCrindMerch
+{
+    string Plu = 1;
+    string Description = 2;
+    bool EligibleForCrindMerch = 3;
+    int32 IneligibleReasonCode = 4;
+}
+message GetItemsForCrindMerchRequest
+{
+}
+
+message GetItemsForCrindMerchReply
+{
+    repeated ItemForCrindMerch Items = 1;
+}

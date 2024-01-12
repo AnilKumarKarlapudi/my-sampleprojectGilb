@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Gilbarco.POS.Scheduler";
+
+service ReminderService
+{
+  rpc GetReminders (GetRemindersRequest) returns (GetRemindersReply);
+  rpc SetReminders (SetRemindersRequest) returns (SetRemindersReply);
+  rpc AddReminder (AddReminderRequest) returns (AddReminderReply);
+  rpc UpdateReminder (UpdateReminderRequest) returns (UpdateReminderReply);
+  rpc DeleteReminder (DeleteReminderRequest) returns (DeleteReminderReply);  
+}
+
+message GetRemindersRequest
+{
+}
+
+message GetRemindersReply
+{
+  repeated Reminder reminders = 1;
+}
+
+message SetRemindersRequest
+{
+  repeated Reminder reminders = 1;
+}
+
+message SetRemindersReply
+{
+  bool Success = 1;
+  string ErrorMessage = 2;
+}
+
+message AddReminderRequest
+{
+  Reminder reminder = 1;
+}
+
+message AddReminderReply
+{
+  bool Success = 1;
+  string ErrorMessage = 2;
+}
+
+message Reminder
+{
+  int32 ReminderId = 1;
+  string ReminderName = 2;
+  string Message = 3;
+  bool Enabled = 4;
+  bool DisplayAtPos = 5;
+  bool DisplayAtMws = 6;
+  google.protobuf.Timestamp StartDateTime = 7;
+  int32 Interval = 8;
+  int32 IntervalMask = 9;
+  int32 ReminderType = 10;
+}
+
+message UpdateReminderRequest
+{
+  Reminder reminder = 1;
+}
+
+message UpdateReminderReply
+{
+  bool Success = 1;
+  string ErrorMessage = 2;
+}
+
+message DeleteReminderRequest
+{
+  Reminder reminder = 1;
+}
+
+message DeleteReminderReply
+{
+  bool Success = 1;
+  string ErrorMessage = 2;
+}

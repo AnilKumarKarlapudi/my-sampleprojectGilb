@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+import "money.proto";
+import "Common.proto";
+
+option csharp_namespace = "Gilbarco.POS.FuelConfiguration";
+
+service CarWashService 
+{
+    rpc GetCarwashPackageNames (GetCarwashPackageNamesRequest) returns (GetCarwashPackageNamesReply);
+    rpc GetCarWashConfiguration (GetCarWashConfigurationRequest) returns (GetCarWashConfigurationReply);
+    rpc SetCarWashConfiguration (SetCarWashConfigurationRequest) returns (SetCarWashConfigurationReply);
+    rpc SetCarwashEnabled(SetCarwashEnabledRequest) returns (SetCarwashEnabledReply);
+}
+
+message GetCarwashPackageNamesRequest
+{
+}
+
+message GetCarwashPackageNamesReply
+{
+	repeated CarwashPackageName CarwashPackages = 1;
+}
+
+message GetCarWashConfigurationRequest {
+
+}
+
+message SetCarWashConfigurationRequest {
+    CarWashConfiguration CarWashConfiguration = 1;
+    Common.Language Language = 2;
+}
+
+message GetCarWashConfigurationReply {
+    CarWashConfiguration CarWashConfiguration = 1;
+}
+
+message SetCarwashEnabledRequest{
+    bool CarwashEnabled = 1;
+    Common.Language Language = 2;
+}
+
+message SetCarwashEnabledReply{
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message SetCarWashConfigurationReply {
+    bool Success = 1;
+    string ErrorMessage = 2;
+}
+
+message CarWashConfiguration {
+    bool Enabled = 1;
+    int32 CarWashType = 2;
+    string CarWashPlu = 3;
+    string ReWashPlu = 4;
+    int32 DefaultExp = 5;
+    repeated CarWashPackage Packages = 6;
+    repeated CarWashDiscount Discounts = 7;
+    CrindConfiguration Crind = 8;
+    ReceiptFormat ReceiptFormat = 9;
+    bool DiscountAvailable = 10;
+    bool DiscountOnPrepays = 11;
+    bool DisplayDiscountsAtCrind = 12;
+}
+
+message CrindConfiguration {
+    int32 WashPromptTimeOut = 1;
+    int32 PromptReminderTimeOut = 2;
+    int32 WashPromptAtCrind = 3;
+    int32 PackagePromptingMode = 4;
+    int32 PackagesPerScreen = 5;
+}
+
+message CarWashPackage {
+    int32 Id = 1;
+    string Name = 2;
+    google.type.Money TotalPrice = 3;
+    google.type.Money TaxAmount = 4;
+    int32 TaxGroupId = 5;
+    int32 TaxType = 6;
+    int32 Availability = 7;
+    int32 KioskOrder = 8;
+    int32 CrindOrder = 9;
+    int32 ChangeStatus = 10;
+}
+
+message CarWashDiscount {
+    int32 Id = 1;
+    string Name = 2;
+    repeated int32 ServiceLevels = 3;
+    repeated int32 Grades = 4;
+    repeated int32 Packages = 5;
+    google.type.Money DiscountAmount = 6;
+    google.type.Money FuelAmountThreshold = 7;
+    int32 FuelVolumeThreshold = 8;
+    int32 ChangeStatus = 9;
+}
+
+message ReceiptFormat {
+    string BorderCharacter = 1;
+    bool IncreaseBCWidth = 2;
+    int32 MessageFontSize = 3;
+    int32 MessageFontType = 4;
+    int32 CodeFontSize = 5;
+    int32 CodeFontType = 6;
+    bool InvertedPrint = 7;
+    string ReceiptFooter1 = 8;
+    string ReceiptFooter2 = 9;
+    bool PrintExpDate = 10;
+}
+
+
+message CarwashPackageName
+{
+	int32 PackageId = 1;
+	string Name = 2;
+}
